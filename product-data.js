@@ -17,9 +17,9 @@ window.products = {
             <p>Tökéletes ajándék szeretteid számára vagy magadnak, ha szeretnéd kiemelni stílusodat.</p>
         `,
         images: [
-            'assets/EnergiX/Éter/IMG_0447.JPG',
-            'assets/EnergiX/Éter/IMG_0449.JPG',
-            'assets/EnergiX/Éter/IMG_0450.JPG'
+            'Éter/IMG_0447.JPG',
+            'Éter/IMG_0449.JPG',
+            'Éter/IMG_0450.JPG'
         ],
         specs: {
             material: 'Rozsdamentes acél, természetes kövek',
@@ -45,9 +45,9 @@ window.products = {
             <p>Az Onyx karkötő tökéletes kiegészítője lehet mindennapi viseletednek vagy különleges alkalmakra egyaránt.</p>
         `,
         images: [
-            'assets/EnergiX/Onyx/IMG_0455.JPG',
-            'assets/EnergiX/Onyx/IMG_0456.JPG',
-            'assets/EnergiX/Onyx/IMG_0457.JPG'
+            'Onyx/IMG_0455.JPG',
+            'Onyx/IMG_0456.JPG',
+            'Onyx/IMG_0457.JPG'
         ],
         specs: {
             material: 'Rozsdamentes acél, fekete onyx kövek',
