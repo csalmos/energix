@@ -180,7 +180,7 @@ function addToCart(product, quantity = 1) {
                 id: product.id,
                 name: product.name,
                 price: product.price,
-                image: product.images[0] || 'assets/placeholder.jpg',
+                image: product.images[0] || 'placeholder.svg',
                 quantity: quantity
             };
             cart.push(newItem);
