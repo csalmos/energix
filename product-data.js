@@ -73,8 +73,8 @@ window.products = {
             <p>Az Argentum karkötő tökéletes kiegészítője lehet mindennapi viseletednek vagy különleges alkalmakra egyaránt.</p>
         `,
         images: [
-            'assets/EnergiX/Argentum/Argentum.JPG',
-            'assets/EnergiX/Argentum/IMG_0444.JPG',
+            'Argentum/Argentum.JPG',
+            'Argentum/IMG_0444.JPG',
         ],
         specs: {
             material: 'Rozsdamentes acél, ezüst kövek',
