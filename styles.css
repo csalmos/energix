@@ -1562,19 +1562,19 @@ html {
 }
 
 .balance {
-    background-image: url('file:///C:/Users/csapo/CascadeProjects/Bracelet-shop/assets/EnergiX/%C3%89ter/Aether.JPG');
+    background-image: url('Éter/Aether.JPG');
     background-size: contain;
     background-position: center center;
 }
 
 .energy {
-    background-image: url('file:///C:/Users/csapo/CascadeProjects/Bracelet-shop/assets/EnergiX/Onyx/IMG_0455.JPG');
+    background-image: url('Onyx/IMG_0455.JPG');
     background-size: contain;
     background-position: center center;
 }
 
 .focus {
-    background-image: url('file:///C:/Users/csapo/CascadeProjects/Bracelet-shop/assets/EnergiX/Argentum/Argentum.JPG');
+    background-image: url('Argentum/Argentum.JPG');
     background-size: contain;
     background-position: center center;
 }
