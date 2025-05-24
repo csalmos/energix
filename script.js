@@ -55,7 +55,7 @@ function loadProductPage() {
     document.getElementById('productDescription').innerHTML = `<p>${product.description}</p>`;
 
     const mainImage = document.getElementById('productImage');
-    mainImage.src = product.images[0] || 'assets/placeholder.jpg';
+    mainImage.src = product.images[0] || 'placeholder.svg';
     mainImage.alt = product.name;
 
     mainImage.onerror = function() {
@@ -148,7 +148,7 @@ function initProductPage(productId) {
     // Set main image
     const mainImage = document.getElementById('productImage');
     if (mainImage) {
-        mainImage.src = product.images[0] || 'assets/placeholder.jpg';
+        mainImage.src = product.images[0] || 'placeholder.svg';
         mainImage.alt = product.name;
     }
     
@@ -336,7 +336,7 @@ function loadRelatedProducts(currentProductId) {
             const relatedProduct = products[key];
             const productElement = document.createElement('div');
             productElement.className = 'related-product';
-            const imageUrl = relatedProduct.images[0] || 'assets/placeholder.jpg';
+            const imageUrl = relatedProduct.images[0] || 'placeholder.svg';
             
             productElement.innerHTML = `
                 <a href="product.html?product=${relatedProduct.id}">
@@ -499,7 +499,7 @@ function loadRelatedProducts(currentProductId) {
             const relatedProduct = products[key];
             const productElement = document.createElement('div');
             productElement.className = 'related-product';
-            const imageUrl = relatedProduct.images[0] || 'assets/placeholder.jpg';
+            const imageUrl = relatedProduct.images[0] || 'placeholder.svg';
             
             productElement.innerHTML = `
                 <a href="product.html?product=${relatedProduct.id}">
