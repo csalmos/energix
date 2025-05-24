@@ -110,10 +110,10 @@ function updateCart() {
             
             // Create the cart item structure using template literals
             cartItem.innerHTML = `
-                <img src="${product.image || 'assets/placeholder.jpg'}" 
+                <img src="${product.image || 'assets/placeholder.svg'}" 
                      alt="${product.name || 'Termék'}" 
                      class="cart-item-image"
-                     onerror="this.src='assets/placeholder.jpg'"
+                     onerror="this.src='assets/placeholder.svg'"
                      loading="lazy">
                 <div class="cart-item-details">
                     <div class="item-name-row">
