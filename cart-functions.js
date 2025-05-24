@@ -108,9 +108,25 @@ function updateCart() {
             cartItem.className = 'cart-item';
             cartItem.dataset.index = index;
             
+            // Get the image source with fallback logic
+            let productImage = 'placeholder.svg';
+            
+            // Check different possible image sources (same as in addToCart)
+            if (product.images && Array.isArray(product.images) && product.images.length > 0 && product.images[0]) {
+                productImage = product.images[0];
+            } else if (product.image) {
+                productImage = product.image;
+            } else if (product.mainImage) {
+                productImage = product.mainImage;
+            } else if (window.products && window.products[product.id] && 
+                     window.products[product.id].images && 
+                     window.products[product.id].images.length > 0) {
+                productImage = window.products[product.id].images[0];
+            }
+            
             // Create the cart item structure using template literals
             cartItem.innerHTML = `
-                <img src="${product.image || 'placeholder.svg'}" 
+                <img src="${productImage}" 
                      alt="${product.name || 'Termék'}" 
                      class="cart-item-image"
                      onerror="this.src='placeholder.svg'"
@@ -176,11 +192,31 @@ function addToCart(product, quantity = 1) {
             existingItem.quantity = quantity; // Set to the new quantity instead of adding
         } else {
             // Add new item to cart
+            // Ensure we have a valid image path
+            let productImage = 'placeholder.svg';
+            
+            // Check different possible image sources
+            if (product.images && Array.isArray(product.images) && product.images.length > 0 && product.images[0]) {
+                // If product has an images array with at least one image
+                productImage = product.images[0];
+            } else if (product.image) {
+                // If product has a direct image property
+                productImage = product.image;
+            } else if (product.mainImage) {
+                // If product has a mainImage property
+                productImage = product.mainImage;
+            } else if (window.products && window.products[product.id] && 
+                     window.products[product.id].images && 
+                     window.products[product.id].images.length > 0) {
+                // If we can find the product in the global products object
+                productImage = window.products[product.id].images[0];
+            }
+
             const newItem = {
                 id: product.id,
                 name: product.name,
                 price: product.price,
-                image: product.images[0] || 'placeholder.svg',
+                image: productImage,
                 quantity: quantity
             };
             cart.push(newItem);
