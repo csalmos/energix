@@ -276,7 +276,7 @@
                 itemElement.dataset.id = item.id;
                 itemElement.innerHTML = `
                     <div class="item-image">
-                        <img src="${products[item.id]?.mainImage || item.image || item.mainImage || 'assets/placeholder.jpg'}" alt="${item.name}">
+                        <img src="${products[item.id]?.mainImage || item.image || item.mainImage || 'placeholder.svg'}" alt="${item.name}">
                     </div>
                     <div class="item-info">
                         <h4>${item.name}</h4>
