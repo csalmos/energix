@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pénztár - EnergiX</title>
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="assets/Logó/Logo favicon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/Logó/Logo favicon.png">
+    <link rel="shortcut icon" href="assets/Logó/Logo favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo-link">
+                <img src="assets/Logó/Canva_2 vágott.png" alt="EnergiX Logo" class="logo-image">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#philosophy">Filozófiánk</a></li>
+                <li><a href="index.html#products">Termékek</a></li>
+                <li><a href="index.html#footer">Kapcsolat</a></li>
+                <li><a href="#" class="cart-icon" id="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="checkout-page">
+        <div class="container">
+            <h1>Pénztár</h1>
+            <div class="checkout-grid">
+                <div class="order-summary">
+                    <h2>Rendelés összegzése</h2>
+                    <div class="order-items" id="order-items">
+                        <!-- Cart items will be dynamically inserted here -->
+                    </div>
+                    <div class="order-totals">
+                        <div class="subtotal">
+                            <span>Részösszeg:</span>
+                            <span id="subtotal">0 Ft</span>
+                        </div>
+                        <div class="shipping">
+                            <span>Szállítás:</span>
+                            <span>Ingyenes</span>
+                        </div>
+                        <div class="total">
+                            <strong>Összesen:</strong>
+                            <strong id="total">0 Ft</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout-form">
+                    <h2>Számlázási adatok</h2>
+                    <form id="checkout-form">
+                        <div class="form-group">
+                            <label for="name">Teljes név *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail cím *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefonszám *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Szállítási mód *</label>
+                            <div class="delivery-options">
+                                <label class="delivery-option">
+                                    <input type="radio" name="delivery-type" value="home" checked>
+                                    <span>Házhozszállítás</span>
+                                </label>
+                                <label class="delivery-option">
+                                    <input type="radio" name="delivery-type" value="gls-box">
+                                    <span>GLS Csomagautomata kiválasztása</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group home-address">
+                            <label for="address">Szállítási cím *</label>
+                            <textarea id="address" name="address" rows="3" required></textarea>
+                        </div>
+                        
+                        <div class="form-group gls-box-selector" style="display: none;">
+                            <label>Válassz csomagautomatát</label>
+                            <div id="gls-map" style="height: 300px; width: 100%; background-color: #f5f5f5; margin-bottom: 15px; border-radius: 4px;">
+                                <!-- GLS Map will be loaded here -->
+                                <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                                    <p>GLS csomagautomaták térképe betöltése...</p>
+                                </div>
+                            </div>
+                            <div id="selected-box" style="display: none; padding: 10px; background-color: #f0f8ff; border-radius: 4px; margin-bottom: 15px;">
+                                <strong>Kiválasztott automata:</strong>
+                                <div id="selected-box-details"></div>
+                            </div>
+                            <input type="hidden" id="gls-box-id" name="gls_box_id">
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Megjegyzés a rendeléshez</label>
+                            <textarea id="comment" name="comment" rows="3"></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" id="back-to-cart" class="btn btn-secondary">Vissza a kosárhoz</button>
+                            <button type="submit" class="btn btn-primary">Tovább a fizetéshez</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Kapcsolat</h4>
+                <p><i class="fas fa-envelope"></i> info@energix.hu</p>
+                <p><i class="fas fa-phone"></i> +36 30 123 4567</p>
+            </div>
+            <div class="footer-section">
+                <h4>Információk</h4>
+                <ul>
+                    <li><a href="#">Szállítási információk</a></li>
+                    <li><a href="#">Vásárlási feltételek</a></li>
+                    <li><a href="#">Adatvédelmi nyilatkozat</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legyél te is EnergiX tag!</h4>
+                <p>Iratkozz fel hírlevelünkre, és maradj naprakész akcióinkról és újdonságainkról!</p>
+                <form class="newsletter-form">
+                    <div class="form-group">
+                        <input type="email" placeholder="E-mail címed" required>
+                        <button type="submit" class="btn-submit">Feliratkozom</button>
+                    </div>
+                </form>
+            </div>
+            <div class="footer-section">
+                <h4>Kövess minket</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/sanobeleco" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/sanobeleco/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/SanoBeleco" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 EnergiX. Minden jog fenntartva.</p>
+        </div>
+    </footer>
+
+    <!-- Add Leaflet CSS for the map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    
+    <!-- Initialize cart first -->
+    <script>
+        // Initialize cart array if it doesn't exist
+        if (!window.cart) {
+            window.cart = [];
+            console.log('Initialized empty cart');
+        }
+        
+        // Try to load cart from localStorage
+        try {
+            const savedCart = localStorage.getItem('cart');
+            if (savedCart) {
+                window.cart = JSON.parse(savedCart);
+                console.log('Cart loaded from localStorage:', window.cart);
+            }
+        } catch (e) {
+            console.error('Error loading cart from localStorage:', e);
+            window.cart = [];
+        }
+    </script>
+    
+    <!-- Load required scripts -->
+    <script src="product-data.js"></script>
+    <script src="cart-functions.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        // Initialize cart when DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Checkout page loaded, initializing cart...');
+            if (typeof initCart === 'function') {
+                initCart();
+            } else {
+                console.error('initCart function not found');
+            }
+        });
+    </script>
+    
+    <!-- Initialize checkout functionality -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Global map variable
+        let map;
+        let markers = [];
+        let selectedMarker = null;
+
+        // Initialize checkout
+        function initializeCheckout() {
+            if (typeof products === 'undefined') {
+                console.error('Products data not loaded');
+                document.getElementById('order-items').innerHTML = '<p>Hiba történt a termékek betöltésekor. Kérjük, próbálja újra a kosár megnyitását.</p>';
+                return;
+            }
+
+
+            console.log('Initializing checkout...');
+            
+            // Initialize cart if not already done
+            if (typeof initCart === 'function') {
+                initCart();
+            } else {
+                console.error('initCart function not found');
+            }
+            
+            // Use the global cart
+            if (!window.cart || !Array.isArray(window.cart)) {
+                console.warn('Cart not properly initialized, loading from localStorage');
+                window.cart = JSON.parse(localStorage.getItem('cart')) || [];
+            }
+            
+            console.log('Cart items:', window.cart);
+            
+            const orderItems = document.getElementById('order-items');
+            let subtotal = 0;
+            
+            // Clear existing items to prevent duplication
+            orderItems.innerHTML = '';
+
+            if (window.cart.length === 0) {
+                orderItems.innerHTML = '<p>A kosarad üres.</p>';
+                return;
+            }
+
+            // Group items by ID to handle duplicates
+            const itemsMap = new Map();
+            
+            window.cart.forEach(item => {
+                if (itemsMap.has(item.id)) {
+                    // If item already exists, update quantity
+                    const existingItem = itemsMap.get(item.id);
+                    existingItem.quantity += item.quantity;
+                } else {
+                    // Add new item to the map
+                    itemsMap.set(item.id, {...item});
+                }
+            });
+            
+            // Render unique items
+            itemsMap.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                
+                const itemElement = document.createElement('div');
+                itemElement.className = 'order-item';
+                itemElement.dataset.id = item.id;
+                itemElement.innerHTML = `
+                    <div class="item-image">
+                        <img src="${products[item.id]?.mainImage || item.image || item.mainImage || 'assets/placeholder.jpg'}" alt="${item.name}">
+                    </div>
+                    <div class="item-info">
+                        <h4>${item.name}</h4>
+                        <div class="item-details">
+                            <span>${item.price.toLocaleString()} Ft/db</span>
+                        </div>
+                    </div>
+                    <div class="item-quantity-controls">
+                        <button class="quantity-btn minus" data-id="${item.id}">-</button>
+                        <span class="quantity">${item.quantity}</span>
+                        <button class="quantity-btn plus" data-id="${item.id}">+</button>
+                    </div>
+                    <div class="item-total">${itemTotal.toLocaleString()} Ft</div>
+                    <button class="remove-item" data-id="${item.id}" title="Eltávolítás">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                `;
+                orderItems.appendChild(itemElement);
+            });
+
+            document.getElementById('subtotal').textContent = `${subtotal.toLocaleString()} Ft`;
+            document.getElementById('total').textContent = `${subtotal.toLocaleString()} Ft`;
+            
+            // Add event listeners for quantity controls
+            document.querySelectorAll('.quantity-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const productId = this.dataset.id;
+                    const change = this.classList.contains('plus') ? 1 : -1;
+                    updateCartItemQuantity(productId, change);
+                    // Refresh the display
+                    initializeCheckout();
+                });
+            });
+            
+            // Add event listeners for remove buttons
+            document.querySelectorAll('.remove-item').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const productId = this.dataset.id;
+                    removeCartItem(productId);
+                    // Refresh the display
+                    initializeCheckout();
+                });
+            });
+        }
+
+        // GLS API Configuration
+        const GLS_API_KEY = 'YOUR_GLS_API_KEY'; // Replace with your actual GLS API key
+        const GLS_API_URL = 'https://api.gls-hungary.com/parcelshop/parcelshop';
+        
+        // Default view (Budapest center)
+        const DEFAULT_LAT = 47.4979;
+        const DEFAULT_LNG = 19.0402;
+        const DEFAULT_ZOOM = 12;
+        
+        // Initialize checkout when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCheckout();
+            
+            // Add event listener for back to cart button
+            document.getElementById('back-to-cart').addEventListener('click', function(e) {
+                e.preventDefault();
+                // Save cart state before navigating
+                localStorage.setItem('cart', JSON.stringify(window.cart || []));
+                // Navigate back to the cart page
+                window.location.href = 'index.html';
+            });
+        });
+
+        // Update cart item quantity
+        function updateCartItemQuantity(productId, change) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const itemIndex = cart.findIndex(item => item.id === productId);
+            
+            if (itemIndex !== -1) {
+                cart[itemIndex].quantity += change;
+                
+                // Remove item if quantity is 0 or less
+                if (cart[itemIndex].quantity <= 0) {
+                    cart.splice(itemIndex, 1);
+                }
+                
+                // Save updated cart
+                localStorage.setItem('cart', JSON.stringify(cart));
+                
+                // Reload the cart display
+                location.reload();
+            }
+        }
+        
+        // Remove item from cart
+        function removeCartItem(productId) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const updatedCart = cart.filter(item => item.id !== productId);
+            
+            // Save updated cart
+            localStorage.setItem('cart', JSON.stringify(updatedCart));
+            
+            // Reload the cart display
+            location.reload();
+        }
+        
+        // Handle delivery type change
+        const deliveryTypeRadios = document.querySelectorAll('input[name="delivery-type"]');
+        const homeAddressField = document.querySelector('.home-address');
+        const glsBoxSelector = document.querySelector('.gls-box-selector');
+        
+        deliveryTypeRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.value === 'home') {
+                    homeAddressField.style.display = 'block';
+                    glsBoxSelector.style.display = 'none';
+                    document.getElementById('address').required = true;
+                    document.getElementById('gls-box-id').required = false;
+                } else {
+                    homeAddressField.style.display = 'none';
+                    glsBoxSelector.style.display = 'block';
+                    document.getElementById('address').required = false;
+                    document.getElementById('gls-box-id').required = true;
+                    initMap();
+                }
+            });
+        });
+
+        // Initialize map with GLS boxes
+        function initMap() {
+            if (map) return; // Don't reinitialize the map
+            
+            // Initialize map centered on default location
+            map = L.map('gls-map').setView([DEFAULT_LAT, DEFAULT_LNG], DEFAULT_ZOOM);
+            
+            // Add OpenStreetMap tiles
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+            
+            // Add loading indicator
+            const loadingDiv = L.DomUtil.create('div', 'loading-indicator');
+            loadingDiv.innerHTML = '<div class="loading-spinner"></div><p>Betöltés...</p>';
+            document.getElementById('gls-map').appendChild(loadingDiv);
+            
+            // Get user's location if available
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        // Center map on user's location
+                        const userLat = position.coords.latitude;
+                        const userLng = position.coords.longitude;
+                        map.setView([userLat, userLng], 13);
+                        loadNearbyParcelShops(userLat, userLng);
+                    },
+                    (error) => {
+                        console.error('Error getting location:', error);
+                        loadNearbyParcelShops(DEFAULT_LAT, DEFAULT_LNG);
+                    }
+                );
+            } else {
+                loadNearbyParcelShops(DEFAULT_LAT, DEFAULT_LNG);
+            }
+        }
+        
+        // Load nearby parcel shops from GLS API
+        async function loadNearbyParcelShops(lat, lng) {
+            try {
+                // Show loading state
+                document.querySelector('.loading-indicator').style.display = 'flex';
+                
+                // Clear existing markers
+                markers.forEach(marker => map.removeLayer(marker));
+                markers = [];
+                
+                // Call GLS API to get nearby parcel shops
+                const response = await fetch(`${GLS_API_URL}?lat=${lat}&lng=${lng}&distance=20`, {
+                    headers: {
+                        'Authorization': `Bearer ${GLS_API_KEY}`,
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Failed to load GLS parcel shops');
+                }
+                
+                const data = await response.json();
+                
+                if (data.parcelshops && data.parcelshops.length > 0) {
+                    // Add markers for each parcel shop
+                    data.parcelshops.forEach(shop => {
+                        const marker = L.marker([shop.latitude, shop.longitude])
+                            .addTo(map)
+                            .bindPopup(`
+                                <div class="gls-popup">
+                                    <h4>${shop.name}</h4>
+                                    <p>${shop.street} ${shop.houseNo}<br>
+                                    ${shop.zipCode} ${shop.city}</p>
+                                    <p><strong>Nyitvatartás:</strong><br>
+                                    ${formatOpeningHours(shop.openingHours)}</p>
+                                    <button class="select-box-btn" data-box-id="${shop.id}">
+                                        Kiválasztás
+                                    </button>
+                                </div>
+                            `);
+                        
+                        marker.boxData = shop;
+                        markers.push(marker);
+                        
+                        // Handle marker click
+                        marker.on('popupopen', function() {
+                            document.querySelectorAll('.select-box-btn').forEach(btn => {
+                                btn.addEventListener('click', function() {
+                                    selectGlsBox(this.dataset.boxId);
+                                });
+                            });
+                        });
+                    });
+                    
+                    // Fit map to show all markers
+                    const group = new L.featureGroup(markers);
+                    map.fitBounds(group.getBounds().pad(0.1));
+                } else {
+                    alert('Nem található GLS csomagpont a közelben.');
+                }
+            } catch (error) {
+                console.error('Error loading GLS parcel shops:', error);
+                alert('Hiba történt a csomagpontok betöltése közben. Kérjük, próbálja újra később.');
+            } finally {
+                // Hide loading indicator
+                document.querySelector('.loading-indicator').style.display = 'none';
+            }
+        }
+        
+        // Format opening hours for display
+        function formatOpeningHours(hours) {
+            if (!hours || !hours.length) return 'Nem elérhető';
+            
+            return hours.map(day => {
+                return `${day.day}: ${day.hours || 'Zárva'}`;
+            }).join('<br>');
+        }
+        
+        // Handle GLS box selection
+        function selectGlsBox(boxId) {
+            const marker = markers.find(m => m.boxData.id === boxId);
+            if (!marker) return;
+            
+            const box = marker.boxData;
+            
+            // Update selected box display
+            const selectedBoxDiv = document.getElementById('selected-box');
+            const selectedBoxDetails = document.getElementById('selected-box-details');
+            
+            selectedBoxDetails.innerHTML = `
+                <div><strong>${box.name}</strong></div>
+                <div>${box.street} ${box.houseNo}</div>
+                <div>${box.zipCode} ${box.city}</div>
+                <div><strong>Nyitvatartás:</strong><br>${formatOpeningHours(box.openingHours)}</div>
+                <button id="change-box-btn" class="btn-change-box">
+                    Módosítás
+                </button>
+            `;
+            
+            selectedBoxDiv.style.display = 'block';
+            document.getElementById('gls-box-id').value = boxId;
+            
+            // Center map on selected box
+            const selectedBox = glsBoxes.find(b => b.id === boxId);
+            if (selectedBox) {
+                map.setView([selectedBox.lat, selectedBox.lng], 15);
+            }
+            
+            // Handle change box button
+            document.getElementById('change-box-btn').addEventListener('click', function() {
+                selectedBoxDiv.style.display = 'none';
+                document.getElementById('gls-box-id').value = '';
+            });
+        }
+        
+        // Form submission
+        document.getElementById('checkout-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate delivery method
+            const deliveryType = document.querySelector('input[name="delivery-type"]:checked').value;
+            const address = document.getElementById('address').value;
+            const glsBoxId = document.getElementById('gls-box-id').value;
+            
+            if (deliveryType === 'home' && !address.trim()) {
+                alert('Kérjük, adja meg a szállítási címet!');
+                return;
+            }
+            
+            if (deliveryType === 'gls-box' && !glsBoxId) {
+                alert('Kérjük, válasszon GLS csomagautomatát!');
+                return;
+            }
+            
+            // Here you would typically handle the payment processing
+            // For now, just show a success message
+            alert('A rendelését fogadtuk! Hamarosan további információt küldünk a szállításról.');
+            
+            // In a real application, you would submit the form data to your server here
+            // this.submit();
+        });
+    </script>
+</body>
+</html>

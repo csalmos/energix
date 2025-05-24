@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termék részletei - EnergiX</title>
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="assets/Logó/Logo favicon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/Logó/Logo favicon.png">
+    <link rel="shortcut icon" href="assets/Logó/Logo favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo-link">
+                <img src="assets/Logó/Canva_2 vágott.png" alt="EnergiX Logo" class="logo-image">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#philosophy">Filozófiánk</a></li>
+                <li><a href="#products">Termékek</a></li>
+                <li><a href="#footer">Kapcsolat</a></li>
+                <li class="cart-container">
+                    <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                    <span class="cart-count">0</span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="product-page">
+        <div class="container">
+            <div class="product-container">
+                <div class="product-gallery">
+                    <div class="main-image">
+                        <img id="productImage" src="" alt="Termék kép" class="product-main-image">
+                    </div>
+                    <div class="thumbnails" id="productThumbnails">
+                        <!-- Thumbnails will be added here by JavaScript -->
+                    </div>
+                </div>
+                <div class="product-details">
+                    <h1 id="productTitle">Termék neve</h1>
+                    <div class="price" id="productPrice">0 Ft</div>
+                    <div class="description">
+                        <p id="productDescription">Termék leírása betöltése...</p>
+                    </div>
+                    <div class="quantity-selector">
+                        <label for="quantity">Mennyiség:</label>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn minus">-</button>
+                            <input type="number" id="quantity" value="1" min="1">
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                    </div>
+                    <button id="addToCart" class="add-to-cart-btn">Kosárba</button>
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-truck"></i>
+                            <span>Ingyenes kiszállítás</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-undo"></i>
+                            <span>30 napos visszatérítés</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>2 év garancia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-tabs">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="description">Leírás</button>
+                    <button class="tab-btn" data-tab="specs">Specifikációk</button>
+                    <button class="tab-btn" data-tab="reviews">Értékelések</button>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="description">
+                        <h3>Termék leírása</h3>
+                        <div id="productFullDescription"></div>
+                    </div>
+                    <div class="tab-pane" id="specs">
+                        <h3>Műszaki adatok</h3>
+                        <table class="specs-table">
+                            <tr>
+                                <th>Anyag</th>
+                                <td id="material">-</td>
+                            </tr>
+                            <tr>
+                                <th>Méret</th>
+                                <td id="size">-</td>
+                            </tr>
+                            <tr>
+                                <th>Súly</th>
+                                <td id="weight">-</td>
+                            </tr>
+                            <tr>
+                                <th>Szín</th>
+                                <td id="color">-</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tab-pane" id="reviews">
+                        <h3>Vélemények</h3>
+                        <div class="reviews-container">
+                            <p id="noReviews">Még nincsenek vélemények. Legyél te az első, aki értékeli!</p>
+                            <div id="reviewsList"></div>
+                            <button class="add-review-btn">Értékelés írása</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <section class="related-products">
+                <h2>Kapcsolódó termékek</h2>
+                <div class="related-products-grid" id="relatedProducts">
+                    <!-- Related products will be added here by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Kapcsolat</h4>
+                <p><i class="fas fa-envelope"></i> info@energix.hu</p>
+                <p><i class="fas fa-phone"></i> +36 30 123 4567</p>
+            </div>
+            <div class="footer-section">
+                <h4>Információk</h4>
+                <ul>
+                    <li><a href="#">Szállítási információk</a></li>
+                    <li><a href="#">Visszárú feltételek</a></li>
+                    <li><a href="#">ÁSZF</a></li>
+                    <li><a href="#">Adatvédelmi nyilatkozat</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legyél te is EnergiX tag!</h4>
+                <p>Iratkozz fel hírlevelünkre, és maradj naprakész akcióinkról és újdonságainkról!</p>
+                <form class="newsletter-form">
+                    <div class="form-group">
+                        <input type="email" placeholder="E-mail címed" required>
+                        <button type="submit" class="btn-submit">Feliratkozom</button>
+                    </div>
+                </form>
+            </div>
+            <div class="footer-section">
+                <h4>Kövess minket</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/sanobeleco" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/sanobeleco/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/SanoBeleco" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 EnergiX. Minden jog fenntartva.</p>
+        </div>
+    </footer>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay"></div>
+    
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Kosár</h3>
+            <button class="close-cart">&times;</button>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items will be added here dynamically -->
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>A kosár üres</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Összesen:</span>
+                <span class="total-amount">0 Ft</span>
+            </div>
+            <button class="checkout-btn">Tovább a fizetéshez</button>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notification-message"></span>
+    </div>
+
+    <!-- Load scripts -->
+    <script src="product-data.js"></script>
+    <script src="cart-functions.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Debug script loading
+        console.log('Scripts loaded in this order:');
+        console.log('1. product-data.js');
+        console.log('2. cart-functions.js');
+        console.log('3. script.js');
+        
+        // Initialize cart when DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Product page DOM fully loaded');
+            
+            // Get product ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('product');
+            
+            if (!productId || !products[productId]) {
+                console.error('Invalid or missing product ID:', productId);
+                return;
+            }
+            
+            // Initialize product page
+            if (typeof initProductPage === 'function') {
+                console.log('Initializing product page for:', productId);
+                initProductPage(productId);
+            } else {
+                console.error('initProductPage function not found');
+            }
+            
+            // Initialize cart
+            if (typeof initCart === 'function') {
+                console.log('Initializing cart...');
+                initCart();
+            } else {
+                console.error('initCart function not found');
+            }
+            
+            // Initialize cart event listeners if not already initialized
+            if (typeof setupEventListeners === 'function') {
+                setupEventListeners();
+            }
+        });
+        
+        // Initialize cart when DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Product page DOM fully loaded');
+            
+            // Get product ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('product');
+            
+            if (!productId || !products[productId]) {
+                console.error('Invalid or missing product ID:', productId);
+                return;
+            }
+            
+            // Initialize product page
+            if (typeof initProductPage === 'function') {
+                console.log('Initializing product page for:', productId);
+                initProductPage(productId);
+            } else {
+                console.error('initProductPage function not found');
+            }
+        });
+    </script>
+</body>
+</html>
