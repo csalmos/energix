@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon/web-app-manifest-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon/web-app-manifest-512x512.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="../assets/favicon/favicon.ico" type="image/x-icon">
+    <meta name="msapplication-TileImage" content="../assets/favicon/mstile-150x150.png">
+    <meta name="msapplication-config" content="../assets/favicon/browserconfig.xml">
+    
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réz a gyógyászatban: Mit mond az orvostudomány? - EnergiX</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .blog-post {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .blog-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .blog-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .blog-meta {
+            color: #777;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+        
+        .blog-featured-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .blog-content-page {
+            line-height: 1.8;
+            color: #444;
+        }
+        
+        .blog-content-page h2 {
+            color: #333;
+            margin: 40px 0 20px;
+            font-size: 1.8rem;
+        }
+        
+        .blog-content-page h3 {
+            color: #333;
+            margin: 30px 0 15px;
+            font-size: 1.4rem;
+        }
+        
+        .blog-content-page p {
+            margin-bottom: 1.5em;
+        }
+        
+        .blog-content-page ul, 
+        .blog-content-page ol {
+            margin-bottom: 1.5em;
+            padding-left: 1.5em;
+        }
+        
+        .blog-content-page li {
+            margin-bottom: 0.5em;
+        }
+        
+        .back-to-blog {
+            display: inline-block;
+            margin: 50px 0 10px 0;
+            color: #7ed957;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .back-to-blog:hover {
+            color: #6bc83b;
+        }
+        
+        .back-to-blog i {
+            margin-right: 8px;
+        }
+        
+        .tip-box {
+            background-color: #f9f9f9;
+            border-left: 4px solid #7ed957;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .tip-title {
+            color: #333;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tip-title i {
+            color: #7ed957;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html" class="logo-link">
+                <img src="../assets/Logó/Canva_wear_vágott.webp" alt="EnergiX Logo" class="logo-image">
+            </a>
+            <div class="nav-links">
+                <a href="../index.html">Kezdőlap</a>
+                <a href="../index.html#products">Termékek</a>
+                <a href="#blog" class="active">Blog</a>
+                <a href="#footer">Kapcsolat</a>
+                <a href="../cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="blog-post">
+        <div class="container">
+            <a href="#" onclick="history.back(); return false;" class="back-to-blog">
+                <i class="fas fa-arrow-left"></i> Vissza az oldalra
+            </a>
+            
+            <!-- Notification -->
+            <div id="notification" class="notification">
+                <i class="fas fa-check-circle"></i>
+                <span id="notification-message"></span>
+            </div>
+            
+            <article>
+                <div class="blog-post-content">
+                    <h1 class="blog-title">Réz a gyógyászatban: Mit mond az orvostudomány?</h1>
+                    <div class="blog-meta">
+                        <time datetime="2025-06-05">2025. június 5.</time>
+                        <span class="read-time">8 perc olvasás</span>
+                    </div>
+                
+                <div class="blog-content-page">
+                    <img src="../assets/EnergiX/Blog/nyersrez-blog_1000w.webp" alt="Réz karkötők és ékszerek" class="blog-featured-image">
+                    <p>A réz nemcsak egy klasszikus fém és látványos ékszeralapanyag, hanem egy létfontosságú nyomelem, amely számos élettani folyamatban kulcsszerepet játszik. Az orvostudomány évtizedek óta vizsgálja és elismeri a réz bizonyos egészségre gyakorolt hatásait – mind belső, mind külső használat során.</p>
+
+                    <h2>🔬 Mit mond a tudomány a rézről?</h2>
+                    
+                    <h3>1. Elengedhetetlen nyomelem</h3>
+                    <p>A réz a szervezet számára nélkülözhetetlen:</p>
+                    <ul>
+                        <li>Részt vesz az enzimek működésében,</li>
+                        <li>Fontos a vas anyagcseréhez, így közvetlenül hat a vérképzésre,</li>
+                        <li>Támogatja az idegrendszer működését,</li>
+                        <li>Hozzájárul a csontozat egészségéhez,</li>
+                        <li>Erősíti az immunrendszert.</li>
+                    </ul>
+                    <p>➡️ A rézhiány például vérszegénységhez, csontproblémákhoz vagy idegrendszeri zavarokhoz vezethet.</p>
+
+                    <h3>2. Gyulladáscsökkentő hatás</h3>
+                    <p>Kutatások szerint a réz képes:</p>
+                    <ul>
+                        <li>Enyhíteni az ízületi gyulladást, például reumás panaszokat,</li>
+                        <li>Csökkenteni a duzzanatokat és az ezzel járó fájdalmat.</li>
+                    </ul>
+                    <p>Bár a szájon át történő rézbevitel jobban dokumentált, egyes tanulmányok szerint a bőrön át történő rézkontaktus (pl. karkötők) is enyhíthet panaszokat – különösen reumás ízületi gyulladásban szenvedőknél.</p>
+
+                    <h3>3. Antibakteriális hatás</h3>
+                    <p>Az Egészségügyi Világszervezet (WHO) és az amerikai Környezetvédelmi Hivatal (EPA) is elismeri a réz antibakteriális hatását:</p>
+                    <ul>
+                        <li>A réz képes elpusztítani baktériumokat, vírusokat, sőt gombákat is,</li>
+                        <li>Ezért használnak rézötvözeteket kórházi felületeken, kilincseken és vízvezetékekben.</li>
+                    </ul>
+                    <p>Ez a tulajdonság különösen előnyös ékszerek esetén is, amelyek állandó bőrkontaktusban vannak.</p>
+
+                    <h2>🧠 Kiegészítőként is használják</h2>
+                    <p>Az orvosilag jóváhagyott rézkiegészítők gyakran ajánlottak:</p>
+                    <ul>
+                        <li>Rézhiányos állapotokban, különösen vegetáriánus/vegán étrend esetén,</li>
+                        <li>Anémia (vérszegénység) egyes típusaiban,</li>
+                        <li>Immunrendszeri gyengeségnél vagy gyulladásos betegségek kiegészítő terápiájaként.</li>
+                    </ul>
+                    <p>Természetesen minden kiegészítő használata orvosi konzultációhoz kötött, mivel a túlzott rézbevitel is okozhat problémákat.</p>
+
+                    <h2>Összefoglalás</h2>
+                    <p>A réz szerepe az emberi szervezetben tudományosan elismert és létfontosságú. Belsőleg nyomelemként, külsőleg antibakteriális és gyulladáscsökkentő hatásai miatt használható. Bár a réztartalmú ékszerek orvosi hatása még további kutatásokat igényel, egyre több felhasználó számol be pozitív tapasztalatokról, különösen az ízületi fájdalmak és a fáradtság csökkentése terén.</p>
+                </div>
+
+                <div class="blog-tags">
+                    <a href="#">#régz</a>
+                    <a href="#">#egészség</a>
+                    <a href="#">#gyógyhatás</a>
+                    <a href="#">#orvostudomány</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="container">
+            <h2 class="section-title">További cikkeink</h2>
+            <div class="blog-carousel">
+                <button class="carousel-arrow prev-arrow" aria-label="Previous">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-arrow next-arrow" aria-label="Next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="../assets/EnergiX/Blog/kőszobor-blog_500w.webp" alt="Réz karkötő az ősi szobron" class="blog-thumbnail">
+                    </div>
+                    <div class="blog-content">
+                        <h3>🧡 A Réz Jótékony Hatásai</h3>
+                        <p>Fedezd fel a réz titkait és mit tanít az alternatív gyógyászat.</p>
+                        <a href="../blog/rez-alternativ-gyogyaszatban.html" class="read-more">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="../assets/EnergiX/Blog/egyensuly-kep-blog_500w.webp" alt="Egészséges életmód" class="blog-thumbnail">
+                    </div>
+                    <div class="blog-content">
+                        <h3>6 egyszerű tipp az egészséges életmódhoz</h3>
+                        <p>Kis változtatások, nagy hatások - hogyan kezdj el egészségesebben élni.</p>
+                        <a href="../blog/egeszseges-eletmod.html" class="read-more">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="../assets/Energix/blog/5karkötő_500w.webp" alt="Termékajánló" class="blog-thumbnail">
+                    </div>
+                    <div class="blog-content">
+                        <h3>Melyik karkötő illik hozzád a legjobban?</h3>
+                        <p>Segítünk megtalálni a számodra legmegfelelőbb karkötőt stílusod és igényeid alapján.</p>
+                        <a href="../blog/termekajanlo.html" class="read-more">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Kapcsolat</h4>
+                <ul>
+                    <li><a href="kapcsolat.html">Írj nekünk!</a></li>
+                    <li><a href="gyik.html">GYIK</a></li>
+                </ul>
+                <p class="footer-email"><i class="fas fa-envelope"></i>info@energix.hu</p>
+            </div>
+            <div class="footer-section">
+                <h4>Kövess minket</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/sanobeleco" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/sanobeleco/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/EnergixWear" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Információk</h4>
+                <ul>
+                    <li><a href="szallitas.html">Szállítási információk</a></li>
+                    <li><a href="visszaru.html">Visszárú feltételek</a></li>
+                    <li><a href="aszf.html">ÁSZF</a></li>
+                    <li><a href="adatvedelem.html">Adatvédelmi nyilatkozat</a></li>
+                </ul>
+            </div>
+            <div class="footer-section newsletter-section" style="margin-right: -150px;">
+                <h4 class="newsletter-title">Legyél te is ENERGI<img src="../assets/favicon/favicon-96x96.png" alt="X" class="favicon"> wear tag!</h4>
+                <p>Iratkozz fel hírlevelünkre, és kapj 10% kedvezményt első vásárlásodra, valamint exkluzív ajánlatokat és újdonságokat!</p>
+                <form class="newsletter-form">
+                    <div class="form-group">
+                        <input type="email" placeholder="E-mail címed" required>
+                        <button type="submit" class="btn-submit">Feliratkozom</button>
+                    </div>
+                    <p class="privacy-notice">Adatvédelmi tájékoztató: Az adataidat biztonságosan kezeljük, és bármikor leiratkozhatsz.</p>
+                </form>
+            </div>
+            <div class="footer-section">
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2025 EnergiX. Minden jog fenntartva.</p>
+                <div class="payment-methods">
+                    <span>Fizetési módok: </span>
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-cc-paypal" title="PayPal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" onclick="closeCart()"></div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Kosár</h3>
+            <button class="close-cart" onclick="closeCart()">&times;</button>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items will be dynamically inserted here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Összesen:</span>
+                <span class="total-amount">0 Ft</span>
+            </div>
+            <a href="penztar.html" class="btn checkout-btn">Tovább a fizetéshez</a>
+        </div>
+    </div>
+
+    <script src="../product-data.js"></script>
+    <script src="../cart-functions.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html>
