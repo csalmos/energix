@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - EnergiX</title>
+
+    <script>
+        // Set base path based on current location
+        const isBlogPage = window.location.pathname.includes('blog/');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update all relative paths
+            document.querySelectorAll('img, link[rel="stylesheet"], script[src]').forEach(el => {
+                const attr = el.tagName === 'IMG' ? 'src' : 
+                            el.tagName === 'LINK' ? 'href' : 'src';
+                const path = el.getAttribute(attr);
+                
+                // Skip absolute URLs and data URIs
+                if (!path || path.startsWith('http') || path.startsWith('data:') || path.startsWith('//')) {
+                    return;
+                }
+                
+                // Add ../ prefix for blog pages, ./ for root pages
+                const newPath = (isBlogPage && !path.startsWith('../') ? '../' : '') + path.replace(/^\.?\/?/, '');
+                el.setAttribute(attr, newPath);
+            });
+        });
+    </script>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/web-app-manifest-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon/web-app-manifest-512x512.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo-link">
+                <img src="assets/Logó/Canva_wear_vágott.webp" alt="EnergiX Logo" class="logo-image">
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Kezdőlap</a>
+                <a href="products.html">Termékek</a>
+                <a href="blog.html" class="active">Blog</a>
+                <a href="about.html">Rólunk</a>
+                <a href="contact.html">Kapcsolat</a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="blog-page">
+        <section class="page-header">
+            <div class="container">
+                <h1>Blog</h1>
+                <p>Ismerje meg a legfrissebb híreket, tippeket és érdekességeket az egészséges életmódról és a természetes gyógyászatról</p>
+            </div>
+        </section>
+
+        <section class="blog-grid">
+            <div class="container">
+                <div class="blog-posts">
+                    <!-- Newest Post -->
+                    <article class="blog-card featured">
+                        <div class="blog-card-image">
+                            <a href="blog/rez-gyogyaszatban.html">
+                                <img src="assets/Blog/rez-gyogyaszat.jpg" alt="Réz a gyógyászatban">
+                            </a>
+                            <span class="category-tag">Egészség</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta">
+                                <span class="date">2025. június 5.</span>
+                                <span class="read-time">5 perc olvasás</span>
+                            </div>
+                            <h2><a href="blog/rez-gyogyaszatban.html">Réz a gyógyászatban: Mit mond az orvostudomány?</a></h2>
+                            <p>Fedezze fel, hogyan használják a rézt a modern orvostudományban, milyen egészségügyi előnyökkel rendelkezik, és miért fontos a szervezet számára ez az ásványi anyag.</p>
+                            <a href="blog/rez-gyogyaszatban.html" class="read-more">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Other Posts -->
+                    <article class="blog-card">
+                        <div class="blog-card-image">
+                            <a href="blog/egeszseges-eletmod.html">
+                                <img src="assets/Blog/egeszseges-eletmod.jpg" alt="Egészséges életmód">
+                            </a>
+                            <span class="category-tag">Életmód</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta">
+                                <span class="date">2025. május 28.</span>
+                                <span class="read-time">4 perc olvasás</span>
+                            </div>
+                            <h2><a href="blog/egeszseges-eletmod.html">🧘‍♀️ A legjobb tippek az egészséges életmód fenntartásához</a></h2>
+                            <p>Az egészséges életmód nem egy egyszeri döntés, hanem egy életforma. Ismerd meg a legfontosabb tippeket a kiegyensúlyozott táplálkozáshoz, aktív életmódhoz és stresszkezeléshez.</p>
+                            <a href="blog/egeszseges-eletmod.html" class="read-more">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="blog-card-image">
+                            <a href="blog/rez-jotekony-hatasai.html">
+                                <img src="assets/EnergiX/%C3%89ter/Aether-400w.webp" alt="Réz karkötő">
+                            </a>
+                            <span class="category-tag">Egészség</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta">
+                                <span class="date">2025. június 10.</span>
+                                <span class="read-time">4 perc olvasás</span>
+                            </div>
+                            <h2><a href="blog/rez-jotekony-hatasai.html">🧡 A Réz Jótékony Hatásai az Alternatív Gyógyászat Szemszögéből</a></h2>
+                            <p>Fedezd fel a réz gyógyító hatásait, hogyan működik a szervezetedben, és milyen előnyökkel járhat a réz karkötők viselése.</p>
+                            <a href="blog/rez-jotekony-hatasai.html" class="read-more">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="sidebar">
+                    <div class="sidebar-widget">
+                        <h3>Keresés</h3>
+                        <form class="search-form">
+                            <input type="text" placeholder="Keresés a blogon...">
+                            <button type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h3>Kategóriák</h3>
+                        <ul class="category-list">
+                            <li><a href="#">Egészség <span>(1)</span></a></li>
+                            <li><a href="#">Életmód <span>(1)</span></a></li>
+                            <li><a href="#">Termékismertetők <span>(1)</span></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h3>Legolvasottabb bejegyzések</h3>
+                        <div class="popular-posts">
+                            <div class="post-item">
+                                <div class="post-image">
+                                    <a href="blog/egeszseges-eletmod.html">
+                                        <img src="assets/Blog/egeszseges-eletmod-thumb.jpg" alt="Egészséges életmód">
+                                    </a>
+                                </div>
+                                <div class="post-content">
+                                    <h4><a href="blog/egeszseges-eletmod.html">🧘‍♀️ A legjobb tippek az egészséges életmód fenntartásához</a></h4>
+                                    <span class="post-date">2025. máj. 28.</span>
+                                </div>
+                            </div>
+                            <div class="post-item">
+                                <div class="post-image">
+                                    <a href="blog/rez-gyogyaszatban.html">
+                                        <img src="assets/Blog/rez-gyogyaszat-thumb.jpg" alt="Réz a gyógyászatban">
+                                    </a>
+                                </div>
+                                <div class="post-content">
+                                    <h4><a href="blog/rez-gyogyaszatban.html">Réz a gyógyászatban: Mit mond az orvostudomány?</a></h4>
+                                    <span class="post-date">2025. jún. 5.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Iratkozzon fel hírlevelünkre</h2>
+                    <p>Kapjon értesítést az új bejegyzéseinkről, akcióinkról és hasznos tartalmainkról.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="E-mail címed" required>
+                        <button type="submit" class="btn">Feliratkozom</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Kapcsolat</h4>
+                <ul>
+                    <li><a href="kapcsolat.html">Írj nekünk!</a></li>
+                    <li><a href="gyik.html">GYIK</a></li>
+                </ul>
+                <p class="footer-email"><i class="fas fa-envelope"></i>info@energix.hu</p>
+            </div>
+            <div class="footer-section">
+                <h4>Kövess minket</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/sanobeleco" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/sanobeleco/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/EnergixWear" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Információk</h4>
+                <ul>
+                    <li><a href="szallitas.html">Szállítási információk</a></li>
+                    <li><a href="visszaru.html">Visszárú feltételek</a></li>
+                    <li><a href="aszf.html">ÁSZF</a></li>
+                    <li><a href="adatvedelem.html">Adatvédelmi nyilatkozat</a></li>
+                </ul>
+            </div>
+            <div class="footer-section newsletter-section" style="margin-right: -150px;">
+                <h4 class="newsletter-title">Legyél te is ENERGI<img src="assets/favicon/favicon-96x96.png" alt="X" class="favicon"> wear tag!</h4>
+                <p>Iratkozz fel hírlevelünkre, és kapj 10% kedvezményt első vásárlásodra, valamint exkluzív ajánlatokat és újdonságokat!</p>
+                <form class="newsletter-form">
+                    <div class="form-group">
+                        <input type="email" placeholder="E-mail címed" required>
+                        <button type="submit" class="btn-submit">Feliratkozom</button>
+                    </div>
+                    <p class="privacy-notice">Adatvédelmi tájékoztató: Az adataidat biztonságosan kezeljük, és bármikor leiratkozhatsz.</p>
+                </form>
+            </div>
+            <div class="footer-section">
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2025 EnergiX. Minden jog fenntartva.</p>
+                <div class="payment-methods">
+                    <span>Fizetési módok: </span>
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-cc-paypal" title="PayPal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
