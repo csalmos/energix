@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Írj Nekünk - EnergiX Karkötő</title>
+    <meta name="description" content="Küldj üzenetet nekünk kérdéssel, észrevétellel vagy visszajelzéssel kapcsolatban.">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/web-app-manifest-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon/web-app-manifest-512x512.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico" type="image/x-icon">
+    <meta name="msapplication-TileImage" content="assets/favicon/mstile-150x150.png">
+    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .faq-item {
+            background: #fff;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+        
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 20px 25px;
+            background: #f9f9f9;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #2c3e50;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: #f0f0f0;
+            color: #1a2634;
+        }
+        
+        .faq-question:after {
+            content: '\f107';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question:after {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: #fff;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #555;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 25px 25px;
+            max-height: 1000px;
+        }
+        
+        .faq-answer p {
+            margin-bottom: 15px;
+        }
+        
+        .faq-answer p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .faq-category {
+            margin-top: 50px;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #7ed957;
+            color: #2c3e50;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .faq-container {
+                padding-top: 100px;
+            }
+            
+            .faq-header h1 {
+                font-size: 2rem;
+            }
+            
+            .faq-question {
+                padding: 16px 20px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo-link">
+                <img src="assets/Logó/Canva_wear_vágott.webp" alt="EnergiX Logo" class="logo-image">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Főoldal</a></li>
+                <li class="nav-dropdown">
+                    <a href="index.html#products" class="nav-link">Termékeink <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="product.html?product=argentum">Argentum Karkötő</a>
+                        <a href="product.html?product=eter">Éter Karkötő</a>
+                        <a href="product.html?product=zafir">Zafír Karkötő</a>
+                    </div>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="#blog" class="nav-link">Blog <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="blog/rez-alternativ-gyogyaszatban.html">A Réz Jótékony Hatásai</a>
+                        <a href="blog/egeszseges-eletmod.html">6 Tipp az Egészséges Életmódhoz</a>
+                        <a href="blog/termekajanlo.html">Melyik Karkötő Illik Hozzád?</a>
+                        <a href="blog/rez-gyogyaszatban.html">Réz a Gyógyászatban</a>
+                    </div>
+                </li>
+                <li><a href="#footer">Kapcsolat</a></li>
+                <li class="cart-container">
+                    <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                    <span class="cart-count">0</span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="shipping-page">
+        <div class="shipping-container">
+            <a href="#" onclick="history.back(); return false;" class="back-to-blog">
+                <i class="fas fa-arrow-left"></i> Vissza az oldalra
+            </a>
+            <div class="shipping-hero">
+                <h1>Gyakran Ismételt Kérdések</h1>
+                <div class="title-underline"></div>
+                <p>Itt megtalálod a leggyakrabban feltett kérdéseket és válaszainkat az EnergiX karkötőinkkel kapcsolatban.</p>
+            </div>
+            
+            <h2 class="faq-category">Termékeinkről</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question">Miből készülnek az EnergiX karkötők?</button>
+                <div class="faq-answer">
+                    <p>Az EnergiX karkötőink kiváló minőségű 316L-es rozsdamentes acélból és réz ötvözetből készülnek, amelyek tartósságot és esztétikát kölcsönöznek a terméknek. A mágneses karkötőinkben használt mágnesek erős, tartós neodímium mágnesek, amelyek hatékonyan segítenek a keringés javításában.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">Mekkora a karkötők mérete?</button>
+                <div class="faq-answer">
+                    <p>Az EnergiX karkötőink átlagos felnőtt méretűek, belső kerületük kb. 18-19 cm. A legtöbb felnőtt számára kényelmesen hordható, de pontos méreteket az egyes termékleírásokban találsz. Ha bizonytalan vagy a mérettel kapcsolatban, kérjük, vedd fel velünk a kapcsolatot!</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">Mennyi ideig működik a karkötő?</button>
+                <div class="faq-answer">
+                    <p>Az EnergiX karkötők hosszú életűek, megfelelő kezelés mellett évekig használhatók. A mágnesek ereje idővel enyhén csökkenhet, de ez észrevehető hatást nem fog gyakorolni a hatékonyságra. A réz alkatrészek idővel elszíneződhetnek, ami természetes folyamat, és nem befolyásolja a termék hatékonyságát.</p>
+                </div>
+            </div>
+            
+            <h2 class="faq-category">Rendelés és szállítás</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question">Mennyi a szállítási idő?</button>
+                <div class="faq-answer">
+                    <p>Rendelésedet általában 1-2 munkanapon belül feladjuk. A szállítási idő Magyarországon 1-3 munkanap, attól függően, hogy melyik szállítási módot választod. A pontos szállítási időt a rendelés megerősítő e-mailben tájékoztatunk.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">Mik a szállítási költségek?</button>
+                <div class="faq-answer">
+                    <p>Ingyenes szállítást biztosítunk minden 15.000 Ft feletti rendelésre Magyarországra. 15.000 Ft alatti rendelés esetén a szállítási költség 1.290 Ft. Az átvételi pontokon történő átvétel esetén a szállítási költség 890 Ft.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">Milyen fizetési módok állnak rendelkezésre?</button>
+                <div class="faq-answer">
+                    <p>Az alábbi fizetési módok közül választhatsz:</p>
+                    <ul>
+                        <li>Bankkártyás fizetés</li>
+                        <li>Átutalás</li>
+                        <li>Utánvételes fizetés (készpénzben, bankkártyával vagy mobilfizetéssel)</li>
+                        <li>Barion elektronikus fizetés</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h2 class="faq-category">Visszaküldés és garancia</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question">Mikor jogosultam visszaküldésre?</button>
+                <div class="faq-answer">
+                    <p>Az átvételtől számított 14 napon belül indoklás nélkül visszaválthatod a terméket. A visszaküldés költsége a vásárlót terheli, kivéve, ha a termék hibás. A visszaküldött terméknek eredeti csomagolásában, érintetlen állapotban kell lennie.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">Mennyi ideig érvényes a garancia?</button>
+                <div class="faq-answer">
+                    <p>Az EnergiX karkötőinkre 2 év garanciát vállalunk. A garancia a gyártási hibákra vonatkozik. A garancia nem terjed ki az ékszer élettartamát meghaladó, illetve a nem megfelelő kezelésből eredő károkra.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">Mit tegyek, ha megsérül a karkötő?</button>
+                <div class="faq-answer">
+                    <p>Ha a karkötő megsérül, kérjük, vedd fel velünk a kapcsolatot az <a href="irj_nekunk.html">Írj nekünk</a> oldalon. Megvizsgáljuk a problémát, és minden tőlünk telhetőt megteszünk a megoldás érdekében. A garanciális esetekben a javítást vagy cserét mi álljuk.</p>
+                </div>
+            </div>
+            
+            <div class="contact-prompt" style="margin-top: 60px; text-align: center; padding: 30px; background: #f9f9f9; border-radius: 8px;">
+                <h3 style="margin-bottom: 15px; color: #2c3e50;">Nem találod a választ a kérdésedre?</h3>
+                <p style="margin-bottom: 20px; color: #555;">Küldj üzenetet nekünk, és szívesen segítünk!</p>
+                <a href="irj_nekunk.html" class="submit-btn" style="display: inline-block; text-decoration: none;">Üzenet küldése</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Kapcsolat</h4>
+                <ul>
+                    <li><a href="irj_nekunk.html">Írj nekünk!</a></li>
+                    <li><a href="gyik.html">GYIK</a></li>
+                </ul>
+                <p class="footer-email">info@energix.hu</p>
+            </div>
+            <div class="footer-section">
+                <h4>Kövess minket</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/sanobeleco" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/sanobeleco/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/EnergixWear" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Információk</h4>
+                <ul>
+                    <li><a href="szallitas.html">Szállítási információk</a></li>
+                    <li><a href="visszaru.html">Visszárú feltételek</a></li>
+                    <li><a href="aszf.html">ÁSZF</a></li>
+                    <li><a href="adatvedelem.html">Adatvédelmi nyilatkozat</a></li>
+                </ul>
+            </div>
+            <div class="footer-section newsletter-section" style="margin-right: -150px;">
+                <h4 class="newsletter-title">Legyél te is ENERGI<img src="assets/favicon/favicon-96x96.png" alt="X" class="favicon"> wear tag!</h4>
+                <p>Iratkozz fel hírlevelünkre, és kapj 10% kedvezményt első vásárlásodra, valamint exkluzív ajánlatokat és újdonságokat!</p>
+                <form class="newsletter-form">
+                    <div class="form-group">
+                        <input type="email" placeholder="E-mail címed" required>
+                        <button type="submit" class="btn-submit">Feliratkozom</button>
+                    </div>
+                    <p class="privacy-notice">Adatvédelmi tájékoztató: Az adataidat biztonságosan kezeljük, és bármikor leiratkozhatsz.</p>
+                </form>
+            </div>
+            <div class="footer-section">
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2025 EnergiX. Minden jog fenntartva.</p>
+                <div class="payment-methods">
+                    <span>Fizetési módok: </span>
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-cc-paypal" title="PayPal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const formValues = Object.fromEntries(formData.entries());
+            
+            // Here you would typically send the form data to a server
+            console.log('Form submitted:', formValues);
+            
+            // Show success message
+            alert('Köszönjük üzenetét! Hamarosan válaszolunk.');
+            this.reset();
+        });
+    </script>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay"></div>
+            
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Kosár</h3>
+            <button class="close-cart">&times;</button>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items will be added here dynamically -->
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>A kosár üres</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Összesen:</span>
+                <span class="total-amount">0 Ft</span>
+            </div>
+            <a href="#" id="checkout-link" class="checkout-btn">Tovább a fizetéshez</a>
+        </div>
+    </div>
+    
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notification-message"></span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="product-data.js"></script>
+    <script src="cart-functions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
