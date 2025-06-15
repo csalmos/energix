@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szállítási információk - EnergiX</title>
+    
+    <script>
+        // Set base path based on current location
+        const isBlogPage = window.location.pathname.includes('blog/');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update all relative paths
+            document.querySelectorAll('img, link[rel="stylesheet"], script[src]').forEach(el => {
+                const attr = el.tagName === 'IMG' ? 'src' : 
+                            el.tagName === 'LINK' ? 'href' : 'src';
+                const path = el.getAttribute(attr);
+                
+                // Skip absolute URLs and data URIs
+                if (!path || path.startsWith('http') || path.startsWith('data:') || path.startsWith('//')) {
+                    return;
+                }
+                
+                // Add ../ prefix for blog pages, ./ for root pages
+                const newPath = (isBlogPage && !path.startsWith('../') ? '../' : '') + path.replace(/^\.?\/?/, '');
+                el.setAttribute(attr, newPath);
+            });
+        });
+    </script>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/web-app-manifest-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon/web-app-manifest-512x512.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico" type="image/x-icon">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo-link">
+                <img src="assets/Logó/Canva_wear_vágott.webp" alt="EnergiX Logo" class="logo-image">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Főoldal</a></li>
+                <li class="nav-dropdown">
+                    <a href="index.html#products" class="nav-link">Termékeink <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="product.html?product=argentum">Argentum Karkötő</a>
+                        <a href="product.html?product=eter">Éter Karkötő</a>
+                        <a href="product.html?product=zafir">Zafír Karkötő</a>
+                    </div>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="#blog" class="nav-link">Blog <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="blog/rez-alternativ-gyogyaszatban.html">A Réz Jótékony Hatásai</a>
+                        <a href="blog/egeszseges-eletmod.html">6 Tipp az Egészséges Életmódhoz</a>
+                        <a href="blog/termekajanlo.html">Melyik Karkötő Illik Hozzád?</a>
+                        <a href="blog/rez-gyogyaszatban.html">Réz a Gyógyászatban</a>
+                    </div>
+                </li>
+                <li><a href="#footer">Kapcsolat</a></li>
+                <li class="cart-container">
+                    <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                    <span class="cart-count">0</span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="shipping-page">
+        <div class="shipping-container">
+            <a href="#" onclick="history.back(); return false;" class="back-to-blog">
+                <i class="fas fa-arrow-left"></i> Vissza az oldalra
+            </a>
+            <div class="shipping-hero">
+                <h1>SZÁLLÍTÁSI INFORMÁCIÓK</h1>
+                <div class="title-underline"></div>
+            </div>
+            
+            <div class="shipping-section">
+                <h2>📦 Feldolgozási idő</h2>
+                <p>A rendeléseket 1–2 munkanapon belül feldolgozzuk, és átadjuk a futárszolgálatnak.</p>
+                <p>Hétvégén és ünnepnapokon leadott rendelések a következő munkanapon kerülnek feldolgozásra.</p>
+            </div>
+        
+            <div class="shipping-section">
+                <h2>🚚 Szállítási módok és idő</h2>
+                <p><strong>Magyarországon belül:</strong></p>
+                <ul>
+                    <li>Házhoz szállítás: 1–3 munkanap</li>
+                    <li>Csomagautomata (pl. Foxpost, MPL): 1–4 munkanap</li>
+                    <li>Szállítási díj: 990 Ft-tól (10.000 Ft felett ingyenes!)</li>
+                </ul>
+                
+                <p><strong>Nemzetközi szállítás:</strong></p>
+                <ul>
+                    <li>Európai országokba: 5–10 munkanap</li>
+                    <li>Pontos díjat a pénztárnál láthatsz a szállítási cím megadása után.</li>
+                </ul>
+            </div>
+            
+            <div class="highlight">
+                <h2>🎁 Ingyenes szállítás</h2>
+                <p>10.000 Ft feletti rendelés esetén Magyarországon ingyenes házhoz szállítást biztosítunk!</p>
+            </div>
+            
+            <div class="shipping-section">
+                <h2>🔍 Rendelés nyomon követése</h2>
+                <p>Amint rendelésed elhagyja a raktárunkat, e-mailben elküldjük a követőkódot, amellyel bármikor nyomon követheted a csomagod érkezését.</p>
+            </div>
+            
+            <div class="shipping-section">
+                <h2>ℹ️ További tudnivalók</h2>
+                <ul>
+                    <li>Kérünk, hogy pontosan add meg a szállítási címet a sikeres kézbesítés érdekében.</li>
+                    <li>Ha a csomagod nem érkezik meg a várható időn belül, kérjük, lépj kapcsolatba ügyfélszolgálatunkkal.</li>
+                </ul>
+            </div>
+            
+
+            <div class="contact-info">
+                <h2>📬 Kérdésed van a szállítással kapcsolatban?</h2>
+                <p>Írj nekünk bátran az <a href="mailto:info@energix.hu">info@energix.hu</a> címen vagy használd az <a href="index.html#contact">ügyfélszolgálati űrlapot</a>!</p>
+            </div>
+        </div> <!-- Closing shipping-container -->
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Kapcsolat</h4>
+                <ul>
+                    <li><a href="irj_nekunk.html">Írj nekünk!</a></li>
+                    <li><a href="gyik.html">GYIK</a></li>
+                </ul>
+                <p class="footer-email">info@energix.hu</p>
+            </div>
+            <div class="footer-section">
+                <h4>Kövess minket</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/sanobeleco" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/sanobeleco/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/EnergixWear" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Információk</h4>
+                <ul>
+                    <li><a href="szallitas.html">Szállítási információk</a></li>
+                    <li><a href="visszaru.html">Visszárú feltételek</a></li>
+                    <li><a href="aszf.html">ÁSZF</a></li>
+                    <li><a href="adatvedelem.html">Adatvédelmi nyilatkozat</a></li>
+                </ul>
+            </div>
+            <div class="footer-section newsletter-section" style="margin-right: -150px;">
+                <h4 class="newsletter-title">Legyél te is ENERGI<img src="assets/favicon/favicon-96x96.png" alt="X" class="favicon"> wear tag!</h4>
+                <p>Iratkozz fel hírlevelünkre, és kapj 10% kedvezményt első vásárlásodra, valamint exkluzív ajánlatokat és újdonságokat!</p>
+                <form class="newsletter-form">
+                    <div class="form-group">
+                        <input type="email" placeholder="E-mail címed" required>
+                        <button type="submit" class="btn-submit">Feliratkozom</button>
+                    </div>
+                    <p class="privacy-notice">Adatvédelmi tájékoztató: Az adataidat biztonságosan kezeljük, és bármikor leiratkozhatsz.</p>
+                </form>
+            </div>
+            <div class="footer-section">
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2025 EnergiX. Minden jog fenntartva.</p>
+                <div class="payment-methods">
+                    <span>Fizetési módok: </span>
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-cc-paypal" title="PayPal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Cart Overlay -->
+    <div class="cart-overlay"></div>
+            
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Kosár</h3>
+            <button class="close-cart">&times;</button>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items will be added here dynamically -->
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>A kosár üres</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Összesen:</span>
+                <span class="total-amount">0 Ft</span>
+            </div>
+            <a href="#" id="checkout-link" class="checkout-btn">Tovább a fizetéshez</a>
+        </div>
+    </div>
+    
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notification-message"></span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="product-data.js"></script>
+    <script src="cart-functions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

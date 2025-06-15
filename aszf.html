@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÁSZF - Általános Szerződési Feltételek - EnergiX</title>
+    
+    <script>
+        // Set base path based on current location
+        const isBlogPage = window.location.pathname.includes('blog/');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update all relative paths
+            document.querySelectorAll('img, link[rel="stylesheet"], script[src]').forEach(el => {
+                const attr = el.tagName === 'IMG' ? 'src' : 
+                            el.tagName === 'LINK' ? 'href' : 'src';
+                const path = el.getAttribute(attr);
+                
+                // Skip absolute URLs and data URIs
+                if (!path || path.startsWith('http') || path.startsWith('data:') || path.startsWith('//')) {
+                    return;
+                }
+                
+                // Add ../ prefix for blog pages, ./ for root pages
+                const newPath = (isBlogPage && !path.startsWith('../') ? '../' : '') + path.replace(/^\.?\/?/, '');
+                el.setAttribute(attr, newPath);
+            });
+        });
+    </script>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/web-app-manifest-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon/web-app-manifest-512x512.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico" type="image/x-icon">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo-link">
+                <img src="assets/Logó/Canva_wear_vágott.webp" alt="EnergiX Logo" class="logo-image">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Főoldal</a></li>
+                <li class="nav-dropdown">
+                    <a href="index.html#products" class="nav-link">Termékeink <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="product.html?product=argentum">Argentum Karkötő</a>
+                        <a href="product.html?product=eter">Éter Karkötő</a>
+                        <a href="product.html?product=zafir">Zafír Karkötő</a>
+                    </div>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="#blog" class="nav-link">Blog <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="blog/rez-alternativ-gyogyaszatban.html">A Réz Jótékony Hatásai</a>
+                        <a href="blog/egeszseges-eletmod.html">6 Tipp az Egészséges Életmódhoz</a>
+                        <a href="blog/termekajanlo.html">Melyik Karkötő Illik Hozzád?</a>
+                        <a href="blog/rez-gyogyaszatban.html">Réz a Gyógyászatban</a>
+                    </div>
+                </li>
+                <li><a href="#footer">Kapcsolat</a></li>
+                <li class="cart-container">
+                    <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                    <span class="cart-count">0</span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="shipping-page">
+        <div class="shipping-container">
+            <a href="#" onclick="history.back(); return false;" class="back-to-blog">
+                <i class="fas fa-arrow-left"></i> Vissza az oldalra
+            </a>
+            <div class="shipping-hero">
+                <h1>ÁLTALÁNOS SZERZŐDÉSI FELTÉTELEK (ÁSZF)</h1>
+                <div class="title-underline"></div>
+            </div>
+            
+            <div class="shipping-section">
+                <h2>1. ÁLTALÁNOS RENDELKEZÉSEK</h2>
+                <p>1.1. Az Általános Szerződési Feltételek (a továbbiakban: ÁSZF) az EnergiX Kft. (a továbbiakban: Eladó) és a vásárló (a továbbiakban: Vevő) közötti szerződés részét képezik, és a webáruházban történő vásárlásra vonatkozó szabályokat tartalmazzák.</p>
+                <p>1.2. A webáruház használatával és a rendelés leadásával a Vevő tudomásul veszi és elfogadja az ÁSZF-ben foglalt feltételeket.</p>
+            </div>
+            
+            <div class="shipping-section">
+                <h2>2. A VEVŐ ADATAI ÉS JOGAI</h2>
+                <p>2.1. A vásárláshoz a Vevő köteles helyes és valós adatokat megadni. A Vevő felelős a megadott adatok helyességéért.</p>
+                <p>2.2. A Vevő hozzájárul, hogy az Eladó a szükséges adatokat kezelje a rendelés teljesítése és a szállítás céljából.</p>
+            </div>
+            
+            <div class="shipping-section">
+                <h2>3. A SZERZŐDÉS LÉTREJÖTTE</h2>
+                <p>3.1. A szerződés a Vevő és az Eladó között a rendelés leadásakor jön létre, feltéve hogy az Eladó megerősíti a rendelést.</p>
+                <p>3.2. Az Eladó a rendelést a rendelés leadását követő 2 munkanapon belül megerősíti e-mailben.</p>
+            </div>
+            
+            <div class="shipping-section">
+                <h2>4. ÁRAK ÉS FIZETÉSI MÓDOK</h2>
+                <p>4.1. Az árak forintban értendők, és tartalmazhatnak áfát.</p>
+                <p>4.2. Fizetési módok:</p>
+                <ul>
+                    <li>Banki átutalás</li>
+                    <li>Hitelkártya</li>
+                    <li>Utánvételes fizetés</li>
+                </ul>
+            </div>
+            
+            <div class="shipping-section">
+                <h2>5. SZÁLLÍTÁSI FELTÉTELEK</h2>
+                <p>5.1. A szállítási idő a rendelés feladásától számított 1-3 munkanap, hétvégén és ünnepnapokon kívül.</p>
+                <p>5.2. A szállítási költségek a kiválasztott szállítási módtól függően változnak.</p>
+            </div>
+            
+            <div class="shipping-section">
+                <h2>6. VISSZÁRÚLÁS ÉS GARANCIA</h2>
+                <p>6.1. A Vevő a termék átvételétől számított 14 napon belül indoklás nélkül elállhat a vásárlástól.</p>
+                <p>6.2. A termékekre 24 hónap garanciát vállalunk gyártói hibák esetén.</p>
+            </div>
+            
+            <div class="shipping-section">
+                <h2>7. ADATKEZELÉS</h2>
+                <p>7.1. Az Eladó a Vevő személyes adatait kizárólag a rendelés teljesítése és a szükséges jogi kötelezettségek teljesítése céljából kezeli.</p>
+                <p>7.2. Az adatkezeléssel kapcsolatos részletes tájékoztatónk elérhető az <a href="adatvedelem.html">Adatvédelmi nyilatkozat</a> oldalon.</p>
+            </div>
+            
+            <div class="shipping-section">
+                <h2>8. VÉGLEMES RENDELKEZÉSEK</h2>
+                <p>8.1. A jelen ÁSZF a magyar jog szerint értelmezendő, és az arra irányadó magyar jogi rendelkezések hatálya alá tartozik.</p>
+                <p>8.2. A felek minden, a szerződésből eredő jogvitájukat először tárgyalással kívánják megoldani.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Kapcsolat</h4>
+                <ul>
+                    <li><a href="irj_nekunk.html">Írj nekünk!</a></li>
+                    <li><a href="gyik.html">GYIK</a></li>
+                </ul>
+                <p class="footer-email">info@energix.hu</p>
+            </div>
+            <div class="footer-section">
+                <h4>Kövess minket</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/sanobeleco" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/sanobeleco/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/EnergixWear" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Információk</h4>
+                <ul>
+                    <li><a href="szallitas.html">Szállítási információk</a></li>
+                    <li><a href="visszaru.html">Visszárú feltételek</a></li>
+                    <li><a href="aszf.html">ÁSZF</a></li>
+                    <li><a href="adatvedelem.html">Adatvédelmi nyilatkozat</a></li>
+                </ul>
+            </div>
+            <div class="footer-section newsletter-section" style="margin-right: -150px;">
+                <h4 class="newsletter-title">Legyél te is ENERGI<img src="assets/favicon/favicon-96x96.png" alt="X" class="favicon"> wear tag!</h4>
+                <p>Iratkozz fel hírlevelünkre, és kapj 10% kedvezményt első vásárlásodra, valamint exkluzív ajánlatokat és újdonságokat!</p>
+                <form class="newsletter-form">
+                    <div class="form-group">
+                        <input type="email" placeholder="E-mail címed" required>
+                        <button type="submit" class="btn-submit">Feliratkozom</button>
+                    </div>
+                    <p class="privacy-notice">Adatvédelmi tájékoztató: Az adataidat biztonságosan kezeljük, és bármikor leiratkozhatsz.</p>
+                </form>
+            </div>
+            <div class="footer-section">
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2025 EnergiX. Minden jog fenntartva.</p>
+                <div class="payment-methods">
+                    <span>Fizetési módok: </span>
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-cc-paypal" title="PayPal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay"></div>
+            
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Kosár</h3>
+            <button class="close-cart">&times;</button>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items will be added here dynamically -->
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>A kosár üres</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Összesen:</span>
+                <span class="total-amount">0 Ft</span>
+            </div>
+            <a href="#" id="checkout-link" class="checkout-btn">Tovább a fizetéshez</a>
+        </div>
+    </div>
+    
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notification-message"></span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="cart-functions.js"></script>
+    <script src="newsletter.js"></script>
+</body>
+</html>

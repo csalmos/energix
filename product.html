@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termék részletei - EnergiX</title>
+    
+    <script>
+        // Set base path based on current location
+        const isBlogPage = window.location.pathname.includes('blog/');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update all relative paths
+            document.querySelectorAll('img, link[rel="stylesheet"], script[src]').forEach(el => {
+                const attr = el.tagName === 'IMG' ? 'src' : 
+                            el.tagName === 'LINK' ? 'href' : 'src';
+                const path = el.getAttribute(attr);
+                
+                // Skip absolute URLs and data URIs
+                if (!path || path.startsWith('http') || path.startsWith('data:') || path.startsWith('//')) {
+                    return;
+                }
+                
+                // Add ../ prefix for blog pages, ./ for root pages
+                const newPath = (isBlogPage && !path.startsWith('../') ? '../' : '') + path.replace(/^\.?\/?/, '');
+                el.setAttribute(attr, newPath);
+            });
+        });
+    </script>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/web-app-manifest-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon/web-app-manifest-512x512.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico" type="image/x-icon">
+    <meta name="msapplication-TileImage" content="assets/favicon/mstile-150x150.png">
+    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo-link">
+                <img src="assets/Logó/Canva_wear_vágott.webp" alt="EnergiX Logo" class="logo-image">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Főoldal</a></li>
+                <li class="nav-dropdown">
+                    <a href="index.html#products" class="nav-link">Termékeink <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="product.html?product=argentum">Argentum Karkötő</a>
+                        <a href="product.html?product=eter">Éter Karkötő</a>
+                        <a href="product.html?product=zafir">Zafír Karkötő</a>
+                    </div>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="#blog" class="nav-link">Blog <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="blog/rez-alternativ-gyogyaszatban.html">A Réz Jótékony Hatásai</a>
+                        <a href="blog/egeszseges-eletmod.html">6 Tipp az Egészséges Életmódhoz</a>
+                        <a href="blog/termekajanlo.html">Melyik Karkötő Illik Hozzád?</a>
+                        <a href="blog/rez-gyogyaszatban.html">Réz a Gyógyászatban</a>
+                    </div>
+                </li>
+                <li><a href="#footer">Kapcsolat</a></li>
+                <li class="cart-container">
+                    <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                    <span class="cart-count">0</span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="product-page">
+        <div class="container">
+            <div class="product-container">
+                <div class="product-gallery">
+                    <div class="main-image" id="mainImageContainer">
+                        <img id="productImage" src="" alt="Termék kép" class="product-main-image">
+                    </div>
+                    <div class="thumbnails" id="productThumbnails">
+                        <!-- Thumbnails will be added here by JavaScript -->
+                    </div>
+                </div>
+                <div class="product-details">
+                    <h1 id="productTitle">Termék neve</h1>
+                    <div class="price" id="productPrice">0 Ft</div>
+                    <div class="description">
+                        <p id="productDescription">Termék leírása betöltése...</p>
+                    </div>
+                    <div class="quantity-selector">
+                        <label for="quantity">Mennyiség:</label>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn minus">-</button>
+                            <input type="number" id="quantity" value="1" min="1">
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                    </div>
+                    <div class="stock-status">
+                        <span class="stock-dot">
+                            <div class="pulse-ring"></div>
+                        </span>
+                        <span>Raktáron</span>
+                    </div>
+                    <div class="button-group">
+                        <button id="addToCart" class="add-to-cart-btn">Kosárba rakom</button>
+                        <button id="buyNow" class="buy-now-btn">Megveszem most</button>
+                    </div>
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-truck"></i>
+                            <span>Ingyenes kiszállítás</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-undo"></i>
+                            <span>30 napos pénzvisszatérítés</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>1 év cseregarancia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-tabs">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="description">Leírás</button>
+                    <button class="tab-btn" data-tab="specs">Termékjellemzők</button>
+                    <button class="tab-btn" data-tab="reviews">Értékelések</button>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="description">
+                        <h3>Termék leírása</h3>
+                        <div id="productFullDescription"></div>
+                    </div>
+                    <div class="tab-pane" id="specs">
+                        <h3>Műszaki adatok</h3>
+                        <table class="specs-table">
+                            <tr>
+                                <th>Anyag</th>
+                                <td id="material">-</td>
+                            </tr>
+                            <tr>
+                                <th>Méret</th>
+                                <td id="size">-</td>
+                            </tr>
+                            <tr>
+                                <th>Súly</th>
+                                <td id="weight">-</td>
+                            </tr>
+                            <tr>
+                                <th>Szín</th>
+                                <td id="color">-</td>
+                            </tr>
+                            <tr>
+                                <th>Vízállóság</th>
+                                <td id="waterResistance">-</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tab-pane" id="reviews">
+                        <h3>Vélemények</h3>
+                        <div class="reviews-container">
+                            <p id="noReviews">Még nincsenek vélemények. Legyél te az első, aki értékeli!</p>
+                            <div id="reviewsList"></div>
+                            <button class="add-review-btn"><i class="fas fa-pen"></i> Értékelés írása</button>
+                        </div>
+                    </div>
+                    <!-- Scroll Down CTA -->
+                    <div class="scroll-down-cta">
+                        <div class="scroll-text">Tudj meg többet</div>
+                        <div class="scroll-arrow">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <section class="product-details-section">
+                <div class="container">
+                    <div class="details-grid">
+                        <!-- Card 2 -->
+                        <div class="details-card">
+                            <div class="details-icon">
+                                <i class="fas fa-magnet"></i>
+                            </div>
+                            <h3>Mágneses terápia</h3>
+                            <p>Beágyazott mágnesek javítják a vérkeringést és így az oxigénellátását a sejteknek, csökkentik a fájdalmat.</p>
+                            <div class="tech-specs">
+                                <div class="spec-item">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>Javítja a vérkeringást</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-heartbeat"></i>
+                                    <span>Segít a fáradtság csökkentésében</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="details-card">
+                            <div class="details-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3>Negatív ionok</h3>
+                            <p>Csökkentik a stresszt és javítják a hangulatot a test természetes elektromos mezeje integritásának megőrzésével és feltöltésével.</p>
+                            <ul class="benefits-list">
+                                <li><i class="fas fa-check"></i> Energiaszint növelése</li>
+                                <li><i class="fas fa-check"></i> Stressz csökkentése</li>
+                                <li><i class="fas fa-check"></i> Jó közérzet elősegítése</li>
+                            </ul>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="details-card">
+                            <div class="details-icon">
+                                <i class="fas fa-thermometer-half"></i>
+                            </div>
+                            <h3>Infravörös pontok</h3>
+                            <p>Támogatják a relaxációt és a keringést.</p>
+                            <ul class="benefits-list">
+                                <li><i class="fas fa-check"></i> Enyhíti az izomfeszültséget és elősegíti a relaxációt</li>
+                                <li><i class="fas fa-check"></i> Elősegíti a vérerek tágulását</li>
+                                <li><i class="fas fa-check"></i> Serkenti a sejtek anyagcseréjét</li>
+                            </ul>
+                        </div>
+
+                        <!-- Card 5 -->
+                        <div class="details-card">
+                            <div class="details-icon">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <h3>Germánium pontok</h3>
+                            <p>Támogatják az általános jólétet ionkibocsátással.</p>
+                            <ul class="benefits-list">
+                                <li><i class="fas fa-check"></i> Segít a szervezet egyensúlyának helyreállításában</li>
+                                <li><i class="fas fa-check"></i> Energetizálhatja a szervezetet</li>
+                                <li><i class="fas fa-check"></i> Védelem a negatív környezeti hatásokkal szemben</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Buy Now Button -->
+            <div class="section-buy-now">
+                <a href="#order-now" id="sectionBuyNow" class="buy-now-btn">Megveszem Most</a>
+            </div>
+            
+            <!-- Interactive Product Features -->
+            <section class="product-features">
+                <div class="container">
+                    <h2 class="section-title">Termék jellemzői</h2>
+                    <div class="feature-container">
+                        <div class="product-image-wrapper">
+                            <!-- Product Image -->
+                            <img src="assets/EnergiX/Argentum/Argentum, háttér nélkül-1000w.webp" alt="Argentum karkötő részletes nézet" class="featured-image">
+                            
+                            <!-- Feature Dots Container -->
+                            <div class="feature-dots-container">
+                                <!-- Feature Dots with Horizontal Lines -->
+                                <div class="feature-dot" data-feature="clasp" data-positions='{"argentum": {"top": "30%", "left": "49%", "lineDir": "right", "lineLength": 80}, "eter": {"top": "35%", "left": "40%", "lineDir": "right", "lineLength": 80}, "zafir": {"top": "42%", "left": "50%", "lineDir": "right", "lineLength": 80}}'>
+                                    <div class="feature-line"></div>
+                                    <div class="feature-label">Erős biztonsági csat</div>
+                                </div>
+                                
+                                <div class="feature-dot" data-feature="magnet" data-positions='{"argentum": {"top": "50%", "left": "32%", "lineDir": "right", "lineLength": 80}, "eter": {"top": "49%", "left": "32%", "lineDir": "right", "lineLength": 80}, "zafir": {"top": "49%", "left": "25%", "lineDir": "left", "lineLength": 60}}'>
+                                    <div class="feature-line"></div>
+                                    <div class="feature-label">Neodímium mágnes</div>
+                                </div>
+                                
+                                <div class="feature-dot" data-feature="infrared" data-positions='{"argentum": {"top": "43%", "left": "39%", "lineDir": "right", "lineLength": 80}, "eter": {"top": "63%", "left": "22%", "lineDir": "right", "lineLength": 80}, "zafir": {"top": "42%", "left": "25%", "lineDir": "left", "lineLength": 60}}'>
+                                    <div class="feature-line"></div>
+                                    <div class="feature-label">Infravörös pontok</div>
+                                </div>
+
+                                <div class="feature-dot" data-feature="germanium" data-positions='{"argentum": {"top": "65%", "left": "22%", "lineDir": "right", "lineLength": 80}, "eter": {"top": "56%", "left": "26%", "lineDir": "right", "lineLength": 80}, "zafir": {"top": "48%", "left": "32%", "lineDir": "right", "lineLength": 80}}'>
+                                    <div class="feature-line"></div>
+                                    <div class="feature-label">Germánium pontok</div>
+                                </div>
+
+                                <div class="feature-dot" data-feature="negative ions" data-positions='{"argentum": {"top": "58%", "left": "26%", "lineDir": "right", "lineLength": 80}, "eter": {"top": "70%", "left": "19%", "lineDir": "right", "lineLength": 80}, "zafir": {"top": "41%", "left": "32%", "lineDir": "top", "lineLength": 80}}'>
+                                    <div class="feature-line"></div>
+                                    <div class="feature-label">Negatív ionok</div>
+                                </div>
+                                <div class="feature-dot" data-feature="material" data-positions='{"argentum": {"top": "58%", "left": "65%", "lineDir": "right", "lineLength": 80}, "eter": {"top": "50%", "left": "70%", "lineDir": "right", "lineLength": 80}, "zafir": {"top": "62%", "left": "56%", "lineDir": "right", "lineLength": 80}}'>
+                                    <div class="feature-line"></div>
+                                    <div class="feature-label">Prémium anyagok</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Text Fields -->
+                            <div class="text-fields-container">
+                                <!-- Left side text fields -->
+                                <div class="image-text-field left-field top-field feature-text" data-feature="material">
+                                    <div class="text-field-content">
+                                        <div class="feature-emoji">🪨</div>
+                                        <div class="text-field-title">Színtiszta Vörösréz a Jobb Egészségügyi Hatásért</div>
+                                        <div class="text-field-desc">Karkötőnk 99,9% tisztaságú vörösrézből készült, hogy maximalizáljuk a réz jótékony hatásait, és könnyen felszívódhasson.</div>
+                                    </div>
+                                </div>
+                                <div class="image-text-field left-field bottom-field feature-text" data-feature="negative ions">
+                                    <div class="text-field-content">
+                                        <div class="feature-emoji">⚡</div>
+                                        <div class="text-field-title">Kényelmes, stílusos viselet</div>
+                                        <div class="text-field-desc">Könnyű és kényelmes, észre sem veszed, hogy rajtad van. Dizájnja pedig minden alkalomra </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Right side text fields -->
+                                <div class="image-text-field right-field top-field feature-text" data-feature="magnet">
+                                    <div class="text-field-content">
+                                        <div class="feature-emoji">🏃</div>
+                                        <div class="text-field-title">Véráramlás gyorsító mágnesek</div>
+                                        <div class="text-field-desc">Fájdalomcsillapító és fáradtságcsökkentő hatású beágyazott 3500 Gauss neodímium ritkaföldfém mágnesek.</div>
+                                    </div>
+                                </div>
+                                <div class="image-text-field right-field bottom-field feature-text" data-feature="infrared">
+                                    <div class="text-field-content">
+                                        <div class="feature-emoji">🔥</div>
+                                        <div class="text-field-title">Infravörös Technológia</div>
+                                        <div class="text-field-desc">Az infravörös sugárzást kibocsátó vörös pontok magas minőségű kerámia alapanyagból készültek, amik hatékonyan verik vissza a test által kisugárzott.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Megveszem Most Button -->
+                    <div class="feature-buy-now">
+                        <a href="#order-now" id="featureBuyNow" class="feature-buy-now-btn">Megveszem Most</a>
+                    </div>
+                </div>
+                    </div>
+                </div>
+
+            </section>
+            
+            <section id="related-products" class="related-products">
+                <div class="container">
+                    <h2>További Termékeink</h2>
+                    <div class="related-products-grid" id="relatedProducts">
+                        <!-- Related products will be loaded here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- GYIK Section -->
+            <section class="faq-section">
+                <div class="container">
+                    <h2 class="section-title">GYIK</h2>
+                    <div class="faq-container">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Mennyi idő alatt érkezik meg a rendelésem?</span>
+                                <span class="faq-icon">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>A szállítási idő 2-5 munkanap Magyarországon belül. A pontos szállítási idő a kiválasztott szállítási módtól és a rendelés időpontjától függ.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Hogyan nyitható ki a karkötő csatja?</span>
+                                <span class="faq-icon">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>A karkötő mágneses csatja biztonságos és elegáns, de elsőre egy kicsit szokatlan lehet a nyitása. Így csináld:</p>
+                                <ol style="padding-left: 30px; margin: 15px 0;">
+                                    <li style="margin-bottom: 10px;">Fogd meg a karkötőt a bal kezeddel, és a mutatóujjaddal csúsztasd a karkötő alá (úgy, hogy az ujjad a csat közelébe kerüljön).</li>
+                                    <li style="margin-bottom: 10px;">Ezután a hüvelykujjaddal finoman nyomd el magadtól a csat felső részét.</li>
+                                    <li style="margin-bottom: 10px;">A két ujj ellentétes irányú mozdulatával a csat könnyedén kipattan.</li>
+                                </ol>
+                                <p><strong>💡 Tipp:</strong> Ha új a karkötő, a csat egy picit feszes lehet, de néhány használat után már sokkal könnyebben nyílik.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Milyen fizetési módok állnak rendelkezésre?</span>
+                                <span class="faq-icon">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Elfogadunk bankkártyás fizetést és átutalást. A bankkártyás fizetések biztonságos, titkosított kapcsolaton keresztül történnek.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Milyen a visszaküldés és a visszavásárlás politikája?</span>
+                                <span class="faq-icon">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>A megrendelt termékeket 30 napon belül visszaküldheti, ha azok eredeti csomagolásukban, érintetlen állapotban vannak. A visszaküldés költsége a megrendelőt terheli.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Mik a karkötők anyagai?</span>
+                                <span class="faq-icon">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Karkötőink prémium minőségű anyagokból készülnek, beleértve a tiszta rezet, acélt és titánt, illetve a különböző pontokat. Minden anyag kiváló minőségű és tartós használatra készült.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Hogyan kell tisztítani és karbantartani a karkötőt?</span>
+                                <span class="faq-icon">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>A karkötő tisztításához használjon puha, száraz rongyot. Kerülje a kemény kémiai tisztítószerek használatát. A rezes karkötők idővel természetes patinát kaphatnak, ami különleges varázst kölcsönöz a darabnak.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blog Section -->
+            <section class="blog-section">
+                <div class="container">
+                    <h2 class="section-title">Hasznos cikkek</h2>
+                    <div class="blog-carousel">
+                        <button class="carousel-arrow prev-arrow" aria-label="Previous">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-arrow next-arrow" aria-label="Next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="blog-grid">
+                        <!-- Blog Post 1 -->
+                        <article class="blog-card">
+                            <div class="blog-image">
+                                <img src="assets/EnergiX/Blog/kőszobor-blog_500w.webp" alt="Réz karkötő az ősi szobron" class="blog-thumbnail">
+                            </div>
+                            <div class="blog-content">
+                                <h3>🧡 A Réz Jótékony Hatásai</h3>
+                                <p>Fedezd fel a réz titkait és mit tanít az alternatív gyógyászat.</p>
+                                <a href="blog/rez-alternativ-gyogyaszatban.html" class="read-more">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+
+                        <!-- Blog Post 2 -->
+                        <article class="blog-card">
+                            <div class="blog-image">
+                                <img src="assets/EnergiX/Blog/egyensuly-kep-blog_500w.webp" alt="Egészséges életmód" class="blog-thumbnail">
+                            </div>
+                            <div class="blog-content">
+                                <h3>6 egyszerű tipp az egészséges életmódhoz</h3>
+                                <p>Kis változtatások, nagy hatások - hogyan kezdj el egészségesebben élni.</p>
+                                <a href="blog/egeszseges-eletmod.html" class="read-more">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+
+                        <!-- Blog Post 3 -->
+                        <article class="blog-card">
+                            <div class="blog-image">
+                                <img src="assets/EnergiX/Blog/5karkötő_500w.webp" alt="Termékajánló" class="blog-thumbnail">
+                            </div>
+                            <div class="blog-content">
+                                <h3>Melyik karkötő illik hozzád a legjobban?</h3>
+                                <p>Segítünk megtalálni a számodra legmegfelelőbb karkötőt stílusod és igényeid alapján.</p>
+                                <a href="blog/termekajanlo.html" class="read-more">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+
+                        <!-- Blog Post 4 -->
+                        <article class="blog-card">
+                            <div class="blog-image">
+                                <img src="assets/EnergiX/Blog/nyersrez-blog_500w.webp" alt="Réz a gyógyászatban" class="blog-thumbnail">
+                            </div>
+                            <div class="blog-content">
+                                <h3>Réz a gyógyászatban: Mit mond az orvostudomány?</h3>
+                                <p>Fedezd fel a réz gyógyító hatásait és hogyan használják a modern orvostudományban.</p>
+                                <a href="blog/rez-gyogyaszatban.html" class="read-more">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div> <!-- Close main container -->
+    </main>
+    
+    <!-- Load product data first -->
+    <script src="product-data.js"></script>
+    
+    <!-- Then load the main script -->
+    <script src="script.js"></script>
+    <!-- Initialize the page after all scripts are loaded -->
+    <script>
+        // Wait for the DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Debug: Check if products data is loaded
+            console.log('Product data loaded:', window.products ? 'Yes' : 'No');
+            if (window.products) {
+                console.log('Available product IDs:', Object.keys(window.products));
+            }
+            
+            // Get product ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('product');
+            console.log('Current product ID from URL:', productId);
+            
+            // Initialize the page
+            if (typeof initializePage === 'function') {
+                console.log('Calling initializePage...');
+                initializePage();
+            } else {
+                console.error('initializePage function not found');
+            }
+            
+            // Manually initialize product page if needed
+            if (productId && window.products && window.products[productId]) {
+                console.log('Product found in data:', window.products[productId].name);
+                if (typeof initProductPage === 'function') {
+                    console.log('Calling initProductPage...');
+                    initProductPage(productId);
+                }
+            } else if (productId) {
+                console.error('Product not found in data:', productId);
+            } else {
+                console.error('No product ID found in URL');
+            }
+        });
+    </script>
+
+<footer id="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>Kapcsolat</h4>
+            <ul>
+                <li><a href="irj_nekunk.html">Írj nekünk!</a></li>
+                <li><a href="gyik.html">GYIK</a></li>
+            </ul>
+            <p class="footer-email">info@energix.hu</p>
+        </div>
+        <div class="footer-section">
+            <h4>Kövess minket</h4>
+            <div class="social-links">
+                <a href="https://www.facebook.com/sanobeleco" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/sanobeleco/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/EnergixWear" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter"></i></a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h4>Információk</h4>
+            <ul>
+                <li><a href="szallitas.html">Szállítási információk</a></li>
+                <li><a href="visszaru.html">Visszárú feltételek</a></li>
+                <li><a href="aszf.html">ÁSZF</a></li>
+                <li><a href="adatvedelem.html">Adatvédelmi nyilatkozat</a></li>
+            </ul>
+        </div>
+        <div class="footer-section newsletter-section" style="margin-right: -150px;">
+            <h4 class="newsletter-title">Legyél te is ENERGI<img src="assets/favicon/favicon-96x96.png" alt="X" class="favicon"> wear tag!</h4>
+            <p>Iratkozz fel hírlevelünkre, és kapj 10% kedvezményt első vásárlásodra, valamint exkluzív ajánlatokat és újdonságokat!</p>
+            <form class="newsletter-form">
+                <div class="form-group">
+                    <input type="email" placeholder="E-mail címed" required>
+                    <button type="submit" class="btn-submit">Feliratkozom</button>
+                </div>
+                <p class="privacy-notice">Adatvédelmi tájékoztató: Az adataidat biztonságosan kezeljük, és bármikor leiratkozhatsz.</p>
+            </form>
+        </div>
+        <div class="footer-section">
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-bottom-content">
+            <p>&copy; 2025 EnergiX. Minden jog fenntartva.</p>
+            <div class="payment-methods">
+                <span>Fizetési módok: </span>
+                <i class="fab fa-cc-visa" title="Visa"></i>
+                <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                <i class="fab fa-cc-paypal" title="PayPal"></i>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay"></div>
+    
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Kosár</h3>
+            <button class="close-cart">&times;</button>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items will be added here dynamically -->
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>A kosár üres</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Összesen:</span>
+                <span class="total-amount">0 Ft</span>
+            </div>
+            <button class="checkout-btn">Tovább a fizetéshez</button>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notification-message"></span>
+    </div>
+
+    <!-- Load scripts -->
+    <script src="product-data.js"></script>
+    <script src="cart-functions.js"></script>
+
+    <script src="script.js"></script>
+
+    <script>
+    // Initialize when DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Product page DOM fully loaded');
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('product');
+    
+        if (!productId || !products[productId]) {
+            console.error('Invalid or missing product ID:', productId);
+            return;
+        }
+        
+        // Initialize interactive features (feature dots, etc.)
+        if (typeof initInteractiveFeatures === 'function') {
+            console.log('Initializing interactive features...');
+            initInteractiveFeatures();
+        } else {
+            console.error('initInteractiveFeatures function not found');
+        }
+        
+        // Initialize product page
+        if (typeof initProductPage === 'function') {
+            console.log('Initializing product page for:', productId);
+            initProductPage(productId);
+            
+            // Load related products after a short delay to ensure DOM is ready
+            setTimeout(() => {
+                if (typeof loadRelatedProducts === 'function') {
+                    console.log('Loading related products...');
+                    loadRelatedProducts(productId);
+                } else {
+                    console.error('loadRelatedProducts function not found');
+                }
+            }, 100);
+        } else {
+            console.error('initProductPage function not found');
+        }
+        
+        // Initialize cart
+        if (typeof initCart === 'function') {
+            console.log('Initializing cart...');
+            initCart();
+        } else {
+            console.error('initCart function not found');
+        }
+        
+        // Initialize cart event listeners if not already initialized
+        if (typeof setupEventListeners === 'function') {
+            setupEventListeners();
+        }
+    });
+</script>
+</body>
+</html>
