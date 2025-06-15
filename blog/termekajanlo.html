@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melyik karkötő illik hozzád a legjobban? - EnergiX</title>
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon/web-app-manifest-192x192.png">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .blog-post {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .blog-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .blog-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .blog-meta {
+            color: #777;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+        
+        .blog-featured-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .blog-content {
+            line-height: 1.8;
+            color: #444;
+        }
+        
+        .blog-content h2 {
+            color: #333;
+            margin: 40px 0 20px;
+            font-size: 1.8rem;
+        }
+        
+        .blog-content h3 {
+            color: #444;
+            margin: 30px 0 15px;
+            font-size: 1.4rem;
+        }
+        
+        .blog-content p {
+            margin-bottom: 20px;
+        }
+        
+        .blog-content ul, 
+        .blog-content ol {
+            margin-bottom: 25px;
+            padding-left: 25px;
+        }
+        
+        .blog-content li {
+            margin-bottom: 10px;
+        }
+        
+        .back-to-blog {
+            display: inline-block;
+            margin: 50px 0 10px 0;
+            color: #7ed957;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .back-to-blog:hover {
+            color: #6bc84d;
+        }
+        
+        .back-to-blog i {
+            margin-right: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-to-blog:hover i {
+            transform: translateX(-5px);
+        }
+        
+        .product-comparison {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .product-comparison th, 
+        .product-comparison td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .product-comparison th {
+            background-color: #7ed957;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .product-comparison tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .product-comparison tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .product-name {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .btn-buy {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: #7ed957;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-buy:hover {
+            background-color: #6bc84d;
+        }
+        
+        @media (max-width: 768px) {
+            .blog-post {
+                padding: 30px 15px;
+            }
+            
+            .blog-title {
+                font-size: 2rem;
+            }
+            
+            .blog-content h2 {
+                font-size: 1.6rem;
+            }
+            
+            .blog-content h3 {
+                font-size: 1.3rem;
+            }
+            
+            .product-comparison {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="../index.html" class="logo-link">
+                <img src="../assets/Logó/Canva_wear_vágott.webp" alt="EnergiX Logo" class="logo-image">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Főoldal</a></li>
+                <li class="nav-dropdown">
+                    <a href="../index.html#products" class="nav-link">Termékeink <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="../product.html?product=argentum">Argentum Karkötő</a>
+                        <a href="../product.html?product=eter">Éter Karkötő</a>
+                        <a href="../product.html?product=zafir">Zafír Karkötő</a>
+                    </div>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="#blog" class="nav-link">Blog <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="rez-alternativ-gyogyaszatban.html">A Réz Jótékony Hatásai</a>
+                        <a href="egeszseges-eletmod.html">6 Tipp az Egészséges Életmódhoz</a>
+                        <a href="termekajanlo.html">Melyik Karkötő Illik Hozzád?</a>
+                        <a href="rez-gyogyaszatban.html">Réz a Gyógyászatban</a>
+                    </div>
+                </li>
+                <li><a href="#footer">Kapcsolat</a></li>
+                <li class="cart-container">
+                    <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                    <span class="cart-count">0</span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="blog-post">
+        <div class="container">
+            <a href="#" onclick="history.back(); return false;" class="back-to-blog">
+                <i class="fas fa-arrow-left"></i> Vissza az oldalra
+            </a>
+            
+            <!-- Cart Overlay -->
+            <div class="cart-overlay"></div>
+            
+            <!-- Cart Sidebar -->
+            <div class="cart-sidebar">
+                <div class="cart-header">
+                    <h3>Kosár</h3>
+                    <button class="close-cart">&times;</button>
+                </div>
+                <div class="cart-items">
+                    <!-- Cart items will be added here dynamically -->
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>A kosár üres</p>
+                    </div>
+                </div>
+                <div class="cart-footer">
+                    <div class="cart-total">
+                        <span>Összesen:</span>
+                        <span class="total-amount">0 Ft</span>
+                    </div>
+                    <a href="#" id="checkout-link" class="checkout-btn">Tovább a fizetéshez</a>
+                </div>
+            </div>
+            
+            <!-- Notification -->
+            <div id="notification" class="notification">
+                <i class="fas fa-check-circle"></i>
+                <span id="notification-message"></span>
+            </div>
+            
+            <article>
+                <div class="blog-post-content">
+                    <h1 class="blog-title">Melyik karkötő illik hozzád a legjobban?</h1>
+                    <div class="blog-meta">
+                        <time datetime="2025-06-04">2025. június 4.</time>
+                    </div>
+                    <img src="../assets/EnergiX/Blog/egyensuly-kep-blog_1000w.webp" alt="Karkötők összehasonlítása" class="blog-featured-image">
+                
+                <div class="blog-content">
+                    <p>Válaszd ki a számodra legmegfelelőbb karkötőt az alábbi útmutatás segítségével! Minden egyes modellünk egyedi anyagokból és tervezéssel készül, hogy megfeleljen különböző igényeknek és stílusoknak.</p>
+                    
+                    <h2>Karkötők összehasonlítása</h2>
+                    
+                    <table class="product-comparison">
+                        <thead>
+                            <tr>
+                                <th>Modell</th>
+                                <th>Anyag</th>
+                                <th>Jellemzők</th>
+                                <th>Ár</th>
+                                <th>Művelet</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="product-name">Argentum Karkötő</td>
+                                <td>Ezüst, fehér üveg</td>
+                                <td>Elegáns, időtálló design, férfiaknak és nőknek egyaránt</td>
+                                <td>24 990 Ft</td>
+                                <td><a href="../product.html?product=argentum-1" class="btn-buy">Megnézem</a></td>
+                            </tr>
+                            <tr>
+                                <td class="product-name">Éter Karkötő</td>
+                                <td>Réz, kék kő</td>
+                                <td>Természetes hatás, egyedi megjelenés, energiatöltő</td>
+                                <td>22 990 Ft</td>
+                                <td><a href="../product.html?product=eter-1" class="btn-buy">Megnézem</a></td>
+                            </tr>
+                            <tr>
+                                <td class="product-name">Zafír Karkötő</td>
+                                <td>Fekete acél, fekete kő</td>
+                                <td>Modern, letisztult, mindennapi viseletre is ideális</td>
+                                <td>26 990 Ft</td>
+                                <td><a href="../product.html?product=zafir-1" class="btn-buy">Megnézem</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h2>Hogyan válassz?</h2>
+                    
+                    <h3>1. Stílus és megjelenés</h3>
+                    <p>Először fontold meg, milyen stílust szeretnél. Az egyszerű és letisztult vonalakat kedvelőknek az <strong>Argentum</strong> karkötő lehet a megfelelő, míg a természetes hatású kiegészítőket kedvelők az <strong>Éter</strong> karkötőt találhatják vonzónak. Ha modern, letisztult megjelenést szeretnél, akkor a <strong>Zafír</strong> lehet a te választásod.</p>
+                    
+                    <h3>2. Anyag és kényelem</h3>
+                    <p>Fontos szempont lehet az anyag is. A réz karkötők például idővel természetes patinát kapnak, ami egyedivé teszi azokat. Az acél változatok viszont hosszabb ideig tartanak meg eredeti színüket. Az ezüst kiváló választás azoknak, akik érzékenyek az ékszerekre, mivel hipoallergén tulajdonságú.</p>
+                    
+                    <h3>3. Méret és méretezés</h3>
+                    <p>Nézd meg a csuklód kerületét, és válaszd ki a megfelelő méretet. A legtöbb karkötőnk állítható, így biztosan kényelmesen fogod hordani. Ha bizonytalan vagy a méretben, kérj segítséget ügyfélszolgálatunktól, aki szívesen segít a megfelelő méret kiválasztásában.</p>
+                    
+                    <h3>4. Használat célja</h3>
+                    <p>Fontos, hogy milyen célra szeretnéd használni a karkötőt. Mindennapi viseletre, ünnepi alkalmakra, vagy esetleg sportoláshoz? Az <strong>Argentum</strong> karkötő elegáns megjelenése miatt kiváló választás ünnepi alkalmakra, míg a <strong>Zafír</strong> modell strapabíró kivitele miatt ideális lehet aktívabb életmódhoz.</p>
+                    
+                    <h2>Végső tippek</h2>
+                    <p>Ha továbbra sem vagy biztos a döntésben, itt van néhány további tipp:</p>
+                    <ul>
+                        <li>Nézd meg a karkötőt különböző fényviszonyok között</li>
+                        <li>Olvasd el a vásárlói véleményeket</li>
+                        <li>Nézd meg, hogyan illeszkedik a meglévő ékszereidhez</li>
+                        <li>Gondold át, milyen ruhákhoz szeretnéd viselni</li>
+                    </ul>
+                    <p>Ha bizonytalan vagy, kérj szakértői segítséget ügyfélszolgálatunktól, aki segít a legjobb választásban!</p>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="container">
+            <h2 class="section-title">Hasznos cikkek</h2>
+            <div class="blog-carousel">
+                <button class="carousel-arrow prev-arrow" aria-label="Previous">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-arrow next-arrow" aria-label="Next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="../assets/EnergiX/Blog/kőszobor-blog_500w.webp" alt="Réz karkötő az ősi szobron" class="blog-thumbnail">
+                    </div>
+                    <div class="blog-content">
+                        <h3>🧡 A Réz Jótékony Hatásai</h3>
+                        <p>Fedezd fel a réz titkait és mit tanít az alternatív gyógyászat.</p>
+                        <a href="rez-alternativ-gyogyaszatban.html" class="read-more">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="../assets/EnergiX/Blog/egyensuly-kep-blog_500w.webp" alt="Egészséges életmód" class="blog-thumbnail">
+                    </div>
+                    <div class="blog-content">
+                        <h3>6 egyszerű tipp az egészséges életmódhoz</h3>
+                        <p>Kis változtatások, nagy hatások - hogyan kezdj el egészségesebben élni.</p>
+                        <a href="egeszseges-eletmod.html" class="read-more">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="../assets/EnergiX/Blog/nyersrez-blog_500w.webp" alt="Réz a gyógyászatban" class="blog-thumbnail">
+                    </div>
+                    <div class="blog-content">
+                        <h3>Réz a gyógyászatban: Mit mond az orvostudomány?</h3>
+                        <p>Fedezd fel a réz gyógyító hatásait és hogyan használják a modern orvostudományban.</p>
+                        <a href="rez-gyogyaszatban.html" class="read-more">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Kapcsolat</h4>
+                <ul>
+                    <li><a href="../irj_nekunk.html">Írj nekünk!</a></li>
+                    <li><a href="../gyik.html">GYIK</a></li>
+                </ul>
+                <p class="footer-email">info@energix.hu</p>
+            </div>
+            <div class="footer-section">
+                <h4>Kövess minket</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/sanobeleco" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/sanobeleco/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/EnergixWear" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Információk</h4>
+                <ul>
+                    <li><a href="../szallitas.html">Szállítási információk</a></li>
+                    <li><a href="../visszaru.html">Visszárú feltételek</a></li>
+                    <li><a href="../aszf.html">ÁSZF</a></li>
+                    <li><a href="../adatvedelem.html">Adatvédelmi nyilatkozat</a></li>
+                </ul>
+            </div>
+            <div class="footer-section newsletter-section" style="margin-right: -150px;">
+                <h4 class="newsletter-title">Legyél te is ENERGI<img src="../assets/favicon/favicon-96x96.png" alt="X" class="favicon"> wear tag!</h4>
+                <p>Iratkozz fel hírlevelünkre, és kapj 10% kedvezményt első vásárlásodra, valamint exkluzív ajánlatokat és újdonságokat!</p>
+                <form class="newsletter-form">
+                    <div class="form-group">
+                        <input type="email" placeholder="E-mail címed" required>
+                        <button type="submit" class="btn-submit">Feliratkozom</button>
+                    </div>
+                    <p class="privacy-notice">Adatvédelmi tájékoztató: Az adataidat biztonságosan kezeljük, és bármikor leiratkozhatsz.</p>
+                </form>
+            </div>
+            <div class="footer-section">
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2025 EnergiX. Minden jog fenntartva.</p>
+                <div class="payment-methods">
+                    <span>Fizetési módok: </span>
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-cc-paypal" title="PayPal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../product-data.js"></script>
+    <script src="../cart-functions.js"></script>
+    <script src="../script.js"></script>
+    <script>
+        // Initialize cart
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize cart if function exists
+            if (typeof initCart === 'function') {
+                initCart();
+            }
+            
+            // Setup event listeners if function exists
+            if (typeof setupEventListeners === 'function') {
+                setupEventListeners();
+            }
+            
+            // Initialize cart count
+            updateCartCount();
+        });
+        
+        // Function to update cart count
+        function updateCartCount() {
+            try {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const cartCount = document.querySelector('.cart-count');
+                if (cartCount) {
+                    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                    cartCount.textContent = totalItems;
+                    cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
+                }
+            } catch (e) {
+                console.error('Error updating cart count:', e);
+            }
+        }
+    </script>
+</body>
+</html>
