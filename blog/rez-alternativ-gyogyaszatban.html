@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hogyan segíthet az energialánc egyensúlyba hozni a szervezetedet? - EnergiX</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon/web-app-manifest-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon/web-app-manifest-512x512.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="../assets/favicon/favicon.ico" type="image/x-icon">
+    <meta name="msapplication-TileImage" content="../assets/favicon/mstile-150x150.png">
+    <meta name="msapplication-config" content="../assets/favicon/browserconfig.xml">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- MailerLite Universal -->
+    <script>
+        (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+        .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+        n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+        (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+        ml('account', '1587381');
+    </script>
+    <!-- End MailerLite Universal -->
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .blog-post {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .blog-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .blog-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .blog-meta {
+            color: #777;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+        
+        .blog-featured-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            object-position: 50% 30%;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .blog-content {
+            line-height: 1.8;
+            color: #444;
+        }
+        
+        .blog-content h2 {
+            color: #333;
+            margin: 40px 0 20px;
+            font-size: 1.8rem;
+        }
+        
+        .blog-content h3 {
+            color: #444;
+            margin: 30px 0 15px;
+            font-size: 1.4rem;
+        }
+        
+        .blog-content p {
+            margin-bottom: 20px;
+        }
+        
+        .blog-content ul, 
+        .blog-content ol {
+            margin-bottom: 25px;
+            padding-left: 25px;
+        }
+        
+        .blog-content li {
+            margin-bottom: 10px;
+        }
+        
+        .back-to-blog {
+            display: inline-block;
+            margin: 50px 0 10px 0;
+            color: #7ed957;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .back-to-blog:hover {
+            color: #6bc84d;
+        }
+        
+        .back-to-blog i {
+            margin-right: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-to-blog:hover i {
+            transform: translateX(-5px);
+        }
+        
+        @media (max-width: 768px) {
+            .blog-post {
+                padding: 30px 15px;
+            }
+            
+            .blog-title {
+                font-size: 2rem;
+            }
+            
+            .blog-content h2 {
+                font-size: 1.6rem;
+            }
+            
+            .blog-content h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="../index.html" class="logo-link">
+                <img src="../assets/Logó/Canva_wear_vágott.webp" alt="EnergiX Logo" class="logo-image">
+            </a>
+            <button class="hamburger" aria-label="Menü">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+            <div class="nav-overlay"></div>
+            <ul class="nav-links">
+                <li class="nav-dropdown">
+                    <a href="#products" class="nav-link">Termékeink <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="../product.html?product=argentum">Argentum Karkötő</a>
+                        <a href="../product.html?product=eter">Éter Karkötő</a>
+                        <a href="../product.html?product=zafir">Zafír Karkötő</a>
+                    </div>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="#blog" class="nav-link">Blog <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="../blog/rez-alternativ-gyogyaszatban.html">A Réz Jótékony Hatásai</a>
+                        <a href="../blog/egeszseges-eletmod.html">6 Tipp az Egészséges Életmódhoz</a>
+                        <a href="../blog/termekajanlo.html">Melyik Karkötő Illik Hozzád?</a>
+                        <a href="../blog/rez-gyogyaszatban.html">Réz a Gyógyászatban</a>
+                    </div>
+                </li>
+                <li><a href="#footer">Kapcsolat</a></li>
+            </ul>
+            <button class="cart-container">
+                <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                <span class="cart-count">0</span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="blog-post">
+        <div class="container">
+            <a href="#" onclick="history.back(); return false;" class="back-to-blog">
+                <i class="fas fa-arrow-left"></i> Vissza az oldalra
+            </a>
+            
+            <article>
+                <div class="blog-post-content">
+                    <h1 class="blog-title">🧡 A Réz Jótékony Hatásai az Alternatív Gyógyászat Szemszögéből</h1>
+                    <div class="blog-meta">
+                        <time datetime="2025-06-10">2025. június 10.</time>
+                        <span class="read-time">4 perc olvasás</span>
+                    </div>
+                    <img src="../assets/EnergiX/Blog/kőszobor-blog_1200w.webp" alt="Ősi szobor réz karkötővel" class="blog-featured-image">
+                
+                <div class="blog-content">
+                    <p>A réz már évezredek óta jelen van az emberi kultúrában – nemcsak mint hasznos fém, hanem mint gyógyító erőforrás is. Az alternatív gyógyászat szerint a réz olyan természetes anyag, amely kiegyensúlyozza a test energiáit, támogatja a vérkeringést, és segíthet különböző gyulladásos panaszok enyhítésében. De vajon mire alapozzák mindezt?</p>
+
+                    <h2>🔬 Miért tartják hasznosnak a rezet?</h2>
+                    <p>A réz egy nélkülözhetetlen nyomelem, amely kis mennyiségben megtalálható a szervezetünkben is. Az alternatív nézőpont szerint a réz:</p>
+                    <ul>
+                        <li>Segíti a szervezet energetikai egyensúlyát</li>
+                        <li>Fokozza a vitalitást és a fizikai állóképességet</li>
+                        <li>Támogatja az ízületek rugalmasságát</li>
+                        <li>Enyhítheti az ízületi fájdalmakat, gyulladásokat</li>
+                        <li>Segíthet a fejfájás és a stressz oldásában mágneses réz kiegészítők formájában</li>
+                    </ul>
+
+                    <h2>🧲 Réz és mágnes: dupla hatás?</h2>
+                    <p>Az alternatív gyógyászatban sokan a rezet mágneses elemekkel kombinálva használják, például karkötők formájában. A mágnesesség hatását a vérkeringés élénkítésével hozzák összefüggésbe, míg a réz természetes gyulladáscsökkentő tulajdonságairól beszélnek. Sokan tapasztalnak enyhülést például reumás panaszok vagy fáradékonyság esetén.</p>
+
+                    <div class="blog-image">
+                        <img src="../assets/EnergiX/Éter/Aether-300w.webp" alt="Réz karkötő az egészséges életmód kiegészítőjeként" class="blog-main-image">
+                        <p class="image-caption">Az Éter karkötő réz elemei hozzájárulhatnak az egészséges életmód kiegészítéséhez</p>
+                    </div>
+
+                    <h2>👋 Hogyan viseljünk réz karkötőt?</h2>
+                    <p>A hagyomány szerint a réz közvetlenül a bőrrel érintkezve fejti ki leginkább hatását. Ezért ajánlott:</p>
+                    <ul>
+                        <li>Folyamatosan viselni (legalább napi több órán át)</li>
+                        <li>A csuklóra vagy alkarra helyezni – ahol a véráramlás jelentős</li>
+                        <li>Tisztán tartani a karkötőt, hogy a fém ne veszítse el fényét</li>
+                    </ul>
+
+                    <div class="notice-box">
+                        <h3>⚠️ Fontos megjegyzés</h3>
+                        <p>Bár sokan számolnak be pozitív tapasztalatokról, fontos tudni, hogy a réz karkötők nem helyettesítik az orvosi kezelést, és hatásosságukat a tudomány még nem igazolta egyértelműen. Inkább egy kiegészítő megoldásként érdemes rájuk tekinteni, amely segíthet a testi-lelki harmónia támogatásában.</p>
+                    </div>
+
+                    <h2>Összegzés</h2>
+                    <p>A réz az alternatív gyógyászat szerint nemcsak esztétikus, hanem energetizáló hatással is bír. Akár a vitalitásod növelése, akár az ízületeid támogatása a cél, egy stílusos réz karkötő nemcsak ékszerként, hanem a természet erejének hordozójaként is megállja a helyét.</p>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="container">
+            <h2 class="section-title">Hasznos cikkek</h2>
+            <div class="blog-carousel">
+                <button class="carousel-arrow prev-arrow" aria-label="Previous">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-arrow next-arrow" aria-label="Next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="blog-grid">
+                <!-- Blog Post 2 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="../assets/EnergiX/Blog/egyensuly-kep-blog_500w.webp" alt="Egészséges életmód" class="blog-thumbnail">
+                    </div>
+                    <div class="blog-content">
+                        <h3>6 egyszerű tipp az egészséges életmódhoz</h3>
+                        <p>Kis változtatások, nagy hatások - hogyan kezdj el egészségesebben élni.</p>
+                        <a href="egeszseges-eletmod.html" class="read-more">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="../assets/EnergiX/blog/5karkötő_500w.webp" alt="Termékajánló" class="blog-thumbnail">
+                    </div>
+                    <div class="blog-content">
+                        <h3>Melyik karkötő illik hozzád a legjobban?</h3>
+                        <p>Segítünk megtalálni a számodra legmegfelelőbb karkötőt stílusod és igényeid alapján.</p>
+                        <a href="termekajanlo.html" class="read-more">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 4 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="../assets/EnergiX/Blog/nyersrez-blog_500w.webp" alt="Réz a gyógyászatban" class="blog-thumbnail">
+                    </div>
+                    <div class="blog-content">
+                        <h3>Réz a gyógyászatban: Mit mond az orvostudomány?</h3>
+                        <p>Fedezd fel a réz gyógyító hatásait és hogyan használják a modern orvostudományban.</p>
+                        <a href="rez-gyogyaszatban.html" class="read-more">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-section" id="contact">
+                <h4>Kapcsolat</h4>
+                <ul>
+                    <li><a href="../irj_nekunk.html">Írj nekünk!</a></li>
+                    <li><a href="../gyik.html">GYIK</a></li>
+                </ul>
+                <p class="footer-email">info@energix.hu</p>
+            </div>
+            <div class="footer-section" id="social-links">
+                <h4>Kövess minket</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/sanobeleco" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/sanobeleco/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/EnergixWear" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section" id="information">
+                <h4>Információk</h4>
+                <ul>
+                    <li><a href="../szallitas.html">Szállítási információk</a></li>
+                    <li><a href="../visszaru.html">Visszárú feltételek</a></li>
+                    <li><a href="../aszf.html">ÁSZF</a></li>
+                    <li><a href="../adatvedelem.html">Adatvédelmi nyilatkozat</a></li>
+                </ul>
+            </div>
+            <div class="footer-section newsletter-section" style="margin-right: -150px;">
+                <h4 class="newsletter-title">Legyél te is ENERGI<img src="../assets/favicon/favicon-96x96.png" alt="X" class="favicon"> wear tag!</h4>
+                <p>Iratkozz fel hírlevelünkre, és kapj 10% kedvezményt első vásárlásodra, valamint exkluzív ajánlatokat és újdonságokat!</p>
+                <form class="newsletter-form">
+                    <div class="ml-embedded" data-form="U6JoAG"></div>
+                    <p class="privacy-notice">Adatvédelmi tájékoztató: Az adataidat biztonságosan kezeljük, és bármikor leiratkozhatsz.</p>
+                </form>
+            </div>
+            <div class="footer-section">
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2025 EnergiX. Minden jog fenntartva.</p>
+                <div class="payment-methods">
+                    <span>Fizetési módok: </span>
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-cc-paypal" title="PayPal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay"></div>
+            
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Kosár</h3>
+            <button class="close-cart">&times;</button>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items will be added here dynamically -->
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>A kosár üres</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Összesen:</span>
+                <span class="total-amount">0 Ft</span>
+            </div>
+            <a href="#" id="checkout-link" class="checkout-btn">Tovább a fizetéshez</a>
+        </div>
+    </div>
+    
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notification-message"></span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../product-data.js"></script>
+    <script src="../cart-functions.js"></script>
+    <script src="../script.js"></script>
+
+    <!-- GDPR Cookie Consent Banner -->
+    <div id="cookie-consent-banner" class="cookie-consent-banner" role="dialog" aria-label="Cookie beállítások" aria-describedby="cookie-consent-description">
+        <div class="cookie-consent-content">
+            <div class="cookie-consent-text" id="cookie-consent-description">
+                <p>A weboldal sütiket (cookie-kat) használ a megfelelő működés, a felhasználói élmény javítása és a forgalom elemzése érdekében. A "Mindent elfogadok" gombra kattintva hozzájárul a sütik használatához, vagy testreszabhatja beállításait a "Beállítások" gombbal.</p>
+                <button class="cookie-consent-toggle" aria-expanded="false">További információ a sütikről</button>
+                
+                <div id="cookie-consent-details" class="cookie-consent-details">
+                    <h4>Milyen típusú sütiket használunk?</h4>
+                    <p><strong>Szükséges sütik:</strong> Ezek elengedhetetlenek a weboldal megfelelő működéséhez. Ilyen például a bejelentkezési adatok tárolása vagy a kosár tartalma.</p>
+                    <p><strong>Preferenciák:</strong> Emlékeznek a beállításokra, például a nyelvi beállításokra vagy a régebben megtekintett termékekre.</p>
+                    <p><strong>Statisztikai sütik:</strong> Segítenek nekünk megérteni, hogyan használják a látogatók a weboldalt, és hogyan javíthatjuk annak működését.</p>
+                    <p><strong>Marketing sütik:</strong> A felhasználók tevékenységének nyomon követésére szolgálnak, hogy relevánsabb hirdetéseket jeleníthessünk meg Önnek.</p>
+                    <p>További információt a <a href="adatvedelem.html">Adatvédelmi tájékoztatónkban</a> talál.</p>
+                </div>
+            </div>
+            <div class="cookie-consent-buttons">
+                <button id="cookie-consent-accept" class="cookie-consent-btn cookie-consent-accept">Mindent elfogadok</button>
+                <button id="cookie-consent-settings" class="cookie-consent-btn cookie-consent-settings">Beállítások</button>
+            </div>
+        </div>
+    
+        <!-- Cookie Settings Modal (initially hidden) -->
+        <div id="cookie-settings-modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 10000; padding: 20px; overflow-y: auto;">
+            <div style="background: white; max-width: 700px; margin: 40px auto; padding: 30px; border-radius: 8px; position: relative;">
+                <button id="cookie-settings-close" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer;">&times;</button>
+            
+                <h2 style="margin-top: 0; color: #2c3e50;">Cookie beállítások</h2>
+                <p style="margin-bottom: 20px;">Itt testreszabhatja, hogy milyen típusú sütiket engedélyez a weboldalon. A szükséges sütik mindig engedélyezve vannak, mivel ezek nélkül a weboldal nem működne megfelelően.</p>
+            
+                <div style="margin-bottom: 20px; padding: 15px; background: #f9f9f9; border-radius: 6px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <div>
+                            <label for="cookie-necessary" style="font-weight: bold; cursor: pointer;">Szükséges sütik</label>
+                            <p style="margin: 5px 0 0 0; font-size: 14px; color: #555;">Ezek a sütik elengedhetetlenek a weboldal működéséhez.</p>
+                        </div>
+                        <div>
+                            <label class="switch">
+                                <input type="checkbox" id="cookie-necessary" checked disabled>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; margin: 20px 0 10px 0;">
+                    <div>
+                        <label for="cookie-preferences" style="font-weight: bold; cursor: pointer;">Preferenciák</label>
+                        <p style="margin: 5px 0 0 0; font-size: 14px; color: #555;">Ezek a sütik emlékeznek a beállításokra.</p>
+                    </div>
+                    <div>
+                        <label class="switch">
+                            <input type="checkbox" id="cookie-preferences" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; margin: 20px 0 10px 0;">
+                    <div>
+                        <label for="cookie-statistics" style="font-weight: bold; cursor: pointer;">Statisztikák</label>
+                        <p style="margin: 5px 0 0 0; font-size: 14px; color: #555;">Ezek segítenek a weboldal használatának elemzésében.</p>
+                    </div>
+                    <div>
+                        <label class="switch">
+                            <input type="checkbox" id="cookie-statistics" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; margin: 20px 0 0 0;">
+                    <div>
+                        <label for="cookie-marketing" style="font-weight: bold; cursor: pointer;">Marketing</label>
+                        <p style="margin: 5px 0 0 0; font-size: 14px; color: #555;">Ezek a sütik a személyre szabott hirdetések megjelenítéséhez szükségesek.</p>
+                    </div>
+                    <div>
+                        <label class="switch">
+                            <input type="checkbox" id="cookie-marketing" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+                <button id="cookie-settings-cancel" style="padding: 10px 20px; background: #f0f0f0; border: none; border-radius: 4px; cursor: pointer;">Mégsem</button>
+                <button id="cookie-settings-save" style="padding: 10px 20px; background: #7ed957; color: #2c3e50; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;">Beállítások mentése</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add this after other scripts -->
+    <script src="js/cookie-consent.js"></script>
+
+    <style>
+    /* Styles for the cookie settings modal */
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 24px;
+    }
+    
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 24px;
+    }
+    
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+    
+    input:checked + .slider {
+        background-color: #7ed957;
+    }
+    
+    input:focus + .slider {
+        box-shadow: 0 0 1px #7ed957;
+    }
+    
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+    
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 24px;
+    }
+    
+    .slider.round:before {
+        border-radius: 50%;
+    }
+    </style>
+
+    <script>
+        // Handle cookie settings modal
+        document.addEventListener('DOMContentLoaded', function() {
+            const settingsBtn = document.getElementById('cookie-consent-settings');
+            const settingsModal = document.getElementById('cookie-settings-modal');
+            const closeBtn = document.getElementById('cookie-settings-close');
+            const cancelBtn = document.getElementById('cookie-settings-cancel');
+            const saveBtn = document.getElementById('cookie-settings-save');
+        
+            if (settingsBtn && settingsModal) {
+                settingsBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    settingsModal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+        
+            function closeModal() {
+                settingsModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        
+            if (closeBtn) closeBtn.addEventListener('click', closeModal);
+            if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+        
+            if (saveBtn) {
+                saveBtn.addEventListener('click', function() {
+                    const necessary = document.getElementById('cookie-necessary').checked;
+                    const preferences = document.getElementById('cookie-preferences').checked;
+                    const statistics = document.getElementById('cookie-statistics').checked;
+                    const marketing = document.getElementById('cookie-marketing').checked;
+                
+                    CookieConsent.saveConsent({
+                        necessary: necessary,
+                        preferences: preferences,
+                        statistics: statistics,
+                        marketing: marketing,
+                        date: new Date().toISOString()
+                    });
+                
+                    closeModal();
+                });
+            }
+        
+            // Close modal when clicking outside the content
+            window.addEventListener('click', function(event) {
+                if (event.target === settingsModal) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
