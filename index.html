@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnergiX wear - Mágneses karkötők</title>
+    
+    <script>
+        // Set base path based on current location
+        const isBlogPage = window.location.pathname.includes('blog/');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update all relative paths
+            document.querySelectorAll('img, link[rel="stylesheet"], script[src]').forEach(el => {
+                const attr = el.tagName === 'IMG' ? 'src' : 
+                            el.tagName === 'LINK' ? 'href' : 'src';
+                const path = el.getAttribute(attr);
+                
+                // Skip absolute URLs and data URIs
+                if (!path || path.startsWith('http') || path.startsWith('data:') || path.startsWith('//')) {
+                    return;
+                }
+                
+                // Add ../ prefix for blog pages, ./ for root pages
+                const newPath = (isBlogPage && !path.startsWith('../') ? '../' : '') + path.replace(/^\.?\/?/, '');
+                el.setAttribute(attr, newPath);
+            });
+        });
+    </script>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/web-app-manifest-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon/web-app-manifest-512x512.png">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico" type="image/x-icon">
+    <meta name="msapplication-TileImage" content="assets/favicon/mstile-150x150.png">
+    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .blog-section {
+            background: transparent;
+        }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- MailerLite Universal -->
+    <script>
+        (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+        .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+        n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+        (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+        ml('account', '1587381');
+    </script>
+    <!-- End MailerLite Universal -->
+
+</head>
+<body class="main-page">
+    <header>
+        <nav>
+            <a href="index.html" class="logo-link">
+                <img src="assets/Logó/Canva_wear_vágott.webp" alt="EnergiX Logo" class="logo-image">
+            </a>
+            <button class="hamburger" aria-label="Menü">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+            <div class="nav-overlay"></div>
+            <ul class="nav-links">
+                <li><a href="#philosophy">Filozófiánk</a></li>
+                <li class="nav-dropdown">
+                    <a href="#products" class="nav-link">Termékeink <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="product.html?product=argentum">Argentum Karkötő</a>
+                        <a href="product.html?product=eter">Éter Karkötő</a>
+                        <a href="product.html?product=zafir">Zafír Karkötő</a>
+                    </div>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="#blog" class="nav-link">Blog <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="blog/rez-alternativ-gyogyaszatban.html">A Réz Jótékony Hatásai</a>
+                        <a href="blog/egeszseges-eletmod.html">6 Tipp az Egészséges Életmódhoz</a>
+                        <a href="blog/termekajanlo.html">Melyik Karkötő Illik Hozzád?</a>
+                        <a href="blog/rez-gyogyaszatban.html">Réz a Gyógyászatban</a>
+                    </div>
+                </li>
+                <li><a href="#footer">Kapcsolat</a></li>
+            </ul>
+            <button class="cart-container">
+                <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                <span class="cart-count">0</span>
+            </button>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content-wrapper">
+            <div class="hero-content">
+                <h1>Köszöntünk az EnergiX wear-nél!</h1>
+                <p>Fedezd fel a természet harmóniáját a karkötőinkben!</p>
+                <div class="scroll-icon">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section id="philosophy" class="philosophy-section">
+        <div class="container">
+            <h2>Filozófiánk</h2>
+            <div class="philosophy-content">
+                <p>Az EnergiX-nél luxusérzetet kínáló karkötőket tervezünk, amelyeket kiváló minőségű anyagokból készítünk, hogy stílust és eleganciát biztosítsanak. Ezek a karkötők a tenger és a vízesések bőségében megtalálható természet negatív ionjait hasznosítják, hogy energiádat összhangba hozzák a föld természetes ritmusával, így egész nap feltöltenek téged. Hogy télen melegség, nyári melegben hűvösebb érzés járjon át, ezt biztosítják a hozzátett infravörös modulok. A beépített mágnesek javítják a vérkeringést, elősegítve az általános jólétet. Minden darabot kézzel készítünk gondoskodással, kifejezve elkötelezettségünket a természet harmóniája iránt.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="categories-background"></div>
+    <section id="products" class="categories">
+        <h2 class="collections-title">Termékeink</h2>
+        <div class="category-grid">
+            <div class="category-card" data-category="eter">
+                <div class="category-image balance"></div>
+                <h3>Éter</h3>
+                <p>Állítsd helyre belső békédet</p>
+                <a href="product.html?product=eter" class="product-details-btn">Tovább a termékre</a>
+            </div>
+            <div class="category-card" data-category="zafir">
+                <div class="category-image energy"></div>
+                <h3>Zafír</h3>
+                <p>Érezd a súlytalanságot!</p>
+                <a href="product.html?product=zafir" class="product-details-btn">Tovább a termékre</a>
+            </div>
+            <div class="category-card" data-category="argentum">
+                <div class="category-image focus"></div>
+                <h3>Argentum</h3>
+                <p>Válaszd az eleganciát!</p>
+                <a href="product.html?product=argentum" class="product-details-btn">Tovább a termékre</a>
+            </div>
+        </div>
+
+    </section>
+
+    </main>
+
+    <!-- Blog Section -->
+    <section class="blog-section" id="blog">
+        <div class="container">
+            <h2>Hasznos cikkek</h2>
+            <div class="blog-carousel">
+                <button class="carousel-arrow prev-arrow" aria-label="Previous">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-arrow next-arrow" aria-label="Next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="assets/EnergiX/Blog/kőszobor-blog_500w.webp" alt="Réz karkötő az ősi szobron" class="blog-thumbnail">
+                    </div>
+                    <div class="blog-content">
+                        <h3>🧡 A Réz Jótékony Hatásai</h3>
+                        <p>Fedezd fel a réz titkait és mit tanít az alternatív gyógyászat.</p>
+                        <a href="blog/rez-alternativ-gyogyaszatban.html" class="read-more">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="assets/EnergiX/Blog/egyensuly-kep-blog_500w.webp" alt="Egészséges életmód" class="blog-thumbnail">
+                    </div>
+                    <div class="blog-content">
+                        <h3>6 egyszerű tipp az egészséges életmódhoz</h3>
+                        <p>Kis változtatások, nagy hatások - hogyan kezdj el egészségesebben élni.</p>
+                        <a href="blog/egeszseges-eletmod.html" class="read-more">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="assets/EnergiX/Blog/5karkötő_500w.webp" alt="Termékajánló" class="blog-thumbnail">
+                    </div>
+                    <div class="blog-content">
+                        <h3>Melyik karkötő illik hozzád a legjobban?</h3>
+                        <p>Segítünk megtalálni a számodra legmegfelelőbb karkötőt stílusod és igényeid alapján.</p>
+                        <a href="blog/termekajanlo.html" class="read-more">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 4 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="assets/EnergiX/Blog/nyersrez-blog_500w.webp" alt="Réz a gyógyászatban" class="blog-thumbnail">
+                    </div>
+                    <div class="blog-content">
+                        <h3>Réz a gyógyászatban: Mit mond az orvostudomány?</h3>
+                        <p>Fedezd fel a réz gyógyító hatásait és hogyan használják a modern orvostudományban.</p>
+                        <a href="blog/rez-gyogyaszatban.html" class="read-more">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="values-section">
+        <div class="values">
+            <div class="value-card">
+                <i class="fas fa-truck"></i>
+                <h3>Ingyenes kiszállítás</h3>
+                <p>Minden rendelésre ingyenes kiszállítás</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-flag"></i>
+                <h3>100% Magyar vállalkozás</h3>
+                <p>Helyi szakértelemmel és szeretettel készítjük termékeinket</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>30 napos elégedettségi garancia</h3>
+                <p>30 napon belül visszaadjuk a termék árát</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-section" id="contact">
+                <h4>Kapcsolat</h4>
+                <ul>
+                    <li><a href="irj_nekunk.html">Írj nekünk!</a></li>
+                    <li><a href="gyik.html">GYIK</a></li>
+                </ul>
+                <p class="footer-email">info@energix.hu</p>
+            </div>
+            <div class="footer-section" id="social-links">
+                <h4>Kövess minket</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/sanobeleco" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/sanobeleco/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/EnergixWear" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section" id="information">
+                <h4>Információk</h4>
+                <ul>
+                    <li><a href="szallitas.html">Szállítási információk</a></li>
+                    <li><a href="visszaru.html">Visszárú feltételek</a></li>
+                    <li><a href="aszf.html">ÁSZF</a></li>
+                    <li><a href="adatvedelem.html">Adatvédelmi nyilatkozat</a></li>
+                </ul>
+            </div>
+            <div class="footer-section newsletter-section" style="margin-right: -150px;">
+                <h4 class="newsletter-title">Legyél te is ENERGI<img src="assets/favicon/favicon-96x96.png" alt="X" class="favicon"> wear tag!</h4>
+                <p>Iratkozz fel hírlevelünkre, és kapj 10% kedvezményt első vásárlásodra, valamint exkluzív ajánlatokat és újdonságokat!</p>
+                <form class="newsletter-form">
+                    <div class="ml-embedded" data-form="U6JoAG"></div>
+                    <p class="privacy-notice">Adatvédelmi tájékoztató: Az adataidat biztonságosan kezeljük, és bármikor leiratkozhatsz.</p>
+                </form>
+            </div>
+            <div class="footer-section">
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2025 EnergiX. Minden jog fenntartva.</p>
+                <div class="payment-methods">
+                    <span>Fizetési módok: </span>
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-cc-paypal" title="PayPal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Popup -->
+    <div id="popup-overlay" class="popup-overlay">
+        <div class="popup-content">
+            <button class="popup-close" id="popup-close">&times;</button>
+            <div class="popup-inner">
+                <div class="popup-image">
+                    <img src="assets/Popup/Popup.webp" alt="Special offer" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="popup-details">
+                    <div class="popup-header" id="popup-message">
+                        <h3>Csatlakozzon EnergiX wear tagságunkhoz!</h3>
+                    </div>
+                    <div class="popup-body">
+                        <p id="popup-szöveg-1">Különleges ajánlat csak Önnek! 🎁</p>
+                        <p id="popup-szöveg-2">Iratkozzon fel hírlevelünkre és kapjon 10% kedvezményt első vásárlására!</p>
+                        <div class="ml-embedded" data-form="gMpsHR"></div>
+                        <p class="privacy-notice">Bármikor leiratkozhat. Adatait biztonságosan kezeljük. Részletek: Adatvédelmi nyilatkozat</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay"></div>
+    
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Kosár</h3>
+            <button class="close-cart">&times;</button>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items will be added here dynamically -->
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>A kosár üres</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Összesen:</span>
+                <span class="total-amount">0 Ft</span>
+            </div>
+            <a href="#" id="checkout-link" class="checkout-btn">Tovább a fizetéshez</a>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notification-message"></span>
+    </div>
+
+    <!-- GDPR Cookie Consent Banner -->
+    <div class="cookie-consent-banner" role="dialog" aria-label="Cookie beállítások" aria-describedby="cookie-consent-description">
+        <div class="cookie-consent-content">
+            <div class="cookie-consent-text">
+                <p>A weboldal sütiket (cookie-kat) használ a megfelelő működés, a felhasználói élmény javítása és a forgalom elemzése érdekében. A "Mindent elfogadok" gombra kattintva hozzájárul a sütik használatához, vagy testreszabhatja beállításait a "Beállítások" gombbal.</p>
+                <button class="cookie-consent-toggle" aria-expanded="false">További információ a sütikről</button>
+                
+                <div class="cookie-consent-details">
+                    <h4>Milyen típusú sütiket használunk?</h4>
+                    <p><strong>Szükséges sütik:</strong> Ezek elengedhetetlenek a weboldal megfelelő működéséhez. Ilyen például a bejelentkezési adatok tárolása vagy a kosár tartalma.</p>
+                    <p><strong>Preferenciák:</strong> Emlékeznek a beállításokra, például a nyelvi beállításokra vagy a régebben megtekintett termékekre.</p>
+                    <p><strong>Statisztikai sütik:</strong> Segítenek nekünk megérteni, hogyan használják a látogatók a weboldalt, és hogyan javíthatjuk annak működését.</p>
+                    <p><strong>Marketing sütik:</strong> A felhasználók tevékenységének nyomon követésére szolgálnak, hogy relevánsabb hirdetéseket jeleníthessünk meg Önnek.</p>
+                    <p>További információt a <a href="adatvedelem.html">Adatvédelmi tájékoztatónkban</a> talál.</p>
+                </div>
+            </div>
+            <div class="cookie-consent-buttons">
+                <button class="cookie-consent-btn cookie-consent-accept">Mindent elfogadok</button>
+                <button class="cookie-consent-btn cookie-consent-settings">Beállítások</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Cookie Settings Modal (initially hidden) -->
+    <div class="cookie-settings-modal" style="display: none;">
+        <div class="cookie-settings-overlay"></div>
+        <div class="cookie-settings-container">
+            <button type="button" class="cookie-settings-close" aria-label="Close cookie settings">&times;</button>
+            <h2>Cookie beállítások</h2>
+            <p class="cookie-settings-description">
+                Itt testreszabhatja, hogy milyen típusú sütiket engedélyez a weboldalon. A szükséges sütik mindig engedélyezve vannak, mivel ezek nélkül a weboldal nem működne megfelelően.
+            </p>
+            
+            <div class="cookie-settings-options">
+                <div class="cookie-option">
+                    <div class="cookie-option-text">
+                        <h3>Szükséges sütik</h3>
+                        <p>Ezek a sütik elengedhetetlenek a weboldal működéséhez.</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="cookie-option-toggle" data-type="necessary" checked disabled>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                
+                <div class="cookie-option">
+                    <div class="cookie-option-text">
+                        <h3>Preferenciák</h3>
+                        <p>Emlékeznek a beállításokra, például a nyelvi beállításokra vagy a régebben megtekintett termékekre.</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="cookie-option-toggle" data-type="preferences" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                
+                <div class="cookie-option">
+                    <div class="cookie-option-text">
+                        <h3>Statisztikai sütik</h3>
+                        <p>Segítenek nekünk megérteni, hogyan használják a látogatók a weboldalt, és hogyan javíthatjuk annak működését.</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="cookie-option-toggle" data-type="statistics" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                
+                <div class="cookie-option">
+                    <div class="cookie-option-text">
+                        <h3>Marketing sütik</h3>
+                        <p>A felhasználók tevékenységének nyomon követésére szolgálnak, hogy relevánsabb hirdetéseket jeleníthessünk meg Önnek.</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="cookie-option-toggle" data-type="marketing">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="cookie-settings-buttons">
+                <button type="button" class="cookie-settings-btn cookie-settings-cancel">Mégsem</button>
+                <button type="button" class="cookie-settings-btn cookie-settings-save">Beállítások mentése</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Load data and cart functions first -->
+    <script src="product-data.js"></script>
+    <script src="cart-functions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
