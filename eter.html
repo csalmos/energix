@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éter Karkötő - EnergiX</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/web-app-manifest-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon/web-app-manifest-512x512.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico" type="image/x-icon">
+    <meta name="msapplication-TileImage" content="assets/favicon/mstile-150x150.png">
+    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- MailerLite Universal -->
+    <script>
+        (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+        .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+        n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+        (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+        ml('account', '1587381');
+    </script>
+    <!-- End MailerLite Universal -->
+
+    <!-- Stamped.io Script -->
+    <script type="text/javascript" src="https://cdn1.stamped.io/files/widget.min.js"></script>
+    <script type="text/javascript">//<![CDATA[ 
+        StampedFn.init({ apiKey: 'pubkey-D27JQ0f9L5spx7kO4pBvnA7z38x02O', sId: '247220' }); 
+    // ]]></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+    
+        // Default consent modes
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'personalization_storage': 'denied',
+            'functionality_storage': 'denied',
+            'security_storage': 'granted'
+    });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the product ID from the URL or page
+            const productId = window.location.pathname.split('/').pop().replace('.html', '');
+            const product = window.products[productId];
+            
+            if (!product) {
+                console.error('Product not found in product data');
+                return;
+            }
+        
+            const mainImage = document.getElementById('productImage');
+            const thumbnailsContainer = document.getElementById('productThumbnails');
+            
+            if (!mainImage || !thumbnailsContainer) {
+                console.error('Required elements not found');
+                return;
+            }
+        
+            // Clear any existing thumbnails
+            thumbnailsContainer.innerHTML = '';
+        
+            // Create thumbnails from product data
+            product.images.forEach((image, index) => {
+                const thumbnailWrapper = document.createElement('div');
+                thumbnailWrapper.className = 'thumbnail';
+                
+                const img = document.createElement('img');
+                img.src = image.thumbnail; // This should be the small thumbnail version
+                img.alt = `${product.name} - ${index + 1}. kép`;
+                img.dataset.full = image.full; // This is the full-size version
+                
+                // Set first image as main
+                if (index === 0) {
+                    mainImage.src = image.full; // Use full-size for main image
+                    mainImage.alt = `${product.name} - Fő kép`;
+                    thumbnailWrapper.classList.add('active');
+                }
+                
+                // Add click handler
+                thumbnailWrapper.addEventListener('click', function() {
+                    // Update main image to full-size version
+                    mainImage.style.opacity = '0';
+                    setTimeout(() => {
+                        mainImage.src = this.querySelector('img').dataset.full;
+                        mainImage.alt = this.querySelector('img').alt;
+                        mainImage.style.opacity = '1';
+                    }, 150);
+                    
+                    // Update active state
+                    document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+                
+                thumbnailWrapper.appendChild(img);
+                thumbnailsContainer.appendChild(thumbnailWrapper);
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WQ8XN3PC"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header>
+        <div class="header-banner">
+            <div class="countdown-container">
+                <div class="countdown-text">Akció vége: <span id="countdown"></span></div>
+            </div>
+            <div class="container">
+                <span>Nyári leárazás! 30% kedvezmény minden termékre!</span>
+            </div>
+        </div>
+        <nav>
+            <a href="/" class="logo-link">
+                <img src="assets/Logó/Canva_wear_vágott.webp" alt="EnergiX Logo" class="logo-image">
+            </a>
+            <button class="hamburger" aria-label="Menü">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+            <div class="nav-overlay"></div>
+            <ul class="nav-links">
+                <li class="nav-dropdown">
+                    <a href="#products" class="nav-link">Termékeink <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="/eter.html">Éter Karkötő</a>
+                        <a href="/argentum.html">Argentum Karkötő</a>
+                        <a href="/zafir.html">Zafír Karkötő</a>
+                    </div>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="#blog" class="nav-link">Blog <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="/blog/rez-titkai-alternatív-megkozelitesbol.html">Réz Titkai Alternatív Megközelítésből</a>
+                        <a href="/blog/egeszseges-eletmod.html">6 Tipp az Egészséges Életmódhoz</a>
+                        <a href="/blog/termekajanlo.html">Melyik Karkötő Illik Hozzád?</a>
+                        <a href="/blog/rez-orvoslasban.html">Réz az Orvoslásban</a>
+                    </div>
+                </li>
+                <li><a href="#footer">Kapcsolat</a></li>
+            </ul>
+            <button class="cart-container snipcart-checkout">
+                <div class="cart-icon"><i class="fas fa-shopping-cart"></i></div>
+                <span class="cart-count">0</span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="product-page">
+        <div class="container">
+            <div class="product-container">
+                <div class="product-gallery">
+                    <div class="main-image" id="mainImageContainer">
+                        <img id="productImage" src="" alt="Termék kép" class="product-main-image">
+                    </div>
+                    <div class="thumbnails" id="productThumbnails">
+                        <!-- Thumbnails will be added here by JavaScript -->
+                    </div>
+                </div>
+                <div class="product-details">
+                    <h1 id="productTitle">Éter Karkötő</h1>
+                    <p class="product-tagline">Hozd vissza az energiát és a harmóniát a mindennapjaidba!</p>
+                    <div class="price-container">
+                        <div class="price" id="productPrice">26500 Ft</div>
+                        <span class="sale-price" id="salePrice">18550 Ft</span>
+                        <span class="discount-badge">-30%</span>
+                    </div>
+                    <span class="stamped-product-reviews-badge stamped-main-badge" data-id="101"></span>
+                    <div id="productReview"></div>
+                    <div class="description">
+                        <p id="productDescription"></p>
+                    </div>
+                    <div class="stock-status">
+                        <span class="stock-dot">
+                            <div class="pulse-ring"></div>
+                        </span>
+                        <span id="stocktext">Raktáron: csak egy pár darab maradt</span>
+                    </div>
+                    <div class="button-group">
+                        <button 
+                            id="addToCart" 
+                            class="add-to-cart-btn snipcart-add-item"
+                            data-item-id="101"
+                            data-item-name="Éter Karkötő"
+                            data-item-price="26500"
+                            data-item-url="/eter"
+                            data-item-image="https://energixwear.hu/assets/EnergiX/Eter/Eter-hatterrel-200w.webp"
+                            data-item-description=""
+                        >
+                            <i class="fas fa-shopping-cart"></i> Kosárba rakom
+                        </button>
+                        <button 
+                            id="buyNow" 
+                            class="buy-now-btn snipcart-add-item snipcart-checkout"
+                            data-item-id="101"
+                            data-item-name="Éter Karkötő"
+                            data-item-price="26500"
+                            data-item-url="/eter"
+                            data-item-image="https://energixwear.hu/assets/EnergiX/Eter/Eter-hatterrel-200w.webp"
+                            data-item-description=""
+                            onclick="setTimeout(function(){ document.querySelector('.snipcart-button-primary').click(); }, 1000);"
+                >
+                            <i class="fas fa-bolt"></i> Megveszem most
+                        </button>
+                    </div>
+                    <div class="review-rating" style="font-size: 13px;">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span style="margin: 0 5px;">4.9</span>
+                        <span class="review-count">100+ értékelés alapján</span>
+                    </div>
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-undo"></i>
+                            <span>30 Napos Pénzvisszatérítés</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>12 Hónapos Cseregarancia</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-truck"></i>
+                            <span>Ingyenes Kiszállítás</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-ruler"></i>
+                            <span>Állítható Méret</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-tabs">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="description">Leírás</button>
+                    <button class="tab-btn" data-tab="specs">Specifikációk</button>
+                    <button class="tab-btn" data-tab="reviews">Értékelések</button>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="description">
+                        <h3>Termék leírása</h3>
+                        <div id="productFullDescription"></div>
+                    </div>
+                    <div class="tab-pane" id="specs">
+                        <h3>Műszaki adatok</h3>
+                        <table class="specs-table">
+                            <tr>
+                                <th>Anyag</th>
+                                <td id="material">99,99% tiszta réz</td>
+                            </tr>
+                            <tr>
+                                <th>Méret</th>
+                                <td id="size">Állítható méret, 22,5 cm hosszú (23 belső szem, 1 csat)</td>
+                            </tr>
+                            <tr>
+                                <th>Súly</th>
+                                <td id="weight">32,5 g</td>
+                            </tr>
+                            <tr>
+                                <th>Szín</th>
+                                <td id="color">Réz színű</td>
+                            </tr>
+                            <tr>
+                                <th>Vízállóság</th>
+                                <td id="waterResistance">Igen, de hosszabb vízben tartásra elszíneződhet</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tab-pane" id="reviews">
+                        <h3>Vélemények</h3>
+                        <div class="reviews-container">
+                            <div id="reviews-tab" class="tab-content">
+                                <div id="stamped-main-widget" 
+                                    data-product-id="101" 
+                                    data-name="Éter Karkötő" 
+                                    data-url="https://energix.hu/eter" 
+                                    data-image-url="https://energix.hu/assets/EnergiX/Eter/Eter-hatterrel-200w.webp" 
+                                    data-description="Az Éter karkötő a természet erejét hozza el csuklódra: réz alapanyagával, mágneses technológiájával, ionokkal, infravörös pontokkal és germániummal hozzájárulhat a jó közérzetedhez, miközben elegáns stílust biztosít." 
+                                    data-product-sku="eter"> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Scroll Down CTA -->
+                    <div class="scroll-down-cta">
+                        <div class="scroll-text">Tudj meg többet a hatásáról</div>
+                        <div class="scroll-arrow">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Product Features -->
+            <section class="product-features">
+                <div class="container">
+                    <h2 class="section-title">Technológia, energia, életmód</h2>
+                    <div class="feature-container">
+                        <div class="product-image-wrapper">
+                            <div class="featured-image-container">
+                                <!-- Product Image -->
+                                <img src="assets/EnergiX/Eter/Éter-háttérrel-1200w.webp" alt="Éter karkötő részletes nézet" class="featured-image">
+                            
+                                <div class="feature-dots-container">
+                                    <!-- Feature Dot 1 -->
+                                    <div class="feature-dot line-right" style="top: 35%; left: 40%;" data-feature="clasp">
+                                        <div class="feature-line line-right" style="--line-length: 80px;"></div>
+                                        <div class="feature-label label-right">Erős biztonsági csat</div>
+                                    </div>
+                                    
+                                    <!-- Feature Dot 2 -->
+                                    <div class="feature-dot line-right" style="top: 49%; left: 32%;" data-feature="magnet">
+                                        <div class="feature-line line-right" style="--line-length: 80px;"></div>
+                                        <div class="feature-label label-right">Neodímium mágnes</div>
+                                    </div>
+                                    
+                                    <!-- Feature Dot 3 -->
+                                    <div class="feature-dot line-right" style="top: 63%; left: 22%;" data-feature="infrared">
+                                        <div class="feature-line line-right" style="--line-length: 80px;"></div>
+                                        <div class="feature-label label-right">Infravörös pontok</div>
+                                    </div>
+                                    
+                                    <!-- Feature Dot 4 -->
+                                    <div class="feature-dot line-right" style="top: 56%; left: 26%;" data-feature="germanium">
+                                        <div class="feature-line line-right" style="--line-length: 80px;"></div>
+                                        <div class="feature-label label-right">Germánium pontok</div>
+                                    </div>
+                                    
+                                    <!-- Feature Dot 5 -->
+                                    <div class="feature-dot line-right" style="top: 70%; left: 19%;" data-feature="negative-ions">
+                                        <div class="feature-line line-right" style="--line-length: 80px;"></div>
+                                        <div class="feature-label label-right">Negatív ionok</div>
+                                    </div>
+                                    
+                                    <!-- Feature Dot 6 -->
+                                    <div class="feature-dot line-right" style="top: 50%; left: 70%;" data-feature="premium">
+                                        <div class="feature-line line-right" style="--line-length: 80px;"></div>
+                                        <div class="feature-label label-right">99,99% tiszta réz</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Text Fields -->
+                            <div class="text-fields-container">
+                                <!-- Left side text fields -->
+                                <div class="image-text-field visible left-field top-field">
+                                    <div class="text-field-content">
+                                        <div class="feature-emoji">🪨</div>
+                                        <div class="text-field-title">PRÉMIUM VÖRÖSRÉZ: KIEMEL A TÖMEGBŐL</div>
+                                        <div class="text-field-desc">Valódi vörösréz, ami tartós és megőrzi természetes, fémes ragyogását.</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="image-text-field visible left-field bottom-field">
+                                    <div class="text-field-content">
+                                        <div class="feature-emoji">📏</div>
+                                        <div class="text-field-title">ERGONOMIKUS KIALAKÍTÁS ÉS ÁLLÍTHATÓ MÉRET</div>
+                                        <div class="text-field-desc">Kényelmes, csuklóra szabható viselet a tökéletes illeszkedésért.</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Right side text fields -->
+                                <div class="image-text-field visible right-field top-field">
+                                    <div class="text-field-content">
+                                        <div class="feature-emoji">🏃</div>
+                                        <div class="text-field-title">REJTETT PONTOK: ENERGIÁVAL TÖLTÖTT MINDENNAPOKÉRT</div>
+                                        <div class="text-field-desc">Beépített mágnesek segítik a belső harmóniát és a jobb közérzetet.</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="image-text-field visible right-field bottom-field">
+                                    <div class="text-field-content">
+                                        <div class="feature-emoji">🔒</div>
+                                        <div class="text-field-title">BIZTONSÁGOS ÉS STÍLUSOS CSAT</div>
+                                        <div class="text-field-desc">Erős csat garantálja a gondtalan viseletet, stílusos dizájnnal.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="product-details-section" style="margin-top: 150px;">
+                <div class="details-grid">
+                    <!-- Card 1 -->
+                    <div class="details-card">
+                        <div class="collapsed-content">
+                            <div class="details-icon">
+                                <i class="fas fa-magnet"></i>
+                            </div>
+                            <h3>Mágneses pontok - Energia</h3>
+                            <p>Mágneses pontok támogatják az <strong>energetikai egyensúlyt</strong>, a diszkrét elhelyezésük hozzájárul a <strong>dinamikusabb életérzéshez</strong>.</p>
+                            <div class="tech-specs">
+                                <div class="spec-item">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>Lendület a naphoz</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-heartbeat"></i>
+                                    <span>Sokan frissítő érzésről számolnak be viselés közben</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Card 2 -->
+                    <div class="details-card">
+                        <div class="collapsed-content">
+                            <div class="details-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3>Negatív ionok - Belső harmónia</h3>
+                            <p>A negatív ionok a <strong>természet egyedi elemei</strong> - vízesések, hegyvidéki levegő és nyugalmas terek - ihletet adnak, melyeket sokan <strong>kiegyensúlyozott viseletként</strong> élnek meg.</p>
+                            <ul class="benefits-list">
+                                <li><i class="fas fa-check"></i> Hozzájárulhat a kiegyensúlyozottabb hangulathoz</li>
+                                <li><i class="fas fa-check"></i> A jó közérzet érzetének támogatója</li>
+                                <li><i class="fas fa-check"></i> A belső egyensúly támogatója</li>
+                            </ul>
+                        </div>
+                    </div>
+        
+                    <!-- Card 3 -->
+                    <div class="details-card">
+                        <div class="collapsed-content">
+                            <div class="details-icon">
+                                <i class="fas fa-thermometer-half"></i>
+                            </div>
+                            <h3>Infravörös pontok - Ellazulás</h3>
+                            <p>Infravörös hatású betétek <strong>kényelmet</strong> nyújtanak, különleges <strong>komfortérzetet</strong> biztosítanak a karkötő viselőjének.</p>
+                            <ul class="benefits-list">
+                                <li><i class="fas fa-check"></i> A kényelem érzése</li>
+                                <li><i class="fas fa-check"></i> Nyugodtság elősegítése</li>
+                                <li><i class="fas fa-check"></i> A nyugodt pillanatok viselete</li>
+                            </ul>
+                        </div>
+                    </div>
+        
+                    <!-- Card 4 -->
+                    <div class="details-card">
+                        <div class="collapsed-content">
+                            <div class="details-icon">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <h3>Germánium pontok - Erő belülről</h3>
+                            <p>Germánium pontok kiegészítik a <strong>modern életmódot</strong> és támogatják a <strong>belső egyensúlyt</strong> és a <strong>teljesebb jóllét</strong> érzését.</p>
+                            <ul class="benefits-list">
+                                <li><i class="fas fa-check"></i> A belső egyensúlyi állapot támogatása</li>
+                                <li><i class="fas fa-check"></i> Tisztább energetikai környezet</li>
+                                <li><i class="fas fa-check"></i> Teljesebb közérzet élménye</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Product Materials Showcase Section -->
+            <section class="materials-showcase">
+                <div class="container">
+                    <h2 class="section-title">Prémium Anyagok megfizethető áron</h2>
+                    <div class="materials-container">
+                        <!-- Left side - Product Images -->
+                        <div class="materials-selector">
+                            <div class="material-option active" data-material="copper">
+                                <img src="/assets/EnergiX/Eter/Éter-vízesés-háttérrel-1200w.webp" alt="Réz anyag" class="material-image">
+                                <span class="material-name">Réz</span>
+                            </div>
+                            <div class="material-option" data-material="stainless">
+                                <img src="/assets/EnergiX/Argentum/Argentum-bársony-háttérrel-1000w.webp" alt="Rozsdamentes acél anyag" class="material-image">
+                                <span class="material-name">Rozsdamentes Acél</span>
+                            </div>
+                            <div class="material-option" data-material="titanium">
+                                <img src="/assets/EnergiX/Zafir/Zafír_csillag_háttér-700w.webp" alt="Titán anyag" class="material-image">
+                                <span class="material-name">Titán</span>
+                            </div>
+                        </div>
+
+                        <!-- Right side - Material Info -->
+                        <div class="material-info">
+                            <div class="material-content active" id="copper-info">
+                                <h3>Vörösréz ereje és eleganciája</h3>
+                                <p>Éter karkötőnk 99,99% tisztaságú vörösrézből készült. Ez a lenyűgöző fém nemcsak <strong>meleg, ragyogó színt</strong> és idővel egyedi patinát kölcsönöz viselőjének, hanem <strong>erős, tartós</strong> és bizonyos körülmények között <strong>antibakteriális tulajdonságokkal</strong> is rendelkezik. Könnyen karbantartható, egyszerűen áttörölhető.</p>
+                                <ul class="material-benefits">
+                                    <li>Tisztaság: Termékeinkhez 99,99% tisztaságú rezet használunk.</li>
+                                    <li>Könnyű karbantartás: A réz termékek eredeti fényességének megőrzéséhez időnként elegendő egy száraz, puha ronggyal áttörölni.</li>
+                                    <li>Erős és tartós anyag</li>
+                                    <li>Egyedi patinásodás idővel</li>
+                                </ul>
+                            </div>
+
+                            <div class="material-content" id="stainless-info">
+                                <h3>Rozsdamentes Acél: Időtálló Elegancia</h3>
+                                <p>Ékszerünk rozsdamentes acélból készült, mely kiemelkedően ellenáll a korróziónak és a rozsdának, így hosszú távon megőrzi eredeti szépségét. <strong>Vízálló</strong>, <strong>bőrbarát</strong> és <strong>könnyen tisztítható</strong>, így tökéletes társ a mindennapokra, modern és elegáns megjelenést kölcsönözve.</p>
+                                <ul class="material-benefits">
+                                    <li>Hosszú élettartam: Kivételesen ellenálló és időtálló anyag.</li>
+                                    <li>Vízálló és rozsdamentes: Alkalmas mindennapi viseletre.</li>
+                                    <li>Könnyű karbantartás: Egyszerűen tisztán tartható.</li>
+                                    <li>Bőrbarát és kényelmes: Sokan kedvelik viseletét.</li>
+                                    <li>Modern és elegáns: Stílusos és sokoldalú megjelenés.</li>
+                                </ul>
+                            </div>
+
+                            <div class="material-content" id="titanium-info">
+                                <h3>Titán: Ultrakönnyű és Allergénmentes Elegancia</h3>
+                                <p>Ékszereinkhez a <strong>titán</strong> az egyik <strong>legkönnyebb és legtartósabb</strong> fémet használjuk. Kiváló szilárdság-súly aránnyal és <strong>biokompatibilis</strong> (hipoallergén) tulajdonságával biztosítja a <strong>bőrbarát, alig érezhető viseletet</strong>. <strong>Vízálló</strong> és <strong>könnyen tisztítható</strong>, így gondtalan társad a mindennapokban.</p>
+                                <ul class="material-benefits">
+                                    <li>Rendkívül tartós és könnyű: Alig érezhető, ellenálló viselet.</li>
+                                    <li>Bőrbarát (hipoallergén): Nem okoz allergiás reakciót.</li>
+                                    <li>Kiemelkedő szilárdság: Nagy szilárdsága ellenére rendkívül könnyű.</li>
+                                    <li>Vízálló: Gondtalanul viselhető sportolás, zuhanyzás közben is.</li>
+                                    <li>Könnyen tisztítható: Fenntartása egyszerű.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reviews Section -->
+            <section class="review-section">
+                <div class="container">
+                    <h2 class="section-title">Rólunk mondták</h2>
+                    <div class="review-carousel">
+                        <button class="carousel-arrow prev-arrow" aria-label="Previous">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-arrow next-arrow" aria-label="Next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="review-grid">
+                        <!-- Review 1 -->
+                        <article class="review-card">
+                            <div class="review-content">
+                                <img src="assets/Velemenyek/magnetrx-rajongok/Best_Magnetic_bracelets_results_1_115x-100w.webp" alt="Kovács Anna" class="review-avatar">
+                                <div class="review-author">
+                                    <span class="author-name">K. Anna</span>
+                                    <span class="verified-buyer">✓ Hiteles vásárló</span>
+                                </div>
+                                <div class="review-rating">
+                                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                                </div>
+                                <p>Korábban is próbáltam hasonló kiegészítőket, de ez messze a legjobb! Kényelmes, stílusos, és érzem a hatását. Már egy hét után észrevehetően kevésbé fáj a csuklóm.</p>
+                            </div>
+                        </article>
+
+                        <!-- Review 2 -->
+                        <article class="review-card">
+                            <div class="review-content">
+                                <img src="assets/Velemenyek/magnetrx-rajongok/Best_Magnetic_bracelets_results_3_115x-100w.webp" alt="Nagy Péter" class="review-avatar">
+                                <div class="review-author">
+                                    <span class="author-name">N. Péter</span>
+                                    <span class="verified-buyer">✓ Hiteles vásárló</span>
+                                </div>
+                                <div class="review-rating">
+                                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                                </div>
+                                <p>Az anyagminőség kiváló, nem kopik, és stílusos. Mióta hordom, mintha kiegyensúlyozottabb lennék, és energikusabbnak érzem magam a napokban. Mindenkinek ajánlom!</p>
+                            </div>
+                        </article>
+
+                        <!-- Review 3 -->
+                        <article class="review-card">
+                            <div class="review-content">
+                                <img src="assets/Velemenyek/magnetrx-rajongok/Best_Magnetic_bracelets_results_8_115x-100w.webp" alt="Tóth Eszter" class="review-avatar">
+                                <div class="review-author">
+                                    <span class="author-name">T. Eszter</span>
+                                    <span class="verified-buyer">✓ Hiteles vásárló</span>
+                                </div>
+                                <div class="review-rating">
+                                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                                </div>
+                                <p>Gyönyörű kivitelezés, nagyon kényelmes viselet. Az elején szokatlan volt a mágneses rész, de hamar megszoktam. Azóta minden nap hordom, és valahogy más lett a közérzetem.</p>
+                            </div>
+                        </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="related-products" class="related-products">
+                <div class="container">
+                    <h2>További Termékeink</h2>
+                    <div class="related-products-grid" id="relatedProducts">
+                        <!-- Related products will be loaded here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- GYIK Section -->
+            <section class="faq-section">
+                <div class="container">
+                    <h2 class="section-title">GYIK</h2>
+                    <div class="faq-container">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Mennyi idő alatt érkezik meg a rendelésem?</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>A szállítási idő 1-2 munkanap Magyarországon belül, ha a termék raktáron van. Ha nincs raktáron, 7-14 munkanap. A pontos szállítási idő a kiválasztott szállítási módtól és a rendelés időpontjától függ.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Hogyan nyitható ki a karkötő csatja?</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>A karkötő mágneses csatja biztonságos és elegáns, de elsőre egy kicsit szokatlan lehet a nyitása. Így csináld:</p>
+                                <ol style="padding-left: 30px; margin: 15px 0;">
+                                    <li style="margin-bottom: 10px;">Ha jobb kezeden van a karkötő, fogd meg a karkötőt a csatnál a bal kezeddel, és a mutatóujjadat csúsztasd a karkötő alá (úgy, hogy az ujjad a csat alatt legyen).</li>
+                                    <li style="margin-bottom: 10px;">Ezután a hüvelykujjaddal finoman nyomd el magadtól a csat oldalsó részét.</li>
+                                    <li style="margin-bottom: 10px;">A két ujj ellentétes irányú mozdulatával a csat könnyedén kipattan. (Ez akkor van így, ha a csat kiálló oldala van lefele, ha fordítva van, akkor nehezebb.)</li>
+                                </ol>
+                                <p><strong>💡 Tipp:</strong> Ha új a karkötő, a csat egy picit feszes lehet, de néhány használat után már sokkal könnyebben nyílik.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Milyen fizetési módok állnak rendelkezésre?</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Elfogadunk bankkártyás fizetést, utánvétnél készpénzt is. A bankkártyás fizetések biztonságos, titkosított kapcsolaton keresztül történnek.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Milyen a visszaküldés és a visszavásárlás politikája?</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>A megrendelt termékeket 30 napon belül visszaküldheti, ha azok eredeti csomagolásukban, érintetlen állapotban vannak. A visszaküldés költsége a megrendelőt terheli.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Mik a karkötők anyagai?</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Karkötőink prémium minőségű anyagokból készülnek, beleértve a tiszta rezet, acélt és titánt, illetve a különböző pontokat. Minden anyag kiváló minőségű és tartós használatra készült.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Hogyan kell tisztítani és karbantartani a réz karkötőt?</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>A réz karkötő tisztításához használjon puha, száraz rongyot. Kerülje a kemény kémiai tisztítószerek használatát. A réz karkötők idővel természetes patinát kaphatnak, ami különleges varázst kölcsönöz a darabnak.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blog Section -->
+            <section class="blog-section">
+                <div class="container">
+                    <h2 class="section-title">Hasznos cikkek</h2>
+                    <div class="blog-carousel">
+                        <button class="carousel-arrow prev-arrow" aria-label="Previous">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-arrow next-arrow" aria-label="Next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="blog-grid">
+                        <!-- Blog Post 1 -->
+                        <article class="blog-card">
+                            <div class="blog-image">
+                                <img src="/assets/EnergiX/Blog/kőszobor-blog_500w.webp" alt="Réz karkötő az ősi szobron" class="blog-thumbnail">
+                            </div>
+                            <div class="blog-content">
+                                <h3>🧡 Réz Titkai Alternatív Megközelítésből</h3>
+                                <p>Fedezd fel a réz titkait és mit tanít az alternatív gyógyászat.</p>
+                                <a href="/blog/rez-titkai-alternatív-megkozelitesbol" class="read-more">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+
+                        <!-- Blog Post 2 -->
+                        <article class="blog-card">
+                            <div class="blog-image">
+                                <img src="assets/EnergiX/Blog/egyensuly-kep-blog_500w.webp" alt="Egészséges életmód" class="blog-thumbnail">
+                            </div>
+                            <div class="blog-content">
+                                <h3>6 egyszerű tipp az egészséges életmódhoz</h3>
+                                <p>Kis változtatások, nagy hatások - hogyan kezdj el egészségesebben élni.</p>
+                                <a href="blog/egeszseges-eletmod" class="read-more">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+
+                        <!-- Blog Post 3 -->
+                        <article class="blog-card">
+                            <div class="blog-image">
+                                <img src="assets/EnergiX/Blog/5karkötő_500w.webp" alt="Termékajánló" class="blog-thumbnail">
+                            </div>
+                            <div class="blog-content">
+                                <h3>Melyik karkötő illik hozzád a legjobban?</h3>
+                                <p>Segítünk megtalálni a számodra legmegfelelőbb karkötőt stílusod és igényeid alapján.</p>
+                                <a href="blog/termekajanlo" class="read-more">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+
+                        <!-- Blog Post 4 -->
+                        <article class="blog-card">
+                            <div class="blog-image">
+                                <img src="assets/EnergiX/Blog/nyersrez-blog_500w.webp" alt="Réz az orvoslásban" class="blog-thumbnail">
+                            </div>
+                            <div class="blog-content">
+                                <h3>Réz az orvoslásban: Mit mond az orvostudomány?</h3>
+                                <p>Fedezd fel a réz hasznos tulajdonságait és hogyan használják a modern orvostudományban.</p>
+                                <a href="blog/rez-orvoslasban" class="read-more">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div> <!-- Close main container -->
+    </main>
+
+    <section class="values-section">
+        <div class="values">
+            <div class="value-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>30 napos kockázatmentes próba</h3>
+                <p>Szeresd vagy visszafizetjük az árát</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-truck"></i>
+                <h3>Ingyenes kiszállítás</h3>
+                <p>Minden rendelésre ingyenes kiszállítás</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-flag"></i>
+                <h3>100% Magyar vállalkozás</h3>
+                <p>Helyileg kézzel és szeretettel csomagolva minden darab</p>
+            </div>
+        </div>
+    </section>
+
+<footer id="footer">
+    <div class="footer-content">
+        <div class="footer-section" id="contact">
+            <h4>Kapcsolat</h4>
+            <ul>
+                <li><a href="/irj_nekunk">Írjon nekünk!</a></li>
+                <li><a href="/gyik">GYIK</a></li>
+            </ul>
+            <p class="footer-email">info@energixwear.hu</p>
+        </div>
+        <div class="footer-section" id="information">
+            <h4>Információk</h4>
+            <ul>
+                <li><a href="/szallitas">Szállítási információk</a></li>
+                <li><a href="/visszaru">Visszárú feltételek</a></li>
+                <li><a href="/aszf">ÁSZF</a></li>
+                <li><a href="/adatvedelem">Adatvédelmi nyilatkozat</a></li>
+            </ul>
+        </div>
+        <div class="footer-section newsletter-section">
+            <h4 class="newsletter-title">Legyen Ön is ENERGI<img src="/assets/favicon/favicon-96x96.png" alt="X" class="favicon"> wear tag!</h4>
+            <p>Tartozzon VIP klubunkba, és szerezzen mellé 10% kedvezményt első vásárlására, valamint exkluzív ajánlatokat és újdonságokat!</p>
+            <form class="newsletter-form">
+                <div class="ml-embedded" data-form="U6JoAG"></div>
+                <p class="privacy-notice">Adatvédelmi tájékoztató: Az adataidat biztonságosan kezeljük, és bármikor leiratkozhatsz.</p>
+            </form>
+        </div>
+        <div class="footer-section">
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-bottom-content">
+            <p>&copy; 2025 EnergiX wear. Minden jog fenntartva.</p>
+            <div class="payment-methods">
+                <span>Fizetési módok: </span>
+                <i class="fab fa-cc-visa" title="Visa"></i>
+                <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Custom Popup -->
+    <div id="popup-overlay" class="popup-overlay">
+        <div class="popup-content">
+            <button class="popup-close" id="popup-close">&times;</button>
+            <div class="popup-inner">
+                <div class="popup-image">
+                    <img src="/assets/Popup/Popup.webp" alt="Special offer" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="popup-details">
+                    <div class="popup-header" id="popup-message">
+                        <h3>Csatlakozzon EnergiX wear tagságunkhoz!</h3>
+                    </div>
+                    <div class="popup-body">
+                        <p id="popup-szöveg-1">Különleges ajánlat csak Önnek! 🎁</p>
+                        <p id="popup-szöveg-2">Tartozzon VIP klubunkba és szerezzen mellé <span>10% kedvezményt</span> első vásárlására!</p>
+                        <div class="ml-embedded" data-form="gMpsHR"></div>
+                        <p class="privacy-notice">Bármikor leiratkozhat. Adatait biztonságosan kezeljük. Részletek: Adatvédelmi nyilatkozat</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notification-message"></span>
+    </div>
+
+    <div class="fixed-cart-button">
+        <div class="product-info">
+            <div class="product-name">Éter Karkötő</div>
+            <div class="product-price">18 550 Ft</div>
+        </div>
+        <div class="button-container">
+            <button 
+                id="addToCart" 
+                class="add-to-cart-btn snipcart-add-item"
+                data-item-id="101"
+                data-item-name="Éter Karkötő"
+                data-item-price="26500"
+                data-item-url="/eter"
+                data-item-image="https://energixwear.hu/assets/EnergiX/Eter/Eter-hatterrel-200w.webp"
+                data-item-description=""
+            >
+                <i class="fas fa-shopping-cart"></i> Kosárba rakom
+            </button>
+            <button 
+                id="buyNow" 
+                class="buy-now-btn snipcart-add-item snipcart-checkout"
+                data-item-id="101"
+                data-item-name="Éter Karkötő"
+                data-item-price="26500"
+                data-item-url="/eter"
+                data-item-image="https://energixwear.hu/assets/EnergiX/Eter/Eter-hatterrel-200w.webp"
+                data-item-description=""
+                onclick="setTimeout(function(){ document.querySelector('.snipcart-button-primary').click(); }, 1000);"
+            >
+                <i class="fas fa-bolt"></i> Megveszem most
+            </button>
+        </div>
+    </div>
+
+    <!-- GDPR Cookie Consent Banner -->
+    <div class="cookie-consent-banner" role="dialog" aria-label="Cookie beállítások" aria-describedby="cookie-consent-description">
+        <div class="cookie-consent-content">
+            <div class="cookie-consent-text">
+                <p>A weboldal sütiket (cookie-kat) használ a megfelelő működés, a felhasználói élmény javítása és a forgalom elemzése érdekében. A "Mindent elfogadok" gombra kattintva hozzájárul a sütik használatához, vagy testreszabhatja beállításait a "Beállítások" gombbal.</p>
+                <button class="cookie-consent-toggle" aria-expanded="false">További információ a sütikről</button>
+                
+                <div class="cookie-consent-details">
+                    <h4>Milyen típusú sütiket használunk?</h4>
+                    <p><strong>Szükséges sütik:</strong> Ezek elengedhetetlenek a weboldal megfelelő működéséhez. Ilyen például a kosár tartalma vagy a fizetéskor felvett adatok.</p>
+                    <p><strong>Preferenciák:</strong> Emlékeznek a beállításokra, a régebben megtekintett termékekre és a kosárba rakott termékekre.</p>
+                    <p><strong>Statisztikai sütik:</strong> Segítenek nekünk megérteni, hogyan használják a látogatók a weboldalt, és hogyan javíthatjuk annak működését.</p>
+                    <p><strong>Marketing sütik:</strong> A felhasználók tevékenységének nyomon követésére szolgálnak, hogy relevánsabb hirdetéseket jeleníthessünk meg Önnek.</p>
+                    <p>További információt az <a href="/adatvedelem">Adatvédelmi tájékoztatónkban</a> talál.</p>
+                </div>
+            </div>
+            <div class="cookie-consent-buttons">
+                <button class="cookie-consent-btn cookie-consent-accept">Mindent elfogadok</button>
+                <button class="cookie-consent-btn cookie-consent-settings">Beállítások</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Cookie Settings Modal (initially hidden) -->
+    <div class="cookie-settings-modal" style="display: none;">
+        <div class="cookie-settings-container">
+            <button type="button" class="cookie-settings-close" aria-label="Close cookie settings">&times;</button>
+            <h2>Cookie beállítások</h2>
+            <p class="cookie-settings-description">
+                Itt testreszabhatja, hogy milyen típusú sütiket engedélyez a weboldalon. A szükséges sütik mindig engedélyezve vannak, mivel ezek nélkül a weboldal nem működne megfelelően.
+            </p>
+            
+            <div class="cookie-settings-options">
+                <div class="cookie-option">
+                    <div class="cookie-option-text">
+                        <h3>Szükséges sütik</h3>
+                        <p>Ezek a sütik elengedhetetlenek a weboldal működéséhez.</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="cookie-option-toggle" data-type="necessary" checked disabled>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                
+                <div class="cookie-option">
+                    <div class="cookie-option-text">
+                        <h3>Preferenciák</h3>
+                        <p>Emlékeznek a beállításokra, például a nyelvi beállításokra vagy a régebben megtekintett termékekre.</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="cookie-option-toggle" data-type="preferences" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                
+                <div class="cookie-option">
+                    <div class="cookie-option-text">
+                        <h3>Statisztikai sütik</h3>
+                        <p>Segítenek nekünk megérteni, hogyan használják a látogatók a weboldalt, és hogyan javíthatjuk annak működését.</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="cookie-option-toggle" data-type="statistics" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                
+                <div class="cookie-option">
+                    <div class="cookie-option-text">
+                        <h3>Marketing sütik</h3>
+                        <p>A felhasználók tevékenységének nyomon követésére szolgálnak, hogy relevánsabb hirdetéseket jeleníthessünk meg Önnek.</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="cookie-option-toggle" data-type="marketing">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="cookie-settings-buttons">
+                <button type="button" class="cookie-settings-btn cookie-settings-cancel">Mégsem</button>
+                <button type="button" class="cookie-settings-btn cookie-settings-save">Beállítások mentése</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Stamped.io
+            if (typeof StampedWidgets === 'object') {
+                StampedWidgets.initialize();
+            }
+        
+            // If you're using tabbed content, refresh the widget when the reviews tab is clicked
+            const reviewsTab = document.querySelector('a[href="#reviews-tab"]');
+            if (reviewsTab) {
+                reviewsTab.addEventListener('click', function() {
+                    if (typeof StampedWidgets === 'object') {
+                        StampedWidgets.initialize();
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- Load scripts -->
+    <script src="product-data.js"></script>
+    <script src="script.js"></script>
+    <script src="mobile-features.js"></script>
+
+    <script>
+        window.SnipcartSettings = {
+            publicApiKey: "M2VmZTc4NTAtNDYxZC00YTEzLWE3MTItMjBjNWI1MjIwODk5NjM4ODY2MjMyNTI1MTE3NjI0",
+            loadStrategy: "on-user-interaction",
+            currency: "huf",
+            modalStyle: "side",
+            taxIncluded: false,  // Explicitly set prices to exclude tax
+            taxRate: 0.27,      // 27% VAT for Hungary
+            taxProvider: "default",
+            taxBehavior: {
+                pricesEnteredWithTax: false  // Important: prices don't include tax
+            }
+        };
+  
+        (function(){var c,d;(d=(c=window.SnipcartSettings).version)!=null||(c.version="3.4.0");var s,S;(S=(s=window.SnipcartSettings).timeoutDuration)!=null||(s.timeoutDuration=2750);var l,p;(p=(l=window.SnipcartSettings).domain)!=null||(l.domain="cdn.snipcart.com");var w,u;(u=(w=window.SnipcartSettings).protocol)!=null||(w.protocol="https");var m,g;(g=(m=window.SnipcartSettings).loadCSS)!=null||(m.loadCSS=!0);var y=window.SnipcartSettings.version.includes("v3.4.0-ci")||window.SnipcartSettings.version!="3.4.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,f=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(f.forEach(function(t){return document.addEventListener(t,o)}),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var a=!1;function o(){if(a)return;a=!0;let t=document.getElementsByTagName("head")[0],n=document.querySelector("#snipcart"),i=document.querySelector('src[src^="'.concat(window.SnipcartSettings.protocol,"://").concat(window.SnipcartSettings.domain,'"][src$="snipcart.js"]')),e=document.querySelector('link[href^="'.concat(window.SnipcartSettings.protocol,"://").concat(window.SnipcartSettings.domain,'"][href$="snipcart.css"]'));n||(n=document.createElement("div"),n.id="snipcart",n.setAttribute("hidden","true"),document.body.appendChild(n)),h(n),i||(i=document.createElement("script"),i.src="".concat(window.SnipcartSettings.protocol,"://").concat(window.SnipcartSettings.domain,"/themes/v").concat(window.SnipcartSettings.version,"/default/snipcart.js"),i.async=!0,t.appendChild(i)),!e&&window.SnipcartSettings.loadCSS&&(e=document.createElement("link"),e.rel="stylesheet",e.type="text/css",e.href="".concat(window.SnipcartSettings.protocol,"://").concat(window.SnipcartSettings.domain,"/themes/v").concat(window.SnipcartSettings.version,"/default/snipcart.css"),t.prepend(e)),f.forEach(function(v){return document.removeEventListener(v,o)})}function h(t){!y||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
+    </script>
+
+    <script>
+        document.addEventListener('snipcart.ready', () => {
+            if (typeof window.Snipcart !== 'undefined' &&
+                window.Snipcart.api &&
+                window.Snipcart.api.theme &&
+                window.Snipcart.api.theme.customization) {
+                try {
+                    window.Snipcart.api.theme.customization.registerPaymentFormCustomization({
+                        focused: {
+                            // Felülírjuk az összes lehetséges határvonal tulajdonságot
+                            border: '1px solid green !important',
+                            borderColor: 'green !important', // Külön is felülírjuk a határvonal színét
+                            
+                            // Eltávolítjuk az esetleges árnyékokat
+                            boxShadow: 'none !important',
+                            
+                            // Eltávolítjuk az outline-t (a böngésző alapértelmezett fókuszhatását)
+                            outline: 'none !important', 
+                            
+                            // Ha valami "background" hatása lenne
+                            // backgroundColor: 'transparent !important', 
+                        }
+                    });
+                    console.log('Snipcart fizetési űrlap fókusz stílus sikeresen alkalmazva.');
+                } catch (error) {
+                    console.error('Hiba történt a Snipcart fizetési űrlap testreszabásakor:', error);
+                }
+            } else {
+                console.warn('Snipcart API vagy testreszabási objektum nem található. Ellenőrizze a Snipcart verziót vagy a konzolt hibaüzenetekért.');
+            }
+
+            const updateDeliveryText = () => {
+                const deliveryElements = document.querySelectorAll('.snipcart-shipping-rates-list-item--guaranteed_days');
+                deliveryElements.forEach(el => {
+                    if (el && !el.dataset.updated) {
+                        el.textContent = 'Garantált kiszállítás 1 munkanapon belül.';
+                        el.dataset.updated = 'true';
+                        el.style.display = 'block';
+                    }
+                });
+            };
+
+            // Run on initial load
+            updateDeliveryText();
+
+            // Also run on any click in case the MutationObserver misses something
+            document.addEventListener('click', updateDeliveryText);
+        });
+    </script>
+
+    <script>
+        document.addEventListener('snipcart.ready', function() {
+            Snipcart.events.on('order.completed', function(order) {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'snipcartOrderCompleted',
+                    'ecommerce': {
+                        'purchase': {
+                            'actionField': {
+                                'id': order.token,
+                                'affiliation': 'Online Shop',
+                                'revenue': order.total,
+                                'tax': order.taxesTotal,
+                                'shipping': order.shippingInformation.fees,
+                                'coupon': order.discounts.length > 0 ? order.discounts[0].code : '',
+                                'currency': 'HUF'
+                            },
+                            'products': order.items.map(item => ({
+                                'name': item.name,
+                                'id': item.id,
+                                'price': item.price,
+                                'quantity': item.quantity
+                            }))
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
