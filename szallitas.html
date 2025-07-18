@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szállítási információk - EnergiX</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon/web-app-manifest-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon/web-app-manifest-512x512.png">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico" type="image/x-icon">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- MailerLite Universal -->
+    <script>
+        (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+        .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+        n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+        (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+        ml('account', '1587381');
+    </script>
+    <!-- End MailerLite Universal -->
+    
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+    
+        // Default consent modes
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'personalization_storage': 'denied',
+            'functionality_storage': 'denied',
+            'security_storage': 'granted'
+        });
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-banner">
+            <div class="countdown-container">
+                <div class="countdown-text">Akció vége: <span id="countdown"></span></div>
+            </div>
+            <div class="container">
+                <span>Nyári leárazás! 30% kedvezmény minden termékre!</span>
+            </div>
+        </div>
+        <nav>
+            <a href="/" class="logo-link">
+                <img src="/assets/Logó/Canva_wear_vágott.webp" alt="EnergiX Logo" class="logo-image">
+            </a>
+            <button class="hamburger" aria-label="Menü">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+            <div class="nav-overlay"></div>
+            <ul class="nav-links">
+                <li class="nav-dropdown">
+                    <a href="#products" class="nav-link">Termékeink <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="/eter">Éter Karkötő</a>
+                        <a href="/argentum">Argentum Karkötő</a>
+                        <a href="/zafir">Zafír Karkötő</a>
+                    </div>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="#blog" class="nav-link">Blog <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="/blog/rez-titkai-alternatív-megkozelitesbol">Réz Titkai Alternatív Megközelítésből</a>
+                        <a href="/blog/egeszseges-eletmod">6 Tipp az Egészséges Életmódhoz</a>
+                        <a href="/blog/termekajanlo">Melyik Karkötő Illik Hozzád?</a>
+                        <a href="/blog/rez-orvoslasban">Réz az Orvoslásban</a>
+                    </div>
+                </li>
+                <li><a href="#footer">Kapcsolat</a></li>
+            </ul>
+            <button class="cart-container snipcart-checkout">
+                <div class="cart-icon"><i class="fas fa-shopping-cart"></i></div>
+                <span class="cart-count">0</span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="shipping-page">
+        <div class="shipping-container">
+            <a href="#" onclick="history.back(); return false;" class="back-to-blog">
+                <i class="fas fa-arrow-left"></i> Vissza az oldalra
+            </a>
+            <div class="shipping-hero">
+                <h1>SZÁLLÍTÁSI INFORMÁCIÓK</h1>
+                <div class="title-underline"></div>
+            </div>
+            
+            <div class="shipping-section">
+                <h2>📦 Feldolgozási idő</h2>
+                <p>A rendeléseket 1–2 munkanapon belül feldolgozzuk, és átadjuk a futárszolgálatnak.</p>
+                <p>Hétvégén és ünnepnapokon leadott rendelések a következő munkanapon kerülnek feldolgozásra.</p>
+            </div>
+        
+            <div class="shipping-section">
+                <h2>🚚 Szállítási módok és idő</h2>
+                <p><strong>Magyarországon belül, ha a termék készleten van:</strong></p>
+                <ul>
+                    <li>GLS házhoz szállítás: 1–2 munkanap</li>
+                    <li>GLS csomagautomata: 1–2 munkanap</li>
+                    <li>Szállítási díj: ingyenes</li>
+                </ul>
+                
+                <p><strong>Ha a termék nincs készleten:</strong></p>
+                <ul>
+                    <li>GLS házhoz szállítás: 7-14 munkanap</li>
+                    <li>GLS csomagautomata: 7-14 munkanap</li>
+                    <li>Szállítási díj: ingyenes</li>
+                </ul>
+            </div>
+            
+            <div class="shipping-section">
+                <h2>🔍 Rendelés nyomon követése</h2>
+                <p>Amint rendelésed elhagyja a raktárunkat, e-mailben elküldjük a követőkódot, amellyel bármikor nyomon követheted a csomagod érkezését.</p>
+            </div>
+            
+            <div class="shipping-section">
+                <h2>ℹ️ További tudnivalók</h2>
+                <ul>
+                    <li>Kérünk, hogy pontosan add meg a szállítási címet a sikeres kézbesítés érdekében.</li>
+                    <li>Ha a csomagod nem érkezik meg a várható időn belül, kérjük, lépj kapcsolatba ügyfélszolgálatunkkal.</li>
+                </ul>
+            </div>
+            
+
+            <div class="contact-info">
+                <h2>📬 Kérdésed van a szállítással kapcsolatban?</h2>
+                <p>Írj nekünk bátran az <a href="mailto:info@energixwear.hu">info@energixwear.hu</a> címen vagy használd az <a href="/irj_nekunk">ügyfélszolgálati űrlapot</a>!</p>
+            </div>
+        </div> <!-- Closing shipping-container -->
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-section" id="contact">
+                <h4>Kapcsolat</h4>
+                <ul>
+                    <li><a href="/irj_nekunk">Írjon nekünk!</a></li>
+                    <li><a href="/gyik">GYIK</a></li>
+                </ul>
+                <p class="footer-email">info@energix.hu</p>
+            </div>
+            <div class="footer-section" id="information">
+                <h4>Információk</h4>
+                <ul>
+                    <li><a href="/szallitas">Szállítási információk</a></li>
+                    <li><a href="/visszaru">Visszárú feltételek</a></li>
+                    <li><a href="/aszf">ÁSZF</a></li>
+                    <li><a href="/adatvedelem">Adatvédelmi nyilatkozat</a></li>
+                </ul>
+            </div>
+            <div class="footer-section newsletter-section" style="margin-right: -150px;">
+                <h4 class="newsletter-title">Legyen Ön is ENERGI<img src="/assets/favicon/favicon-96x96.png" alt="X" class="favicon"> wear tag!</h4>
+                <p>Tartozzon VIP klubunkba, és szerezzen mellé 10% kedvezményt első vásárlására, valamint exkluzív ajánlatokat és újdonságokat!</p>
+                <form class="newsletter-form">
+                    <div class="ml-embedded" data-form="U6JoAG"></div>
+                    <p class="privacy-notice">Adatvédelmi tájékoztató: Az adataidat biztonságosan kezeljük, és bármikor leiratkozhatsz.</p>
+                </form>
+            </div>
+            <div class="footer-section">
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2025 EnergiX wear. Minden jog fenntartva.</p>
+                <div class="payment-methods">
+                    <span>Fizetési módok: </span>
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notification-message"></span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/script.js"></script>
+
+    <!-- GDPR Cookie Consent Banner -->
+    <div class="cookie-consent-banner" role="dialog" aria-label="Cookie beállítások" aria-describedby="cookie-consent-description">
+        <div class="cookie-consent-content">
+            <div class="cookie-consent-text">
+                <p>A weboldal sütiket (cookie-kat) használ a megfelelő működés, a felhasználói élmény javítása és a forgalom elemzése érdekében. A "Mindent elfogadok" gombra kattintva hozzájárul a sütik használatához, vagy testreszabhatja beállításait a "Beállítások" gombbal.</p>
+                <button class="cookie-consent-toggle" aria-expanded="false">További információ a sütikről</button>
+                
+                <div class="cookie-consent-details">
+                    <h4>Milyen típusú sütiket használunk?</h4>
+                    <p><strong>Szükséges sütik:</strong> Ezek elengedhetetlenek a weboldal megfelelő működéséhez. Ilyen például a kosár tartalma vagy a fizetéskor felvett adatok.</p>
+                    <p><strong>Preferenciák:</strong> Emlékeznek a beállításokra, a régebben megtekintett termékekre és a kosárba rakott termékekre.</p>
+                    <p><strong>Statisztikai sütik:</strong> Segítenek nekünk megérteni, hogyan használják a látogatók a weboldalt, és hogyan javíthatjuk annak működését.</p>
+                    <p><strong>Marketing sütik:</strong> A felhasználók tevékenységének nyomon követésére szolgálnak, hogy relevánsabb hirdetéseket jeleníthessünk meg Önnek.</p>
+                    <p>További információt az <a href="/adatvedelem">Adatvédelmi tájékoztatónkban</a> talál.</p>
+                </div>
+            </div>
+            <div class="cookie-consent-buttons">
+                <button class="cookie-consent-btn cookie-consent-accept">Mindent elfogadok</button>
+                <button class="cookie-consent-btn cookie-consent-settings">Beállítások</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Cookie Settings Modal (initially hidden) -->
+    <div class="cookie-settings-modal" style="display: none;">
+        <div class="cookie-settings-container">
+            <button type="button" class="cookie-settings-close" aria-label="Close cookie settings">&times;</button>
+            <h2>Cookie beállítások</h2>
+            <p class="cookie-settings-description">
+                Itt testreszabhatja, hogy milyen típusú sütiket engedélyez a weboldalon. A szükséges sütik mindig engedélyezve vannak, mivel ezek nélkül a weboldal nem működne megfelelően.
+            </p>
+            
+            <div class="cookie-settings-options">
+                <div class="cookie-option">
+                    <div class="cookie-option-text">
+                        <h3>Szükséges sütik</h3>
+                        <p>Ezek a sütik elengedhetetlenek a weboldal működéséhez.</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="cookie-option-toggle" data-type="necessary" checked disabled>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                
+                <div class="cookie-option">
+                    <div class="cookie-option-text">
+                        <h3>Preferenciák</h3>
+                        <p>Emlékeznek a beállításokra, például a nyelvi beállításokra vagy a régebben megtekintett termékekre.</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="cookie-option-toggle" data-type="preferences" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                
+                <div class="cookie-option">
+                    <div class="cookie-option-text">
+                        <h3>Statisztikai sütik</h3>
+                        <p>Segítenek nekünk megérteni, hogyan használják a látogatók a weboldalt, és hogyan javíthatjuk annak működését.</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="cookie-option-toggle" data-type="statistics" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                
+                <div class="cookie-option">
+                    <div class="cookie-option-text">
+                        <h3>Marketing sütik</h3>
+                        <p>A felhasználók tevékenységének nyomon követésére szolgálnak, hogy relevánsabb hirdetéseket jeleníthessünk meg Önnek.</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="cookie-option-toggle" data-type="marketing">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="cookie-settings-buttons">
+                <button type="button" class="cookie-settings-btn cookie-settings-cancel">Mégsem</button>
+                <button type="button" class="cookie-settings-btn cookie-settings-save">Beállítások mentése</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.SnipcartSettings = {
+            publicApiKey: "M2VmZTc4NTAtNDYxZC00YTEzLWE3MTItMjBjNWI1MjIwODk5NjM4ODY2MjMyNTI1MTE3NjI0",
+            loadStrategy: "on-user-interaction",
+            currency: "huf",
+            modalStyle: "side",
+            taxIncluded: false,  // Explicitly set prices to exclude tax
+            taxRate: 0.27,      // 27% VAT for Hungary
+            taxProvider: "default",
+            taxBehavior: {
+                pricesEnteredWithTax: false  // Important: prices don't include tax
+            },
+        };
+  
+        (function(){var c,d;(d=(c=window.SnipcartSettings).version)!=null||(c.version="3.4.0");var s,S;(S=(s=window.SnipcartSettings).timeoutDuration)!=null||(s.timeoutDuration=2750);var l,p;(p=(l=window.SnipcartSettings).domain)!=null||(l.domain="cdn.snipcart.com");var w,u;(u=(w=window.SnipcartSettings).protocol)!=null||(w.protocol="https");var m,g;(g=(m=window.SnipcartSettings).loadCSS)!=null||(m.loadCSS=!0);var y=window.SnipcartSettings.version.includes("v3.4.0-ci")||window.SnipcartSettings.version!="3.4.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,f=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(f.forEach(function(t){return document.addEventListener(t,o)}),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var a=!1;function o(){if(a)return;a=!0;let t=document.getElementsByTagName("head")[0],n=document.querySelector("#snipcart"),i=document.querySelector('src[src^="'.concat(window.SnipcartSettings.protocol,"://").concat(window.SnipcartSettings.domain,'"][src$="snipcart.js"]')),e=document.querySelector('link[href^="'.concat(window.SnipcartSettings.protocol,"://").concat(window.SnipcartSettings.domain,'"][href$="snipcart.css"]'));n||(n=document.createElement("div"),n.id="snipcart",n.setAttribute("hidden","true"),document.body.appendChild(n)),h(n),i||(i=document.createElement("script"),i.src="".concat(window.SnipcartSettings.protocol,"://").concat(window.SnipcartSettings.domain,"/themes/v").concat(window.SnipcartSettings.version,"/default/snipcart.js"),i.async=!0,t.appendChild(i)),!e&&window.SnipcartSettings.loadCSS&&(e=document.createElement("link"),e.rel="stylesheet",e.type="text/css",e.href="".concat(window.SnipcartSettings.protocol,"://").concat(window.SnipcartSettings.domain,"/themes/v").concat(window.SnipcartSettings.version,"/default/snipcart.css"),t.prepend(e)),f.forEach(function(v){return document.removeEventListener(v,o)})}function h(t){!y||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
+    </script>
+
+    <script>
+        setTimeout(() => {
+            document.addEventListener('snipcart.ready', () => {
+                window.Snipcart.api.session.setLanguage('hu', {
+                    'shipping_your_custom_id': "Szállítási idő: 1 munkanap",
+                    'shipping_another_id': "Expressz szállítás 2-3 munkanap alatt"
+                });
+
+                if (typeof window.Snipcart !== 'undefined' &&
+                    window.Snipcart.api &&
+                    window.Snipcart.api.theme &&
+                    window.Snipcart.api.theme.customization) {
+                    try {
+                        window.Snipcart.api.theme.customization.registerPaymentFormCustomization({
+                            focused: {
+                                border: '1px solid green !important',
+                                boxShadow: 'none !important',
+                                outline: 'none !important', // <-- EZ AZ ÚJ SOR, HA AZ OUTLINE A PROBLÉMA
+                            }
+                        });
+                        console.log('Snipcart fizetési űrlap fókusz stílus sikeresen alkalmazva.');
+                    } catch (error) {
+                        console.error('Hiba történt a Snipcart fizetési űrlap testreszabásakor:', error);
+                    }
+                } else {
+                    console.warn('Snipcart API vagy testreszabási objektum nem található. Ellenőrizze a Snipcart verziót vagy a konzolt hibaüzenetekért.');
+                }
+            });
+        }, 500); // 500 ms késleltetés
+    </script>
+
+    <script>
+        document.addEventListener('snipcart.ready', function() {
+            Snipcart.events.on('order.completed', function(order) {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'snipcartOrderCompleted',
+                    'ecommerce': {
+                        'purchase': {
+                            'actionField': {
+                                'id': order.token,
+                                'affiliation': 'Online Shop',
+                                'revenue': order.total,
+                                'tax': order.taxesTotal,
+                                'shipping': order.shippingInformation.fees,
+                                'coupon': order.discounts.length > 0 ? order.discounts[0].code : '',
+                                'currency': 'HUF'
+                            },
+                            'products': order.items.map(item => ({
+                                'name': item.name,
+                                'id': item.id,
+                                'price': item.price,
+                                'quantity': item.quantity
+                            }))
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
