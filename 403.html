@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>403 - Jogosultság hiányzik | EnergiX</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon/web-app-manifest-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon/web-app-manifest-512x512.png">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico" type="image/x-icon">
+    <meta name="msapplication-TileImage" content="/assets/favicon/mstile-150x150.png">
+    <meta name="msapplication-config" content="/assets/favicon/browserconfig.xml">
+
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        .error-container {
+            text-align: center;
+            padding: 100px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .error-code {
+            font-size: 120px;
+            font-weight: 700;
+            color: #7ed957;
+            margin: 0;
+            line-height: 1;
+        }
+        .error-title {
+            font-size: 36px;
+            margin: 20px 0;
+            color: #333 !important;
+        }
+        .error-message {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .back-home {
+            display: inline-block;
+            background-color: #7ed957;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        .back-home:hover {
+            background-color: #6bc84d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(126, 217, 87, 0.3);
+        }
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 80px;
+            }
+            .error-title {
+                font-size: 28px;
+            }
+        }
+    </style>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JYRVFT8JEE');
+    </script>
+</head>
+<body class="main-page">
+
+    <main>
+        <div class="error-container">
+            <h1 class="error-code">403</h1>
+            <h2 class="error-title">Hoppá! Jogosultság hiba</h2>
+            <p class="error-message">
+                Úgy tűnik, nincsen jogosultságod a keresett oldalhoz. 
+                Visszatérhet a kezdőlapra, vagy böngészhet további termékeink között.
+            </p>
+            <a href="/" class="back-home">
+                <i class="fas fa-home"></i> Vissza a kezdőlapra
+            </a>
+        </div>
+    </main>
+
+    <!-- GDPR Cookie Consent Banner -->
+    <div class="cookie-consent-banner" role="dialog" aria-label="Cookie beállítások" aria-describedby="cookie-consent-description">
+        <div class="cookie-consent-content">
+            <div class="cookie-consent-text">
+                <p>A weboldal sütiket (cookie-kat) használ a megfelelő működés, a felhasználói élmény javítása és a forgalom elemzése érdekében. A "Mindent elfogadok" gombra kattintva hozzájárul a sütik használatához, vagy testreszabhatja beállításait a "Beállítások" gombbal.</p>
+                <button class="cookie-consent-toggle" aria-expanded="false">További információ a sütikről</button>
+                
+                <div class="cookie-consent-details">
+                    <h4>Milyen típusú sütiket használunk?</h4>
+                    <p><strong>Szükséges sütik:</strong> Ezek elengedhetetlenek a weboldal megfelelő működéséhez. Ilyen például a kosár tartalma vagy a fizetéskor felvett adatok.</p>
+                    <p><strong>Preferenciák:</strong> Emlékeznek a beállításokra, a régebben megtekintett termékekre és a kosárba rakott termékekre.</p>
+                    <p><strong>Statisztikai sütik:</strong> Segítenek nekünk megérteni, hogyan használják a látogatók a weboldalt, és hogyan javíthatjuk annak működését.</p>
+                    <p><strong>Marketing sütik:</strong> A felhasználók tevékenységének nyomon követésére szolgálnak, hogy relevánsabb hirdetéseket jeleníthessünk meg Önnek.</p>
+                    <p>További információt az <a href="/adatvedelem">Adatvédelmi tájékoztatónkban</a> talál.</p>
+                </div>
+            </div>
+            <div class="cookie-consent-buttons">
+                <button class="cookie-consent-btn cookie-consent-accept">Mindent elfogadok</button>
+                <button class="cookie-consent-btn cookie-consent-settings">Beállítások</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Settings Modal (initially hidden) -->
+    <div class="cookie-settings-modal" style="display: none;">
+        <div class="cookie-settings-container">
+            <button type="button" class="cookie-settings-close" aria-label="Close cookie settings">&times;</button>
+            <h2>Cookie beállítások</h2>
+            <p class="cookie-settings-description">
+                Itt testreszabhatja, hogy milyen típusú sütiket engedélyez a weboldalon. A szükséges sütik mindig engedélyezve vannak, mivel ezek nélkül a weboldal nem működne megfelelően.
+            </p>
+            
+            <div class="cookie-settings-options">
+                <div class="cookie-option">
+                    <div class="cookie-option-text">
+                        <h3>Szükséges sütik</h3>
+                        <p>Ezek a sütik elengedhetetlenek a weboldal működéséhez.</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="cookie-option-toggle" data-type="necessary" checked disabled>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                
+                <div class="cookie-option">
+                    <div class="cookie-option-text">
+                        <h3>Preferenciák</h3>
+                        <p>Emlékeznek a beállításokra, például a nyelvi beállításokra vagy a régebben megtekintett termékekre.</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="cookie-option-toggle" data-type="preferences" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                
+                <div class="cookie-option">
+                    <div class="cookie-option-text">
+                        <h3>Statisztikai sütik</h3>
+                        <p>Segítenek nekünk megérteni, hogyan használják a látogatók a weboldalt, és hogyan javíthatjuk annak működését.</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="cookie-option-toggle" data-type="statistics" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                
+                <div class="cookie-option">
+                    <div class="cookie-option-text">
+                        <h3>Marketing sütik</h3>
+                        <p>A felhasználók tevékenységének nyomon követésére szolgálnak, hogy relevánsabb hirdetéseket jeleníthessünk meg Önnek.</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="cookie-option-toggle" data-type="marketing">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="cookie-settings-buttons">
+                <button type="button" class="cookie-settings-btn cookie-settings-cancel">Mégsem</button>
+                <button type="button" class="cookie-settings-btn cookie-settings-save">Beállítások mentése</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/product-data.js"></script>
+    <script src="/cart-functions.js"></script>
+    <script src="/script.js"></script>
+</body>
+</html>
