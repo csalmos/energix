@@ -40,20 +40,20 @@ window.products = {
         `,
         images: [
             {
-                thumbnail: '/assets/EnergiX/Eter/IMG_0471-400w.webp',
-                full: '/assets/EnergiX/Eter/IMG_0471-1200w.webp'
+                thumbnail: 'assets/EnergiX/Eter/IMG_0471-400w.webp',
+                full: 'assets/EnergiX/Eter/IMG_0471-1200w.webp'
             },
             {
-                thumbnail: '/assets/EnergiX/Eter/Aether-400w.webp',
-                full: '/assets/EnergiX/Eter/Aether-1200w.webp'
+                thumbnail: 'assets/EnergiX/Eter/Aether-400w.webp',
+                full: 'assets/EnergiX/Eter/Aether-1200w.webp'
             },
             {
-                thumbnail: '/assets/EnergiX/Eter/IMG_0447-400w.webp',
-                full: '/assets/EnergiX/Eter/IMG_0447-1200w.webp'
+                thumbnail: 'assets/EnergiX/Eter/IMG_0447-400w.webp',
+                full: 'assets/EnergiX/Eter/IMG_0447-1200w.webp'
             },
             {
-                thumbnail: '/assets/EnergiX/Eter/Eter-tengerpart-hatter-400w.webp',
-                full: '/assets/EnergiX/Eter/Eter-tengerpart-hatter-1200w.webp'
+                thumbnail: 'assets/EnergiX/Eter/Eter-tengerpart-hatter-400w.webp',
+                full: 'assets/EnergiX/Eter/Eter-tengerpart-hatter-1200w.webp'
             }
         ],
         specs: {
@@ -112,24 +112,24 @@ window.products = {
         `,
         images: [
             {
-                thumbnail: '/assets/EnergiX/Zafir/IMG_0455-400w.webp',
-                full: '/assets/EnergiX/Zafir/IMG_0455-1200w.webp'
+                thumbnail: 'assets/EnergiX/Zafir/IMG_0455-400w.webp',
+                full: 'assets/EnergiX/Zafir/IMG_0455-1200w.webp'
             },
             {
-                thumbnail: '/assets/EnergiX/Zafir/IMG_0461_vágott-400w.webp',
-                full: '/assets/EnergiX/Zafir/IMG_0461_vágott-1200w.webp'
+                thumbnail: 'assets/EnergiX/Zafir/IMG_0461_vágott-400w.webp',
+                full: 'assets/EnergiX/Zafir/IMG_0461_vágott-1200w.webp'
             },
             {
-                thumbnail: '/assets/EnergiX/Zafir/IMG_0457-400w.webp',
-                full: '/assets/EnergiX/Zafir/IMG_0457-1200w.webp'
+                thumbnail: 'assets/EnergiX/Zafir/IMG_0457-400w.webp',
+                full: 'assets/EnergiX/Zafir/IMG_0457-1200w.webp'
             },
             {
-                thumbnail: '/assets/EnergiX/Zafir/Zafir-belso-kep-400w.webp',
-                full: '/assets/EnergiX/Zafir/Zafir-belso-kep-750w.webp'
+                thumbnail: 'assets/EnergiX/Zafir/Zafir-belso-kep-400w.webp',
+                full: 'assets/EnergiX/Zafir/Zafir-belso-kep-750w.webp'
             },
             {
-                thumbnail: '/assets/EnergiX/Zafir/Zafir-belso-kep-2-400w.webp',
-                full: '/assets/EnergiX/Zafir/Zafir-belso-kep-2-750w.webp'
+                thumbnail: 'assets/EnergiX/Zafir/Zafir-belso-kep-2-400w.webp',
+                full: 'assets/EnergiX/Zafir/Zafir-belso-kep-2-750w.webp'
             }
         ],
         specs: {
@@ -188,20 +188,20 @@ window.products = {
         `,
         images: [
             {
-                thumbnail: '/assets/EnergiX/Argentum/Argentum-400w.webp',
-                full: '/assets/EnergiX/Argentum/Argentum-1200w.webp'
+                thumbnail: 'assets/EnergiX/Argentum/Argentum-400w.webp',
+                full: 'assets/EnergiX/Argentum/Argentum-1200w.webp'
             },
             {
-                thumbnail: '/assets/EnergiX/Argentum/IMG_0444-400w.webp',
-                full: '/assets/EnergiX/Argentum/IMG_0444-1200w.webp'
+                thumbnail: 'assets/EnergiX/Argentum/IMG_0444-400w.webp',
+                full: 'assets/EnergiX/Argentum/IMG_0444-1200w.webp'
             },
             {
-                thumbnail: '/assets/EnergiX/Argentum/Argentum-belso-kep-400w.webp',
-                full: '/assets/EnergiX/Argentum/Argentum-belso-kep-1000w.webp'
+                thumbnail: 'assets/EnergiX/Argentum/Argentum-belso-kep-400w.webp',
+                full: 'assets/EnergiX/Argentum/Argentum-belso-kep-1000w.webp'
             },
             {
-                thumbnail: '/assets/EnergiX/Argentum/Argentum-kep-400w.webp',
-                full: '/assets/EnergiX/Argentum/Argentum-kep-1000w.webp'
+                thumbnail: 'assets/EnergiX/Argentum/Argentum-kep-400w.webp',
+                full: 'assets/EnergiX/Argentum/Argentum-kep-1000w.webp'
             }
         ],
         specs: {
