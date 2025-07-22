@@ -266,7 +266,7 @@ window.products = {
                 images: [
                     {
                         thumbnail: '/assets/EnergiX/Irisz/Irisz/Irisz-rez-720w.webp',
-                        full: '/assets/EnergiX/Irisz/Irisz/Irisz-rez-1200w.webp'
+                        full: '/assets/EnergiX/Irisz/Irisz/Irisz-rez-720w.webp'
                     }
                 ]
             },
