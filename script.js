@@ -409,20 +409,7 @@ function initProductPage(familyOrProductId, productId = null) {
         // Event handlers
         videoElement.addEventListener('loadeddata', () => {
             console.log('✅ Videó sikeresen betöltődött');
-        });
-        
-        videoElement.addEventListener('error', (e) => {
-            console.error('❌ Videó betöltési hiba:', e);
-            console.error('Hibás URL:', displayData.video.src);
-            
-            // Fallback poster kép
-            const fallbackImg = document.createElement('img');
-            fallbackImg.src = displayData.video.poster;
-            fallbackImg.className = 'product-main-image';
-            fallbackImg.id = 'productImage';
-            fallbackImg.alt = displayData.name;
-            videoElement.parentNode.replaceChild(fallbackImg, videoElement);
-        });
+        });I
         
     } else if (displayData.images && displayData.images.length > 0) {
         console.log('📷 Kép renderelés');
