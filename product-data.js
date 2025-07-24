@@ -269,8 +269,8 @@ window.products = {
                 },
                 images: [
                     {
-                        thumbnail: '/energix/assets/EnergiX/Irisz/Irisz/Irisz-re-720w.webp',
-                        full: '/energix/assets/EnergiX/Irisz/Irisz/Irisz-re-720w.webp'
+                        thumbnail: '/energix/assets/EnergiX/Irisz/Irisz/Irisz-rez-720w.webp',
+                        full: '/energix/assets/EnergiX/Irisz/Irisz/Irisz-rez-720w.webp'
                     },
                     {
                         thumbnail: '/energix/assets/EnergiX/Irisz/Irisz/Irisz-fekete-720w.webp',
